@@ -10,7 +10,7 @@ test('Top 버튼 이동', async ({ page }) => {
  /* await page.getByRole('button', { name: '맨 위로' }).click(); //탑 이동 버튼 클릭*/
   
   // 최상단으로 이동하여 노출되는 컴포넌트 취향 설정 하기 확인
-  const titleElement = await page.$('p'); // 취향설정하기 텍스트를 포함하고있는 p 태그 확인
+  const titleElement = await page.getByRole('button', { name: '취향 설정 하기' }); // 취향설정하기 텍스트를 포함하고있는 p 태그 확인
   if (titleElement) {
     const titleText = await titleElement.innerText(); // 
     if (titleText === '취향 설정 하기') {
