@@ -22,7 +22,7 @@ test('Top 버튼 이동', async ({ page }) => {
    console.log('취향 설정 하기 테스트 요소가 발견 되지 않습니다. 스크립트를 확인하세요');
 
  }
- */
+ *//////
 
   //화면 최상단으로 이동하여 Top 이동 버튼 비노출 검증
   const button = await page.getByRole('button', { name: '맨 위로' });
