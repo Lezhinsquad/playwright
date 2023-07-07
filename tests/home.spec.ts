@@ -235,3 +235,83 @@ test('랭킹 영역 노출 확인_US', async ({ page }) => {
     console.log('이벤트 랭킹 영역이 노출되지 않습니다.');
   }
 });
+
+test('신작연재 노출', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+
+  //신작연재 영역 비노출 검증
+  const element = await page.waitForSelector('#comic_scheduled_latest_k'); // 요소의 id 로 노출 유무 확인하기
+  const isVisible_scheduled_latest = await element.isVisible();
+  const scheduled_latest_id = await element.evaluate((el) => el.id);
+  
+  if (isVisible_scheduled_latest && scheduled_latest_id) {
+    console.log('신작 연재 영역이 노출됩니다.');
+  } else {
+    console.log('신작 연재 영역이 노출되지 않습니다.');
+  }
+});
+
+test('신규만화 노출', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+
+  //신작연재 영역 비노출 검증
+  const element = await page.waitForSelector('#comic_new_k'); // 요소의 id 로 노출 유무 확인하기
+  const isVisible_comic_new_k = await element.isVisible();
+  const comic_new_k_id = await element.evaluate((el) => el.id);
+  
+  if (isVisible_comic_new_k && comic_new_k_id) {
+    console.log('신규 만화 영역이 노출됩니다.');
+  } else {
+    console.log('신규 만화 영역이 노출되지 않습니다.');
+  }
+});
+
+test('업데이트 된 찜한 작품 노출', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '이메일로 로그인' }).click();
+  await page.getByLabel('이메일').click();
+  await page.getByLabel('이메일').fill('squad@lezhin.com');
+  await page.getByLabel('비밀번호').click();
+  await page.getByLabel('비밀번호').fill('wlscogus7!@');
+  await page.getByRole('button', { name: '이메일로 로그인' }).click();
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+
+  // 업데이트 된 찜한작품 영역 노출 검증
+  const element = await page.waitForSelector('#order_up_subscription'); // 요소의 id 로 노출 유무 확인하기
+  const isVisible_subscription = await element.isVisible();
+  const subscription_id = await element.evaluate((el) => el.id);
+  
+  if (isVisible_subscription && subscription_id) {
+    console.log('업데이트 된 찜한 작품 영역이 노출됩니다.');
+  } else {
+    console.log('업데이트 된 찜한 작품 영역이 노출되지 않습니다.');
+  }
+});
+
+test('최근 본 작품', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '이메일로 로그인' }).click();
+  await page.getByLabel('이메일').click();
+  await page.getByLabel('이메일').fill('squad@lezhin.com');
+  await page.getByLabel('비밀번호').click();
+  await page.getByLabel('비밀번호').fill('wlscogus7!@');
+  await page.getByRole('button', { name: '이메일로 로그인' }).click();
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+
+  // 업데이트 된 찜한작품 영역 노출 검증
+  const element = await page.waitForSelector('#order_recent'); // 요소의 id 로 노출 유무 확인하기
+  const isVisible_recent = await element.isVisible();
+  const recent_id = await element.evaluate((el) => el.id);
+  
+  if (isVisible_recent && recent_id) {
+    console.log('최근 본 작품 영역이 노출됩니다.');
+  } else {
+    console.log('최근 본 작품 영역이 노출되지 않습니다.');
+  }
+});
