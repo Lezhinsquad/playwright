@@ -315,3 +315,82 @@ test('최근 본 작품', async ({ page }) => {
     console.log('최근 본 작품 영역이 노출되지 않습니다.');
   }
 });
+
+
+test('홈에서 보고 싶은 장르 취향 설정 하기', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '이메일로 로그인' }).click();
+  await page.getByLabel('이메일').click();
+  await page.getByLabel('이메일').fill('squad_04@yopmail.com');
+  await page.getByLabel('비밀번호').click();
+  await page.getByLabel('비밀번호').fill('wlscogus7!');
+  await page.getByRole('button', { name: '이메일로 로그인' }).click();
+  await page.waitForTimeout(4000); 
+
+ 
+
+//취향설정하기 버튼 노출
+const spanText = await page.$eval('span.setMyGenre__txt--sub', (element) => element.textContent); 
+//const text = await element.evaluate((el) => el.textContent);
+
+if (spanText.trim() === '홈에서 보고 싶은 장르') {
+  console.log('홈에서 보고 싶은 장르가 노출 됩니다.');
+} else {
+  console.log('홈에서 보고 싶은 장르가 노출 되지 않습니다.');
+}
+});
+
+test('취향 설정 하기 버튼 노출', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '이메일로 로그인' }).click();
+  await page.getByLabel('이메일').click();
+  await page.getByLabel('이메일').fill('squad_04@yopmail.com');
+  await page.getByLabel('비밀번호').click();
+  await page.getByLabel('비밀번호').fill('wlscogus7!');
+  await page.getByRole('button', { name: '이메일로 로그인' }).click();
+  await page.waitForTimeout(4000);
+  await page.getByRole('button', { name: '홈에서 보고 싶은 장르 취향 설정 하기' }).click();
+  await page.getByRole('button', { name: '취소' }).click();
+
+
+//취향 설정 하기 텍스트 변수 선언
+const spanText = await page.$eval('span.setMyGenre__txt--go', (element) => element.textContent); 
+//const text = await element.evaluate((el) => el.textContent);
+
+if (spanText.trim() === '취향 설정 하기') {
+  console.log('취향 설정 하기가 노출 됩니다.');
+} else {
+  console.log('취향 설정 하기가 노출 되지 않습니다.');
+}
+});
+
+test('취향 적용 중', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '이메일로 로그인' }).click();
+  await page.getByLabel('이메일').click();
+  await page.getByLabel('이메일').fill('squad_03@yopmail.com');
+  await page.getByLabel('비밀번호').click();
+  await page.getByLabel('비밀번호').fill('wlscogus7!');
+  await page.getByRole('button', { name: '이메일로 로그인' }).click();
+  await page.waitForTimeout(4000);
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+ 
+
+
+//취향 적용 중 텍스트 변수 선언
+const spanText = await page.$eval('span.setMyGenre__txt--on', (element) => element.textContent); 
+//const text = await element.evaluate((el) => el.textContent);
+
+if (spanText.trim() === '취향 적용 중') {
+  console.log('취향 적용 중이 노출 됩니다.');
+} else {
+  console.log('취향 적용 중이 노출 되지 않습니다.');
+}
+});
+
