@@ -95,20 +95,6 @@ test('검색 후 태그 상세 페이지 이동', async ({ page }) => {
      console.log('검색한 태그가 노출되지 않았습니다.');
    }
    
-   /*
-   await page.waitForTimeout(1000);
-
-  const element_3 = await page.getByRole('link', { name: '#작가' }); // 요소 id에서 텍스트 가져오기
-  const text_3 = await element_3.evaluate((el) => el.textContent);
-
-  console.log(text_3);
-   
-   if (text_3.trim() === '#작가일상 BL') {
-     console.log('검색한 태그가 노출 됩니다.');
-   } else {
-     console.log('검색한 태그가 노출되지 않았습니다.');
-   }
-  */
   
   await page.getByRole('link', { name: '#일상' }).click();
    //태그 상세 페이지 이동 확인
@@ -129,6 +115,7 @@ test('최근 검색 태그 비노출', async ({ page }) => {
   await page.getByRole('button', { name: '검색창 열기' }).click();
   const searchInput = await page.waitForSelector('#search-input');
   await searchInput.type('일상 ');
+  await page.waitForTimeout(1000);
   await page.getByRole('link', { name: '#일상' }).click();
   await page.getByRole('link', { name: '레진코믹스' }).click();
   await page.getByRole('button', { name: '검색창 열기' }).click();
@@ -222,11 +209,16 @@ test('성인 계정 성인작품 노출 19on', async ({ page }) => {
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
-  await page.getByLabel('이메일').fill('squad@lezhin.com');
+  await page.getByLabel('이메일').fill('squad_01@yopmail.com');
   await page.getByLabel('비밀번호').click();
-  await page.getByLabel('비밀번호').fill('wlscogus7!@');
+  await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  try {
+    await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  } catch (error) {
+    console.log('오늘 하루 안보기 버튼을 찾지 못하여 다음 스크립트를 실행합니다.');
+  }
+  await page.waitForTimeout(2000);
   await page.getByRole('button', { name: '검색창 열기' }).click();
   const searchInput = await page.waitForSelector('#search-input');
   await searchInput.type('불륜  ');
@@ -245,7 +237,7 @@ test('성인 계정 성인작품 노출 19on', async ({ page }) => {
   
 });
 
-test('성인 계정 성인작품 노출 19ff', async ({ page }) => {
+test('성인 계정 성인작품 노출 19 Off', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
@@ -255,7 +247,15 @@ test('성인 계정 성인작품 노출 19ff', async ({ page }) => {
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!@');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.waitForTimeout(2000);
+
+  try {
+    await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  } catch (error) {
+    console.log('오늘 하루 안보기 버튼을 찾지 못하여 다음 스크립트를 실행합니다.');
+  }
+ 
+  await page.waitForTimeout(2000);
   await page.getByRole('link', { name: '전연령으로 이동' }).click();
   await page.waitForTimeout(2000);
   await page.getByRole('button', { name: '검색창 열기' }).click();
@@ -278,14 +278,6 @@ test('성인 계정 성인작품 노출 19ff', async ({ page }) => {
 
 test('검색 > 에피소드 목록 이동', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
-  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
-  await page.getByRole('link', { name: '이메일로 로그인' }).click();
-  await page.getByLabel('이메일').click();
-  await page.getByLabel('이메일').fill('squad_02@yopmail.com');
-  await page.getByLabel('비밀번호').click();
-  await page.getByLabel('비밀번호').fill('wlscogus7!');
-  await page.getByRole('button', { name: '이메일로 로그인' }).click();
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '검색창 열기' }).click();
   const searchInput = await page.waitForSelector('#search-input');
