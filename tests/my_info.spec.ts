@@ -67,6 +67,69 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
 
 });
 
+test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko')
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  //네이버 계정 로그인 
+  await page.getByRole('button', { name: '네이버로 로그인' }).click();
+  await page.getByPlaceholder('Username').click();
+  await page.getByPlaceholder('Username').fill('hidelove999');
+  await page.getByPlaceholder('Password').click();
+  await page.getByPlaceholder('Password').fill('cogus7qwe!@#');
+  await page.getByRole('button', { name: 'Sign in' }).click();
+  
+  await page.waitForTimeout(3000);
+  //레진 회원가입 Flow
+  await page.getByText('전체동의').click();
+  await page.getByText('만 14세 이상입니다.(필수)').click();
+  await page.getByRole('button', { name: '동의' }).click();
+  await page.getByRole('link', { name: '확인' }).click();
+  await page.waitForTimeout(3000);
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '내 정보' }).click();
+  
+  const dtText = await page.$eval('dt', (element) => element.textContent);
+  expect(dtText).toBe("네이버"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  console.log('로그인 된 SNS 계정 타입:', dtText);
+  console.log();
+
+  const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
+  expect(AccountManagement).toBeTruthy; // 비밀번호 설정 버튼 노출 유무 확인
+
+
+  if (AccountManagement) {
+    console.log('비밀번호 설정 버튼이 노출 됩니다.');
+  } else {
+    console.log('비밀번호 설정 버튼이 노출 되지 않습니다.');
+  }
+  console.log();
+
+  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
+  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  if (Locale_change) {
+    console.log('언어/국가 변경 버튼이 노출 됩니다.');
+  } else {
+    console.log('언어/국가 변경 버튼이 노출 되지 않습니다.');
+  }
+
+  console.log();
+
+
+  await page.getByRole('button', { name: '회원을 탈퇴하시겠습니까?' }).click();
+  await page.getByText('이용이 불편하고 장애가 많음').click();
+  await page.getByRole('button', { name: '탈퇴하기' }).click();
+  await page.getByRole('button', { name: '확인' }).click();
+
+  console.log('회원탈퇴가 완료 되었습니다.');
+
+  await page.close();
+
+});
+
+
+
 test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   await page.getByRole('button', { name: 'アカウントメニュー' }).click();
@@ -122,6 +185,65 @@ test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
 
 });
 
+test('야후 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+  await page.getByRole('button', { name: 'LINEでログイン' }).click();
+  //야후 로그인
+  await page.getByPlaceholder('ID/携帯電話番号/メールアドレス').click();
+  await page.getByPlaceholder('ID/携帯電話番号/メールアドレス').fill('hidelove9999');
+  await page.getByRole('button', { name: '次へ' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByPlaceholder('パスワード').click();
+  await page.getByPlaceholder('パスワード').fill('wlscogus7!@');
+  await page.getByRole('button', { name: 'ログイン', exact: true }).click();
+  //레진 회원가입 Flow
+  await page.getByText('全ての規約に同意する').click();
+  await page.getByRole('button', { name: '同意' }).click();
+  await page.waitForTimeout(4000);
+  //await page.goto('https://q-www.lezhin.jp/ja/welcome/line?redirect=%2Fja');
+  await page.getByRole('link', { name: 'レジンコミックス' }).click();
+  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+  await page.getByRole('link', { name: '会員情報' }).click();
+
+  const dtText = await page.$eval('dt', (element) => element.textContent);
+  expect(dtText).toBe("Yahoo"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  console.log('로그인 된 SNS 계정 타입:', dtText);
+  console.log();
+
+  const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
+  expect(AccountManagement).toBeTruthy; // 비밀번호 설정 버튼 노출 유무 확인
+
+
+  if (AccountManagement) {
+    console.log('비밀번호 설정 버튼이 노출 됩니다.');
+  } else {
+    console.log('비밀번호 설정 버튼이 노출 되지 않습니다.');
+  }
+  console.log();
+
+  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
+  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  if (Locale_change) {
+    console.log('언어/국가 변경 버튼이 노출 됩니다.');
+  } else {
+    console.log('언어/국가 변경 버튼이 노출 되지 않습니다.');
+  }
+  console.log();
+  await page.getByRole('button', { name: '退会しますか？' }).click();
+  await page.getByText('使い勝手が悪く障害が多いため').click();
+  await page.getByRole('button', { name: '退会する' }).click();
+  await page.getByRole('button', { name: '確認' }).click();
+
+
+  console.log('회원탈퇴가 완료 되었습니다.');
+  await page.waitForTimeout(3000);
+  await page.close();
+
+});
+
+
+
 
 test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en')
@@ -145,6 +267,72 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
 
   const dtText = await page.$eval('dt', (element) => element.textContent);
   expect(dtText).toBe("Facebook"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  console.log('로그인 된 SNS 계정 타입:', dtText);
+  console.log();
+
+  const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
+  expect(AccountManagement).toBeTruthy; // 비밀번호 설정 버튼 노출 유무 확인
+
+  if (AccountManagement) {
+    console.log('비밀번호 설정 버튼이 노출 됩니다.');
+  } else {
+    console.log('비밀번호 설정 버튼이 노출 되지 않습니다.');
+  }
+  console.log();
+
+  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
+  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  if (Locale_change) {
+    console.log('언어/국가 변경 버튼이 노출 됩니다.');
+  } else {
+    console.log('언어/국가 변경 버튼이 노출 되지 않습니다.');
+  }
+  console.log();
+ await page.getByRole('button', { name: 'Do you want to deactivate your account?' }).click();
+ await page.getByText('Difficult to use and too many errors').click();
+ await page.getByRole('button', { name: 'Deactivate', exact: true }).click();
+ await page.getByRole('button', { name: 'OK' }).click();
+ await page.getByRole('link', { name: 'Home' }).click();
+
+  console.log('회원탈퇴가 완료 되었습니다.');
+  await page.waitForTimeout(3000);
+  await page.close();
+
+});
+
+
+test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
+  await page.goto('https://q-www.lezhinus.com/en')
+  await page.getByRole('button', { name: 'Account Menu' }).click();
+  await page.getByRole('button', { name: 'Login with Twitter' }).click();
+  //페이스북 로그인
+  await page.getByPlaceholder('Username or email').click();
+  await page.getByPlaceholder('Username or email').fill('hidelove999@daum.net');
+  
+  await page.getByPlaceholder('Password').click();
+  await page.getByPlaceholder('Password').fill('wlscogus7!');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByLabel('Phone, email, or username').click();
+  await page.getByLabel('Phone, email, or username').fill('hidelove999@daum.net');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.locator('label div').nth(3).click();
+  await page.getByTestId('ocfEnterTextTextInput').fill('hidelove999');
+  await page.getByTestId('ocfEnterTextNextButton').click();
+  await page.getByLabel('Password', { exact: true }).click();
+  await page.getByLabel('Password', { exact: true }).fill('wlscogus7!');
+  await page.getByTestId('LoginForm_Login_Button').click();
+  await page.waitForTimeout(3000);
+  //레진 회원가입 Flow 
+  await page.getByText('Agree to the Lezhin Comics Terms of Use(required)').click();
+  await page.getByRole('button', { name: 'Confirm' }).click();
+  await page.waitForTimeout(3000);
+  await page.getByRole('link', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Account Menu' }).click();
+  await page.getByRole('link', { name: 'My Account' }).click();
+  
+
+  const dtText = await page.$eval('dt', (element) => element.textContent);
+  expect(dtText).toBe("Twitter"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
   console.log('로그인 된 SNS 계정 타입:', dtText);
   console.log();
 
@@ -266,8 +454,7 @@ test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.close();
 });
 
-/*
-// 계정확인중 5881914273693696
+
 test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko')
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
@@ -275,9 +462,9 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   //네이버 로그인
   await page.getByRole('button', { name: '네이버로 로그인' }).click();
   await page.getByPlaceholder('Username').click();
-  await page.getByPlaceholder('Username').fill('plaie345');
+  await page.getByPlaceholder('Username').fill('hidelove999');
   await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7');
+  await page.getByPlaceholder('Password').fill('cogus7qwe!@#');
   await page.getByRole('button', { name: 'Sign in' }).click();
   //레진 회원가입 Flow  
   await page.waitForTimeout(3000);
@@ -296,7 +483,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByLabel('새 비밀번호 재입력').fill('wlscogus7!');
   await page.getByRole('button', { name: '저장' }).click();
 
-  const email = await page.getByRole('tabpanel', { name: '계정 관리' }).getByText('plaie345@naver.com'); //계정관리의 이메일 텍스트 요소 얻기
+  const email = await page.getByRole('tabpanel', { name: '계정 관리' }).getByText('hidelove999@naver.com'); //계정관리의 이메일 텍스트 요소 얻기
   expect(email).toBeTruthy; //연결된 이메일  노출 유무 확인
   //const button = await page.getByRole('link', { name: '내 정보' }).click();
 
@@ -324,7 +511,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '로그아웃' }).click();
   await page.getByLabel('이메일').click();
-  await page.getByLabel('이메일').fill('plaie345@naver.com');
+  await page.getByLabel('이메일').fill('hidelove999@naver.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
@@ -334,7 +521,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   const text = await Locale_change.evaluate((el) => el.textContent); //Locale_change에서 설정된 텍스트 얻기
   expect(text).toBe("hidelove999@naver.com"); //카카오 연결 텍스트 노출 확인
 
-  if (text === 'plaie345@naver.com') {
+  if (text === 'hidelove999@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
   } else {
     console.log('이메일 로그인이 완료  되지 않았습니다.');
@@ -350,7 +537,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   
   await page.close();
 });
-*/
+
 
 
 
@@ -448,7 +635,7 @@ test('야후 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ p
   await page.getByRole('button', { name: '次へ' }).click();
   await page.waitForTimeout(2000);
   await page.getByPlaceholder('パスワード').click();
-  await page.getByPlaceholder('パスワード').fill('wlscogus7!');
+  await page.getByPlaceholder('パスワード').fill('wlscogus7!@');
   await page.getByRole('button', { name: 'ログイン', exact: true }).click();
   //레진 회원가입 Flow  
   await page.getByText('全ての規約に同意する').click();
@@ -715,7 +902,7 @@ test('이메일 계정 로그인 , 카카오 연결,연결 해제_kr', async ({ 
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  //await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.locator('div').filter({ hasText: '카카오 연결' }).getByRole('link', { name: '연결' }).click();
@@ -754,6 +941,57 @@ test('이메일 계정 로그인 , 카카오 연결,연결 해제_kr', async ({ 
   await page.close();
 
 });
+
+test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '이메일로 로그인' }).click();
+  await page.getByLabel('이메일').click();
+  await page.getByLabel('이메일').fill('squad_01@yopmail.com');
+  await page.getByLabel('비밀번호').click();
+  await page.getByLabel('비밀번호').fill('wlscogus7!');
+  await page.getByRole('button', { name: '이메일로 로그인' }).click();
+  //await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '내 정보' }).click();
+  await page.locator('div').filter({ hasText: '네이버 연결' }).getByRole('link', { name: '연결' }).click();
+  await page.getByPlaceholder('Username').click();
+  await page.getByPlaceholder('Username').fill('hidelove999');
+  await page.getByPlaceholder('Password').click();
+  await page.getByPlaceholder('Password').fill('cogus7qwe!@#');
+  await page.getByRole('button', { name: 'Sign in' }).click();
+  await page.waitForTimeout(3000);
+
+  const kakao_connect = await page.waitForSelector('.oauth--disconnect');  //카카오 연결 끊기 버튼 요소 얻기
+  const isVisible = await kakao_connect.isVisible(); //카카오 연결 끊기 노출 값 저장
+  expect(isVisible).toBeTruthy; //버튼 노츌 유무 확인
+
+  if (isVisible) {
+    console.log('네이버 계정이 연결 되었습니다.');
+  } else {
+    console.log('네이버 계정이 연결 되지 않았습니다.');
+  }
+  console.log();
+
+  await page.getByRole('button', { name: '연결 해제' }).click();
+  await page.waitForTimeout(3000);
+
+  const kakao_disconnect = await page.$('.myAccount__section'); //카카오 연결 버튼 요소 얻기
+  const isVisible_2 = await kakao_disconnect?.isVisible(); //카카오 연결 노출 값 저장
+  expect(isVisible_2).toBeTruthy; //버튼 노츌 유무 확인
+
+  if (isVisible_2) {
+    console.log('네이버 계정이 연결해제 되었습니다.');
+  } else {
+    console.log('네이버 계정이 연결해제 되지 않았습니다.');
+  }
+  console.log();
+
+  await page.close();
+
+});
+
 
 test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
@@ -875,7 +1113,7 @@ test('이메일 계정 로그인 , 야후 연결,연결 해제_ja', async ({ pag
   await page.getByRole('button', { name: '次へ' }).click();
   await page.waitForTimeout(2000);
   await page.getByPlaceholder('パスワード').click();
-  await page.getByPlaceholder('パスワード').fill('wlscogus7!');
+  await page.getByPlaceholder('パスワード').fill('wlscogus7!@');
   await page.getByRole('button', { name: 'ログイン', exact: true }).click();
   await page.waitForTimeout(3000);
 
