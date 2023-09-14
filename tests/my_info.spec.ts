@@ -60,9 +60,8 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.getByText('이용이 불편하고 장애가 많음').click();
   await page.getByRole('button', { name: '탈퇴하기' }).click();
   await page.getByRole('button', { name: '확인' }).click();
-
+  await page.waitForTimeout(3000);
   console.log('회원탈퇴가 완료 되었습니다.');
-
   await page.close();
 
 });
@@ -121,9 +120,8 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.getByText('이용이 불편하고 장애가 많음').click();
   await page.getByRole('button', { name: '탈퇴하기' }).click();
   await page.getByRole('button', { name: '확인' }).click();
-
+  await page.waitForTimeout(3000);
   console.log('회원탈퇴가 완료 되었습니다.');
-
   await page.close();
 
 });
@@ -140,6 +138,7 @@ test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.getByPlaceholder('Password').click();
   await page.locator('input[name="tpasswd"]').fill('wlscogus7');
   await page.getByRole('button', { name: 'Log In' }).click();
+  await page.waitForTimeout(2000);
   //레진 회원가입 Flow
   await page.getByText('全ての規約に同意する').click();
   await page.getByRole('button', { name: '同意' }).click();
@@ -178,9 +177,8 @@ test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.getByRole('button', { name: '退会する' }).click();
   await page.getByRole('button', { name: '確認' }).click();
 
-
-  console.log('회원탈퇴가 완료 되었습니다.');
   await page.waitForTimeout(3000);
+  console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
 
 });
@@ -188,8 +186,9 @@ test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
 test('야후 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   await page.getByRole('button', { name: 'アカウントメニュー' }).click();
-  await page.getByRole('button', { name: 'LINEでログイン' }).click();
+  await page.getByRole('button', { name: 'Yahoo!でログイン' }).click();
   //야후 로그인
+  await page.waitForTimeout(2000);
   await page.getByPlaceholder('ID/携帯電話番号/メールアドレス').click();
   await page.getByPlaceholder('ID/携帯電話番号/メールアドレス').fill('hidelove9999');
   await page.getByRole('button', { name: '次へ' }).click();
@@ -235,9 +234,8 @@ test('야후 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.getByRole('button', { name: '退会する' }).click();
   await page.getByRole('button', { name: '確認' }).click();
 
-
-  console.log('회원탈퇴가 완료 되었습니다.');
   await page.waitForTimeout(3000);
+  console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
 
 });
@@ -294,8 +292,8 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
  await page.getByRole('button', { name: 'OK' }).click();
  await page.getByRole('link', { name: 'Home' }).click();
 
-  console.log('회원탈퇴가 완료 되었습니다.');
   await page.waitForTimeout(3000);
+  console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
 
 });
@@ -360,8 +358,9 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
  await page.getByRole('button', { name: 'OK' }).click();
  await page.getByRole('link', { name: 'Home' }).click();
 
+ await page.waitForTimeout(3000);
   console.log('회원탈퇴가 완료 되었습니다.');
-  await page.waitForTimeout(3000);
+
   await page.close();
 
 });
@@ -424,14 +423,14 @@ test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   }
   console.log();
 
-  await page.getByRole('button', { name: '계정 메뉴 30' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '로그아웃' }).click();
   await page.getByLabel('이메일').click();
   await page.getByLabel('이메일').fill('hidelove999@naver.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.getByRole('button', { name: '계정 메뉴 30' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
 
   const Locale_change = await page.waitForSelector('.userInfo__email'); //로그인된 이메일 주소 요소 얻기
   const text = await Locale_change.evaluate((el) => el.textContent); //Locale_change에서 설정된 텍스트 얻기
@@ -449,8 +448,9 @@ test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByPlaceholder('비밀번호를 입력해 주세요.').fill('wlscogus7!');
   await page.getByRole('button', { name: '탈퇴하기' }).click();
   await page.getByRole('button', { name: '확인' }).click();
-  console.log('회원탈퇴가 완료 되었습니다.');
+  await page.waitForTimeout(3000);
   
+  console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
 });
 
@@ -533,8 +533,9 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByPlaceholder('비밀번호를 입력해 주세요.').fill('wlscogus7!');
   await page.getByRole('button', { name: '탈퇴하기' }).click();
   await page.getByRole('button', { name: '확인' }).click();
-  console.log('회원탈퇴가 완료 되었습니다.');
   
+  await page.waitForTimeout(3000); 
+  console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
 });
 
@@ -619,8 +620,8 @@ test('라인 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ p
   await page.getByRole('button', { name: '確認' }).click();
   await page.getByRole('link', { name: 'ホームに戻る' }).click();
 
+  await page.waitForTimeout(3000);
   console.log('회원탈퇴가 완료 되었습니다.');
-  
   await page.close();
 });
 
@@ -703,9 +704,8 @@ test('야후 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ p
   await page.getByRole('button', { name: '退会する' }).click();
   await page.getByRole('button', { name: '確認' }).click();
   await page.getByRole('link', { name: 'ホームに戻る' }).click();
-
+  await page.waitForTimeout(3000);
   console.log('회원탈퇴가 완료 되었습니다.');
-  
   await page.close();
 });
 
@@ -787,8 +787,8 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('link', { name: 'Home' }).click();
 
+  await page.waitForTimeout(3000);
   console.log('회원탈퇴가 완료 되었습니다.');
-  
   await page.close();
 });
 
@@ -879,8 +879,8 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('link', { name: 'Home' }).click();
 
+  await page.waitForTimeout(3000);
   console.log('회원탈퇴가 완료 되었습니다.');
-  
   await page.close();
 });
 
@@ -937,7 +937,7 @@ test('이메일 계정 로그인 , 카카오 연결,연결 해제_kr', async ({ 
     console.log('카카오 계정이 연결해제 되지 않았습니다.');
   }
   console.log();
-
+  await page.waitForTimeout(3000);
   await page.close();
 
 });
@@ -987,7 +987,7 @@ test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ 
     console.log('네이버 계정이 연결해제 되지 않았습니다.');
   }
   console.log();
-
+  await page.waitForTimeout(3000);
   await page.close();
 
 });
@@ -1038,7 +1038,7 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
     console.log('페이스북 계정이 연결해제 되지 않았습니다.');
   }
   console.log();
-
+  await page.waitForTimeout(3000);
   await page.close();
 
 });
@@ -1089,7 +1089,7 @@ test('이메일 계정 로그인 , 라인 연결,연결 해제_ja', async ({ pag
     console.log('라인 계정이 연결해제 되지 않았습니다.');
   }
   console.log();
-
+  await page.waitForTimeout(3000);
   await page.close();
 
 });
@@ -1141,7 +1141,7 @@ test('이메일 계정 로그인 , 야후 연결,연결 해제_ja', async ({ pag
     console.log('야후 계정이 연결해제 되지 않았습니다.');
   }
   console.log();
-
+  await page.waitForTimeout(3000);
   await page.close();
 
 });
@@ -1176,8 +1176,7 @@ test('이메일 계정 로그인 , 트위터 연결,연결 해제_us', async ({ 
   await page.getByLabel('Password', { exact: true }).click();
   await page.getByLabel('Password', { exact: true }).fill('wlscogus7!');
   await page.getByTestId('LoginForm_Login_Button').click();
-
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(7000);
 
   const kakao_connect = await page.waitForSelector('.oauth--disconnect');  //라인 연결 끊기 버튼 요소 얻기
   const isVisible = await kakao_connect.isVisible(); //라인 연결 끊기 노출 값 저장
@@ -1203,7 +1202,8 @@ test('이메일 계정 로그인 , 트위터 연결,연결 해제_us', async ({ 
     console.log('트위터 계정이 연결해제 되지 않았습니다.');
   }
   console.log();
-
+  await page.waitForTimeout(3000);
+  
   await page.close();
 
 });
@@ -1248,6 +1248,7 @@ test('내정보 > 생년월일 입력하기_kr', async ({ page }) => {
   await page.getByText('(선택) 개인정보 수집 및 이용동의 상세보기').click();
   await page.getByRole('button', { name: '저장' }).click();
   console.log('생년월일이 초기화 되었습니다.');
+  await page.waitForTimeout(3000);
   await page.close();
 
 });
@@ -1288,6 +1289,7 @@ test('내정보 > 생년월일 입력하기_ja', async ({ page }) => {
   await page.getByText('(選択)個人情報取扱い同意 確認').click();
   await page.getByRole('button', { name: '保存' }).click();
   console.log('생년월일이 초기화 되었습니다.');
+  await page.waitForTimeout(3000);
   await page.close();
 
 });
@@ -1327,6 +1329,7 @@ test('내정보 > 생년월일 입력하기_us', async ({ page }) => {
   await page.getByText('(optional) Agree to the Collection and Use of Personal Information').click();
   await page.getByRole('button', { name: 'Save' }).click();
   console.log('생년월일이 초기화 되었습니다.');
+  await page.waitForTimeout(3000);
   await page.close();
 
 });
@@ -1367,6 +1370,7 @@ test('내정보 > 기기초기화 3개월 이내_kr', async ({ page }) => {
     console.log('최근에 디바이스 연결 해제를 이미 하였습니다. 실패');
   }
   console.log();
+  await page.waitForTimeout(3000);
   await page.close();
 
 
@@ -1399,6 +1403,7 @@ test('내정보 > 기기초기화 3개월 이내_ja', async ({ page }) => {
     console.log('최근에 디바이스 연결 해제를 이미 하였습니다. 실패');
   }
   console.log();
+  await page.waitForTimeout(3000);
   await page.close();
 
 
@@ -1430,6 +1435,7 @@ test('내정보 > 기기초기화 3개월 이내_us', async ({ page }) => {
     console.log('최근에 디바이스 연결 해제를 이미 하였습니다. 실패');
   }
   console.log();
+  await page.waitForTimeout(3000);
   await page.close();
 
 
