@@ -21,6 +21,7 @@ test('전체 삭제_kr', async ({ page }) => {
   const isVisible = await button.isVisible();  //최근 검색 버튼 노출 유무 저장
 
   expect(isVisible).toBe(false);  // 최근 검색 영역 노출 유무를 판단
+  
   if (isVisible) {
     console.log('최근 검색이 노출 됩니다. 스크립트를 확인하세요');
   } else {
@@ -63,10 +64,11 @@ test('전체 삭제_us', async ({ page }) => {
   await page.getByRole('button', { name: 'Open Search Window' }).click();
   const searchInput = await page.waitForSelector('#search-input');
   await searchInput.type('Joseon Attorney ');
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Search', exact: true }).click();
+  await page.waitForTimeout(2000);
   await page.getByRole('link', { name: 'Lezhin Comics' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Open Search Window' }).click();
   await page.getByRole('button', { name: 'Delete All' }).click();
 
@@ -654,12 +656,13 @@ test('성인 계정 성인작품 노출 19on_kr', async ({ page }) => {
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
 
-  //오늘 하루안보기가 보이지 않을경우 다음 스텝 진행하기
+  /*
   try {
     await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   } catch (error) {
     console.log('오늘 하루 안보기 버튼을 찾지 못하여 다음 스크립트를 실행합니다.');
-  }
+  }*/
+
   if (!page.isClosed()) {
     await page.waitForTimeout(2000);
   }
@@ -721,7 +724,7 @@ test('성인 계정 성인작품 노출 19on_us', async ({ page }) => {
 const imageElement = await page.waitForSelector('img.searchList__img'); // 이미지 요소를 선택
 const srcAttribute = await imageElement.getAttribute('src'); // 이미지 요소의 src 속성 값을 가져옴
 
-expect(srcAttribute).toBe("https://q-ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1684742754101&width=100"); //srcAttribute에 저장된 src 링크 url과 실제 url을 비교
+expect(srcAttribute).toBe("https://q-ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1703062255856&width=100"); //srcAttribute에 저장된 src 링크 url과 실제 url을 비교
 console.log('성인작품 이미지 정상 노출 확인 완료');
 await page.close();
   
@@ -821,7 +824,7 @@ test('성인 계정 성인작품 노출 19 Off_us', async ({ page }) => {
 //정상 성인 이미지 노출
 const imageElement = await page.waitForSelector('img.searchList__img'); // 이미지 요소를 선택
 const srcAttribute = await imageElement.getAttribute('src'); // 이미지 요소의 src 속성 값을 가져옴
-expect(srcAttribute).toBe("https://q-ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1684742754101&width=100"); //srcAttribute에 저장된 src 링크 url과 실제 url을 비교
+expect(srcAttribute).toBe("https://q-ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1703062255856&width=100"); //srcAttribute에 저장된 src 링크 url과 실제 url을 비교
 console.log('성인작품 이미지 정상 노출 확인 완료');
 await page.close();
 
@@ -1086,9 +1089,9 @@ test('검색 결과 페이지 전체탭 선택과 결과_kr', async ({ page }) =
 
   const tag = await page.waitForSelector('.lzComic__tags'); //클래스에서 요소 가져오기
   const text_3 = await tag.evaluate((el) => el.textContent); // 요소에 저장된 텍스트를 text_3 변수에 저장
-  expect(text_3?.trim()).toBe("#카페 #싸이코패스 #반려동물"); //text_3 변수에 저장된 텍스트와 노출되어야할 텍스트를 비교
+  expect(text_3?.trim()).toBe("#일상 #병맛 #코믹"); //text_3 변수에 저장된 텍스트와 노출되어야할 텍스트를 비교
   
-  if (text_3?.trim() === '#카페 #싸이코패스 #반려동물') {
+  if (text_3?.trim() === '#일상 #병맛 #코믹') {
     console.log('태그 일상이 노출 됩니다.');
   } else {
     console.log('태그 일상이 노출되지 않습니다.');
@@ -2137,7 +2140,7 @@ test('작가페이지를 통한 첫화보기 실행_kr', async ({ page }) => {
   const lzComicMoreElement = await publisherElement.$('.lzComic__more');
   await lzComicMoreElement?.click();
   await page.waitForTimeout(1000);
-  await page.locator('section').filter({ hasText: '던전 속 사정[개정판] 판타지 [개정판] 해당 작품은 <던전 속 사정> 성인 버전의 일부 장면을 수정한 개정판입니다. 마물을 물리치고 얻게 되는' }).getByRole('link', { name: '첫 화 보기' }).click();
+  await page.locator('section').filter({ hasText: '던전 속 사정[개정판] [개정판] 해당 작품은 <던전 속 사정> 성인 버전의 일부 장면을 수정한 개정판입니다. 마물을 물리치고 얻게 되는 전리품' }).getByRole('link', { name: '첫 화 보기' }).click();
   await page.waitForTimeout(1000);
   
   const currentUrl = await page.url(); //현재 접속 url을 currentUrl 저장
@@ -2226,7 +2229,7 @@ test('작가페이지를 통한 전체 목록 보기 실행_kr', async ({ page }
   const lzComicMoreElement = await publisherElement.$('.lzComic__more');
   await lzComicMoreElement?.click();
   await page.waitForTimeout(1000);
-  await page.locator('section').filter({ hasText: '던전 속 사정[개정판] 판타지 [개정판] 해당 작품은 <던전 속 사정> 성인 버전의 일부 장면을 수정한 개정판입니다. 마물을 물리치고 얻게 되는' }).getByRole('link', { name: '전체 목록 보기' }).click();
+  await page.locator('section').filter({ hasText: '던전 속 사정[개정판] [개정판] 해당 작품은 <던전 속 사정> 성인 버전의 일부 장면을 수정한 개정판입니다. 마물을 물리치고 얻게 되는 전리품' }).getByRole('link', { name: '전체 목록 보기' }).click();
   await page.waitForTimeout(1000);
   
   const currentUrl = await page.url(); //현재 접속 url을 currentUrl 저장
