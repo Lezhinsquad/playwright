@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Top 버튼 이동_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko'); //레진 KO 홈 접속
+  await page.goto('https://q2-www.lezhin.com/ko'); //레진 KO 홈 접속
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click(); // 전면배너 오늘 하루 안보기 클릭
   await page.evaluate(() => { // Top 이동 버튼 노출 되는 위치로 스크롤 내리기
       window.scrollBy(0, 1000);
@@ -25,7 +25,7 @@ test('Top 버튼 이동_kr', async ({ page }) => {
 });
 
 test('Top 버튼 이동_jp', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja'); //레진 jp 홈 접속
+  await page.goto('https://q2-www.lezhin.jp/ja'); //레진 jp 홈 접속
     
   /*try { // 오늘 하루 안보기가 노출되지 않을 경우 다음스텝 진행
     await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
@@ -53,7 +53,7 @@ test('Top 버튼 이동_jp', async ({ page }) => {
 });
 
 test('Top 버튼 이동_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en'); //레진 us 홈 접속
+  await page.goto('https://q2-www.lezhinus.com/en'); //레진 us 홈 접속
     
   /*try { // 오늘 하루 안보기가 노출되지 않을 경우 다음스텝 진행
     await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
@@ -82,7 +82,7 @@ test('Top 버튼 이동_us', async ({ page }) => {
 
 
 test('검색_버튼UI 노출확인_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
  
   //검색창 버튼 노출
@@ -99,7 +99,7 @@ test('검색_버튼UI 노출확인_kr', async ({ page }) => {
 });
 
 test('검색_버튼UI 노출확인_jp', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
   //await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
  
   //검색창 버튼 노출
@@ -116,7 +116,7 @@ test('검색_버튼UI 노출확인_jp', async ({ page }) => {
 });
 
 test('검색_버튼UI 노출확인_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
   //await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
  
   //검색창 버튼 노출
@@ -133,7 +133,7 @@ test('검색_버튼UI 노출확인_us', async ({ page }) => {
 });
 
 test('검색_Placeholder 확인_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '검색창 열기' }).click();
  
@@ -151,7 +151,7 @@ test('검색_Placeholder 확인_kr', async ({ page }) => {
 });
 
 test('검색_Placeholder 확인_ja', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
   await page.getByRole('button', { name: '検索窓を開く' }).click();
   //Placeholder 검증
   const search_id = await page.waitForSelector('.search__input'); // search__input 클래스에서 요소 정보를 search_id에 저장
@@ -167,7 +167,7 @@ test('검색_Placeholder 확인_ja', async ({ page }) => {
 });
 
 test('검색_Placeholder 확인_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
   await page.getByRole('button', { name: 'Open Search Window' }).click();
   //Placeholder 검증
   const search_id = await page.waitForSelector('.search__input'); // search__input 클래스에서 요소 정보를 search_id에 저장
@@ -184,7 +184,7 @@ test('검색_Placeholder 확인_us', async ({ page }) => {
 
 
 test('검색_레이어 호출후 닫기_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '검색창 열기' }).click();
   await page.getByRole('button', { name: '닫기' }).click();
@@ -203,7 +203,7 @@ test('검색_레이어 호출후 닫기_kr', async ({ page }) => {
 });
 
 test('검색_레이어 호출후 닫기_ja', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
   await page.getByRole('button', { name: '検索窓を開く' }).click();
   await page.getByRole('button', { name: '閉じる' }).click();
  
@@ -221,7 +221,7 @@ test('검색_레이어 호출후 닫기_ja', async ({ page }) => {
 });
 
 test('검색_레이어 호출후 닫기_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
   await page.getByRole('button', { name: 'Open Search Window' }).click();
   await page.getByRole('button', { name: 'Close', exact: true }).click();
  
@@ -241,7 +241,7 @@ test('검색_레이어 호출후 닫기_us', async ({ page }) => {
 
 
 test('랭킹 영역 노출 확인_KR', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
 
   //랭킹 버튼 노출 유무
@@ -310,7 +310,7 @@ test('랭킹 영역 노출 확인_KR', async ({ page }) => {
 
 
 test('랭킹 영역 노출 확인_JP', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
 
 
   //랭킹 버튼 노출 유무
@@ -378,7 +378,7 @@ test('랭킹 영역 노출 확인_JP', async ({ page }) => {
 });
 
 test('랭킹 영역 노출 확인_US', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
   //await page.getByRole('button', { name: '今後表示しない' }).click();
 
   //랭킹 버튼 노출 유무
@@ -445,7 +445,7 @@ test('랭킹 영역 노출 확인_US', async ({ page }) => {
 });
 
 test('신작연재 노출_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
 
   //신작연재 영역 비노출 검증
@@ -464,7 +464,7 @@ test('신작연재 노출_kr', async ({ page }) => {
 });
 
 test('신작연재 노출_ja', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
   
 
   //신작연재 영역 비노출 검증
@@ -483,7 +483,7 @@ test('신작연재 노출_ja', async ({ page }) => {
 });
 
 test('신작연재 노출_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
   
 
   //신작연재 영역 비노출 검증
@@ -503,7 +503,7 @@ test('신작연재 노출_us', async ({ page }) => {
 
 
 test('신규만화 노출_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
 
   //신작연재 영역 비노출 검증
@@ -522,7 +522,7 @@ test('신규만화 노출_kr', async ({ page }) => {
 });
 
 test('신규만화 노출_ja', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
 
   //신작연재 영역 비노출 검증
   const element = await page.waitForSelector('#comic_new_k'); //comic_new_k 에서 요소 정보를 element 에 저장
@@ -540,7 +540,7 @@ test('신규만화 노출_ja', async ({ page }) => {
 });
 
 test('신규만화 노출_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
 
   //신작연재 영역 비노출 검증
   const element = await page.waitForSelector('#comic_new_k'); //comic_new_k 에서 요소 정보를 element 에 저장
@@ -559,7 +559,7 @@ test('신규만화 노출_us', async ({ page }) => {
 
 
 test('업데이트 된 찜한 작품 노출_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
@@ -586,7 +586,7 @@ test('업데이트 된 찜한 작품 노출_kr', async ({ page }) => {
 });
 
 test('업데이트 된 찜한 작품 노출_ja', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
   await page.getByRole('button', { name: 'アカウントメニュー' }).click();
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
@@ -612,7 +612,7 @@ test('업데이트 된 찜한 작품 노출_ja', async ({ page }) => {
 });
 
 test('업데이트 된 찜한 작품 노출_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
@@ -641,7 +641,7 @@ test('업데이트 된 찜한 작품 노출_us', async ({ page }) => {
 
 
 test('최근 본 작품_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
@@ -669,7 +669,7 @@ test('최근 본 작품_kr', async ({ page }) => {
 });
 
 test('최근 본 작품_ja', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
   await page.getByRole('button', { name: 'アカウントメニュー' }).click();
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
@@ -695,7 +695,7 @@ test('최근 본 작품_ja', async ({ page }) => {
 });
 
 test('최근 본 작품_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
@@ -723,7 +723,7 @@ test('최근 본 작품_us', async ({ page }) => {
 
 
 test('홈에서 보고 싶은 장르 취향 설정 하기', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
@@ -752,7 +752,7 @@ test('홈에서 보고 싶은 장르 취향 설정 하기', async ({ page }) => 
 
 
 test('취향 설정 하기 버튼 노출_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
@@ -779,7 +779,7 @@ test('취향 설정 하기 버튼 노출_kr', async ({ page }) => {
 });
 
 test('취향 설정 하기 버튼 노출_ja', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
   await page.getByRole('button', { name: 'アカウントメニュー' }).click();
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
@@ -803,7 +803,7 @@ test('취향 설정 하기 버튼 노출_ja', async ({ page }) => {
 });
 
 test('취향 설정 하기 버튼 노출_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
@@ -827,7 +827,7 @@ test('취향 설정 하기 버튼 노출_us', async ({ page }) => {
 
 
 test('취향 적용 중_kr', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.com/ko');
+  await page.goto('https://q2-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
@@ -854,7 +854,7 @@ test('취향 적용 중_kr', async ({ page }) => {
 });
 
 test('취향 적용 중_ja', async ({ page }) => {
-  await page.goto('https://q-www.lezhin.jp/ja');
+  await page.goto('https://q2-www.lezhin.jp/ja');
   await page.getByRole('button', { name: 'アカウントメニュー' }).click();
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
@@ -879,7 +879,7 @@ test('취향 적용 중_ja', async ({ page }) => {
 });
 
 test('취향 적용 중_us', async ({ page }) => {
-  await page.goto('https://q-www.lezhinus.com/en');
+  await page.goto('https://q2-www.lezhinus.com/en');
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();

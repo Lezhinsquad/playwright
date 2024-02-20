@@ -69,10 +69,13 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.waitForLoadState('load');
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
+
+  const dtText = await page.waitForSelector('dt');
+  const kakaoText = await dtText.textContent();
   
-  const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(dtText).toBe("카카오"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
-  console.log('로그인 된 SNS 계정 타입:', dtText);
+  //const dtText = await page.$eval('dt', (element) => element.textContent);
+  expect(kakaoText).toBe("카카오"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  console.log('로그인 된 SNS 계정 타입:', kakaoText);
   console.log();
 
   const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
@@ -137,9 +140,11 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
   
-  const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(dtText).toBe("네이버"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
-  console.log('로그인 된 SNS 계정 타입:', dtText);
+  const dtText = await page.waitForSelector('dt');
+  const naverText = await dtText.textContent();
+  //const dtText = await page.$eval('dt', (element) => element.textContent);
+  expect(naverText).toBe("네이버"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  console.log('로그인 된 SNS 계정 타입:', naverText);
   console.log();
 
   const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
@@ -199,9 +204,11 @@ test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.getByRole('button', { name: 'アカウントメニュー' }).click();
   await page.getByRole('link', { name: '会員情報' }).click();
 
-  const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(dtText).toBe("LINE"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
-  console.log('로그인 된 SNS 계정 타입:', dtText);
+  const dtText = await page.waitForSelector('dt');
+  const lineText = await dtText.textContent();
+  //const dtText = await page.$eval('dt', (element) => element.textContent);
+  expect(lineText).toBe("LINE"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  console.log('로그인 된 SNS 계정 타입:', lineText);
   console.log();
 
   const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
@@ -334,11 +341,14 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByRole('link', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'My Account' }).click();
+  await page.getByRole('link', { name: 'My Account' }).click();
   
 
-  const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(dtText).toBe("Facebook"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
-  console.log('로그인 된 SNS 계정 타입:', dtText);
+  const dtText = await page.waitForSelector('dt');
+  const FacebookText = await dtText.textContent();
+  //const dtText = await page.$eval('dt', (element) => element.textContent);
+  expect(FacebookText).toBe("Facebook"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  console.log('로그인 된 SNS 계정 타입:', FacebookText);
   console.log();
 
   const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
@@ -404,10 +414,11 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'My Account' }).click();
   
-
-  const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(dtText).toBe("Twitter"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
-  console.log('로그인 된 SNS 계정 타입:', dtText);
+  const dtText = await page.waitForSelector('dt');
+  const TwitterText = await dtText.textContent();
+  //const dtText = await page.$eval('dt', (element) => element.textContent);
+  expect(TwitterText).toBe("Twitter"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  console.log('로그인 된 SNS 계정 타입:', TwitterText);
   console.log();
 
   const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
@@ -681,7 +692,7 @@ test('라인 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ p
 
   //await page.getByRole('button', { name: 'アカウントメニュー' }).click();
   //await page.getByRole('link', { name: 'ログアウト' }).click();
-  await page.getByRole('button', { name: 'アカウントメニュー 10' }).click();
+  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
   await page.getByRole('link', { name: 'ログアウト' }).click();
   await page.getByLabel('メールアドレス').click();
   await page.getByLabel('メールアドレス').fill('hidelove999@naver.com');
@@ -916,6 +927,7 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
   await page.getByRole('link', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'My Account' }).click();
+  //await page.getByRole('link', { name: 'My Account' }).click();
 
 
   await page.getByRole('button', { name: 'Password setting' }).click();
@@ -1050,7 +1062,7 @@ test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ 
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+ // await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.locator('div').filter({ hasText: '네이버 연결' }).getByRole('link', { name: '연결' }).click();
@@ -1103,7 +1115,7 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
   await page.waitForLoadState('load');
-  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  //await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.locator('div').filter({ hasText: '페이스북 연결' }).getByRole('link', { name: '연결' }).click();
@@ -1327,7 +1339,7 @@ test('내정보 > 생년월일 입력하기_kr', async ({ page }) => {
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!@');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  //await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.waitForLoadState('load');
@@ -1455,7 +1467,7 @@ test('내정보 > 기기초기화 3개월 이내_kr', async ({ page }) => {
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!@');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  //await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.waitForLoadState('load');
