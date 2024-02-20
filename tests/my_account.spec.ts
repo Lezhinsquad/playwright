@@ -1,5 +1,51 @@
 import { test, expect } from '@playwright/test';
 
+test('이메일 로그인 정보 필드 확인', async ({ page }) => {
+  await page.goto('https://q-www.lezhin.com/ko');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '이메일로 로그인' }).click();
+  await page.getByLabel('이메일').click();
+  await page.getByLabel('이메일').fill('squad_01@yopmail.com');
+  await page.getByLabel('비밀번호').click();
+  await page.getByLabel('비밀번호').fill('wlscogus7!');
+  await page.getByRole('button', { name: '이메일로 로그인' }).click();
+  await page.waitForLoadState('load');
+  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('link', { name: '내 정보' }).click();
+
+  
+  await page.setDefaultTimeout(2000);
+  const emailElement = await page.waitForSelector('dd.email');  // 요소를 선택하는 적절한 셀렉터를 사용합니다.
+  const emailText = await emailElement.textContent();
+  expect(emailText).toBe("squad_01@yopmail.com"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  console.log('로그인된 이메일 계정', emailText);
+  console.log();
+
+  const AccountManagement = await page.waitForSelector('#change-password-btn'); // 비밀번호 변경 버튼 요소 얻기
+  expect(AccountManagement).toBeTruthy; // 비밀번호 변경 버튼 노출 유무 확인
+
+
+  if (AccountManagement) {
+    console.log('비밀번호 변경 버튼이 노출 됩니다.');
+  } else {
+    console.log('비밀번호 변경 버튼이 노출 되지 않습니다.');
+  }
+  console.log();
+
+  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
+  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  if (Locale_change) {
+    console.log('언어/국가 변경 버튼이 노출 됩니다.');
+  } else {
+    console.log('언어/국가 변경 버튼이 노출 되지 않습니다.');
+  }
+
+  console.log();
+ 
+
+});
+
 test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.setDefaultTimeout(60000);
   await page.goto('https://q-www.lezhin.com/ko')
