@@ -61,12 +61,12 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.waitForNavigation({ waitUntil: 'load' });
   
   //레진 회원가입 Flow
-
   await page.getByText('전체동의').click();
   await page.getByText('만 14세 이상입니다.(필수)').click();
   await page.getByRole('button', { name: '동의' }).click();
   await page.getByRole('link', { name: '확인' }).click();
   await page.waitForLoadState('load');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
 
@@ -137,6 +137,7 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.getByRole('button', { name: '동의' }).click();
   await page.getByRole('link', { name: '확인' }).click();
   await page.waitForLoadState('load');
+  await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
   
@@ -333,6 +334,7 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('wlscogus7!@#');
   await page.getByRole('button', { name: 'Log In' }).click();
+  await page.getByRole('button', { name: '병호님으로 계속' }).click();
   await page.waitForLoadState('load');
   //레진 회원가입 Flow 
   await page.getByText('Agree to the Lezhin Comics Terms of Use(required)').click();
@@ -825,6 +827,7 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('wlscogus7!@#');
   await page.getByRole('button', { name: 'Log In' }).click();
+  await page.getByRole('button', { name: '병호님으로 계속' }).click();
   //레진 회원가입 Flow
   await page.getByText('Agree to the Lezhin Comics Terms of Use(required)').click();
   await page.getByRole('button', { name: 'Confirm' }).click();
@@ -1124,6 +1127,7 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('wlscogus7!@#');
   await page.getByRole('button', { name: 'Log In' }).click();
+  await page.getByRole('button', { name: '병호님으로 계속' }).click();
   await page.waitForLoadState('load');
 
   const kakao_connect = await page.waitForSelector('.oauth--disconnect');  //카카오 연결 끊기 버튼 요소 얻기
