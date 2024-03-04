@@ -330,11 +330,11 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByRole('button', { name: 'Login with Facebook' }).click();
   //페이스북 로그인
   await page.getByPlaceholder('Email or phone number').click();
-  await page.getByPlaceholder('Email or phone number').fill('hidelove999@naver.com');
+  await page.getByPlaceholder('Email or phone number').fill('plaie345@naver.com');
   await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7!@#');
+  await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Log In' }).click();
-  await page.getByRole('button', { name: '병호님으로 계속' }).click();
+  //await page.getByRole('button', { name: '병호님으로 계속' }).click();
   await page.waitForLoadState('load');
   //레진 회원가입 Flow 
   await page.getByText('Agree to the Lezhin Comics Terms of Use(required)').click();
@@ -390,7 +390,7 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en')
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('button', { name: 'Login with Twitter' }).click();
-  //페이스북 로그인
+  //트위터 로그인
   await page.getByPlaceholder('Username or email').click();
   await page.getByPlaceholder('Username or email').fill('hidelove999');
   await page.getByPlaceholder('Password').click();
@@ -823,11 +823,11 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByRole('button', { name: 'Login with Facebook' }).click();
   //페이스북 로그인
   await page.getByPlaceholder('Email or phone number').click();
-  await page.getByPlaceholder('Email or phone number').fill('hidelove999@naver.com');
+  await page.getByPlaceholder('Email or phone number').fill('plaie345@naver.com');
   await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7!@#');
+  await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Log In' }).click();
-  await page.getByRole('button', { name: '병호님으로 계속' }).click();
+  //await page.getByRole('button', { name: '병호님으로 계속' }).click();
   //레진 회원가입 Flow
   await page.getByText('Agree to the Lezhin Comics Terms of Use(required)').click();
   await page.getByRole('button', { name: 'Confirm' }).click();
@@ -870,7 +870,7 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'Logout' }).click();
   await page.getByLabel('Email').click();
-  await page.getByLabel('Email').fill('hidelove999@naver.com');
+  await page.getByLabel('Email').fill('plaie345@naver.com');
   await page.getByLabel('Password').click();
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
@@ -878,9 +878,9 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
 
   const Locale_change = await page.waitForSelector('.userInfo__email'); //로그인된 이메일 주소 요소 얻기
   const text = await Locale_change.evaluate((el) => el.textContent); //Locale_change에서 설정된 텍스트 얻기
-  expect(text).toBe("hidelove999@naver.com"); //라인 연결 텍스트 노출 확인
+  expect(text).toBe("plaie345@naver.com"); //라인 연결 텍스트 노출 확인
 
-  if (text === 'hidelove999@naver.com') {
+  if (text === 'plaie345@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
   } else {
     console.log('이메일 로그인이 완료  되지 않았습니다.');
@@ -955,8 +955,8 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
   await page.waitForLoadState('load');
 
   
-  const kakao_link = await page.locator('div').filter({ hasText: 'Twitter Connect Account' }).getByRole('link', { name: 'Connect Account' });//페이스북  연결하기  텍스트 요소 얻기
-  expect(kakao_link).toBeTruthy; //페이스북 연결 텍스트 노출 확인
+  const kakao_link = await page.locator('div').filter({ hasText: 'Twitter Connect Account' }).getByRole('link', { name: 'Connect Account' });//트위터  연결하기  텍스트 요소 얻기
+  expect(kakao_link).toBeTruthy; //트위터 연결 텍스트 노출 확인
 
   if (kakao_link) {
     console.log('트위터 연결이 해제 되었습니다.');
@@ -1123,11 +1123,11 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.locator('div').filter({ hasText: '페이스북 연결' }).getByRole('link', { name: '연결' }).click();
   await page.getByPlaceholder('Email or phone number').click();
-  await page.getByPlaceholder('Email or phone number').fill('hidelove999@naver.com');
+  await page.getByPlaceholder('Email or phone number').fill('plaie345@naver.com');
   await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7!@#');
+  await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Log In' }).click();
-  await page.getByRole('button', { name: '병호님으로 계속' }).click();
+  //await page.getByRole('button', { name: '병호님으로 계속' }).click();
   await page.waitForLoadState('load');
 
   const kakao_connect = await page.waitForSelector('.oauth--disconnect');  //카카오 연결 끊기 버튼 요소 얻기
