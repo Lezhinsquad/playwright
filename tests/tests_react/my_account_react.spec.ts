@@ -16,15 +16,21 @@ test('이메일 로그인 정보 필드 확인', async ({ page }) => {
 
   
   await page.setDefaultTimeout(2000);
-  const emailElement = await page.waitForSelector('dd.email');  // 요소를 선택하는 적절한 셀렉터를 사용합니다.
+  
+  // 요소를 선택하는 적절한 셀렉터를 사용합니다.
+  const emailElement = await page.waitForSelector('dd.email'); 
+  // emailText에 emailElement에서 추출한 이메일 주소를 저장
   const emailText = await emailElement.textContent();
-  expect(emailText).toBe("squad_01@yopmail.com"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  // emailText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  expect(emailText).toBe("squad_01@yopmail.com"); 
+
   console.log('로그인된 이메일 계정', emailText);
   console.log();
 
-  const AccountManagement = await page.waitForSelector('#change-password-btn'); // 비밀번호 변경 버튼 요소 얻기
-  expect(AccountManagement).toBeTruthy; // 비밀번호 변경 버튼 노출 유무 확인
-
+  // 비밀번호 변경 버튼 요소 얻기
+  const AccountManagement = await page.waitForSelector('#change-password-btn'); 
+  // 비밀번호 변경 버튼 노출 유무 확인
+  expect(AccountManagement).toBeTruthy; 
 
   if (AccountManagement) {
     console.log('비밀번호 변경 버튼이 노출 됩니다.');
@@ -33,8 +39,11 @@ test('이메일 로그인 정보 필드 확인', async ({ page }) => {
   }
   console.log();
 
-  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
-  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  //언어/국가 변경 버튼 요소 얻기
+  const Locale_change = await page.waitForSelector('#change-locale-btn'); 
+  // 언어/국가 설정 버튼 노출 유무 확인
+  expect(Locale_change).toBeTruthy; 
+
   if (Locale_change) {
     console.log('언어/국가 변경 버튼이 노출 됩니다.');
   } else {
@@ -52,6 +61,7 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('button', { name: '카카오로 로그인' }).click();
+
   //카카오 계정 로그인 
   await page.getByPlaceholder('KakaoMail ID, email, phone number').click();
   await page.getByPlaceholder('KakaoMail ID, email, phone number').fill('hidelove999@naver.com');
@@ -70,17 +80,21 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
 
+  //dtText 변수에 dt 태그의 이메일 주소 추출
   const dtText = await page.waitForSelector('dt');
+  //kakaoText 변수에 dtText에서 추출한 이메일 주소를 저장
   const kakaoText = await dtText.textContent();
   
   //const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(kakaoText).toBe("카카오"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  expect(kakaoText).toBe("카카오"); 
   console.log('로그인 된 SNS 계정 타입:', kakaoText);
   console.log();
 
-  const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
-  expect(AccountManagement).toBeTruthy; // 비밀번호 설정 버튼 노출 유무 확인
-
+  // 비밀번호 설정 버튼 요소 얻기
+  const AccountManagement = await page.waitForSelector('#connect-email-btn'); 
+  // 비밀번호 설정 버튼 노출 유무 확인
+  expect(AccountManagement).toBeTruthy; 
 
   if (AccountManagement) {
     console.log('비밀번호 설정 버튼이 노출 됩니다.');
@@ -89,8 +103,11 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   }
   console.log();
 
-  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
-  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  //언어/국가 변경 버튼 요소 얻기
+  const Locale_change = await page.waitForSelector('#change-locale-btn'); 
+  // 언어/국가 설정 버튼 노출 유무 확인
+  expect(Locale_change).toBeTruthy; 
+
   if (Locale_change) {
     console.log('언어/국가 변경 버튼이 노출 됩니다.');
   } else {
@@ -99,13 +116,16 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
 
   console.log();
 
-  const phonenumber = await page.getByText('01089917088'); //인증된 번화번호 요소 얻기
-  expect(phonenumber).toBeTruthy; //전화번호  노출 유무 확인
+  //인증된 번화번호 요소 얻기
+  const phonenumber = await page.getByText('01089917088'); 
+  //전화번호  노출 유무 확인
+  expect(phonenumber).toBeTruthy; 
   if (phonenumber) {
     console.log('카카오 회원가입 시 인증된 전화번호 01089917088이 정상 노출됩니다.');
   } else {
     console.log('휴대폰 번호가 잘못 노출되거나 노출되지 않습니다.');
   }
+
   await page.click('#toggle-unregister-form');
   await page.getByText('이용이 불편하고 장애가 많음').click();
   await page.getByRole('button', { name: '탈퇴하기' }).click();
@@ -141,15 +161,20 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '내 정보' }).click();
   
+  //dtText 변수에 dt 태그의 이메일 주소 추출
   const dtText = await page.waitForSelector('dt');
+  //naverText 변수에 dtText에서 추출한 이메일 주소를 저장
   const naverText = await dtText.textContent();
   //const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(naverText).toBe("네이버"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  //dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  expect(naverText).toBe("네이버"); 
   console.log('로그인 된 SNS 계정 타입:', naverText);
   console.log();
 
-  const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
-  expect(AccountManagement).toBeTruthy; // 비밀번호 설정 버튼 노출 유무 확인
+  // 비밀번호 설정 버튼 요소 얻기
+  const AccountManagement = await page.waitForSelector('#connect-email-btn'); 
+  // 비밀번호 설정 버튼 노출 유무 확인
+  expect(AccountManagement).toBeTruthy; 
 
 
   if (AccountManagement) {
@@ -159,8 +184,11 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   }
   console.log();
 
-  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
-  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  //언어/국가 변경 버튼 요소 얻기
+  const Locale_change = await page.waitForSelector('#change-locale-btn'); 
+  // 언어/국가 설정 버튼 노출 유무 확인
+  expect(Locale_change).toBeTruthy; 
+
   if (Locale_change) {
     console.log('언어/국가 변경 버튼이 노출 됩니다.');
   } else {
@@ -205,15 +233,21 @@ test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.getByRole('button', { name: 'アカウントメニュー' }).click();
   await page.getByRole('link', { name: '会員情報' }).click();
 
+  //dtText 변수에 dt 태그의 이메일 주소 추출
   const dtText = await page.waitForSelector('dt');
+  //lineText 변수에 dtText에서 추출한 이메일 주소를 저장
   const lineText = await dtText.textContent();
   //const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(lineText).toBe("LINE"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  expect(lineText).toBe("LINE"); 
+
   console.log('로그인 된 SNS 계정 타입:', lineText);
   console.log();
 
-  const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
-  expect(AccountManagement).toBeTruthy; // 비밀번호 설정 버튼 노출 유무 확인
+  // 비밀번호 설정 버튼 요소 얻기
+  const AccountManagement = await page.waitForSelector('#connect-email-btn'); 
+  // 비밀번호 설정 버튼 노출 유무 확인
+  expect(AccountManagement).toBeTruthy; 
 
 
   if (AccountManagement) {
@@ -223,13 +257,17 @@ test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   }
   console.log();
 
-  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
-  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  //언어/국가 변경 버튼 요소 얻기
+  const Locale_change = await page.waitForSelector('#change-locale-btn');
+  // 언어/국가 설정 버튼 노출 유무 확인 
+  expect(Locale_change).toBeTruthy; 
+
   if (Locale_change) {
     console.log('언어/국가 변경 버튼이 노출 됩니다.');
   } else {
     console.log('언어/국가 변경 버튼이 노출 되지 않습니다.');
   }
+
   console.log();
   await page.click('#toggle-unregister-form');
   await page.getByText('使い勝手が悪く障害が多いため').click();
@@ -345,16 +383,21 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByRole('link', { name: 'My Account' }).click();
   await page.getByRole('link', { name: 'My Account' }).click();
   
-
+  //dtText 변수에 dt 태그의 이메일 주소 추출
   const dtText = await page.waitForSelector('dt');
+  //FacebookText 변수에 dtText에서 추출한 이메일 주소를 저장
   const FacebookText = await dtText.textContent();
   //const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(FacebookText).toBe("Facebook"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  expect(FacebookText).toBe("Facebook"); 
+
   console.log('로그인 된 SNS 계정 타입:', FacebookText);
   console.log();
 
-  const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
-  expect(AccountManagement).toBeTruthy; // 비밀번호 설정 버튼 노출 유무 확인
+  // 비밀번호 설정 버튼 요소 얻기
+  const AccountManagement = await page.waitForSelector('#connect-email-btn'); 
+  // 비밀번호 설정 버튼 노출 유무 확인
+  expect(AccountManagement).toBeTruthy; 
 
   if (AccountManagement) {
     console.log('비밀번호 설정 버튼이 노출 됩니다.');
@@ -363,8 +406,11 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   }
   console.log();
 
-  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
-  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  //언어/국가 변경 버튼 요소 얻기
+  const Locale_change = await page.waitForSelector('#change-locale-btn'); 
+  //언어/국가 설정 버튼 노출 유무 확인
+  expect(Locale_change).toBeTruthy; 
+  
   if (Locale_change) {
     console.log('언어/국가 변경 버튼이 노출 됩니다.');
   } else {
@@ -373,12 +419,12 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   console.log();
 
   await page.click('#toggle-unregister-form');
- await page.getByText('Difficult to use and too many errors').click();
- await page.getByRole('button', { name: 'Deactivate', exact: true }).click();
- await page.getByRole('button', { name: 'OK' }).click();
- await page.getByRole('link', { name: 'Home' }).click();
+  await page.getByText('Difficult to use and too many errors').click();
+  await page.getByRole('button', { name: 'Deactivate', exact: true }).click();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('link', { name: 'Home' }).click();
 
- await page.waitForLoadState('load');
+  await page.waitForLoadState('load');
   console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
 
@@ -408,6 +454,7 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByLabel('Password', { exact: true }).fill('wlscogus7!');
   await page.getByTestId('LoginForm_Login_Button').click();
   */
+
   //레진 회원가입 Flow 
   await page.getByText('Agree to the Lezhin Comics Terms of Use(required)').click();
   await page.getByRole('button', { name: 'Confirm' }).click();
@@ -416,15 +463,21 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'My Account' }).click();
   
+  //dtText 변수에 dt 태그의 이메일 주소 추출
   const dtText = await page.waitForSelector('dt');
+  //TwitterText 변수에 dtText에서 추출한 이메일 주소를 저장
   const TwitterText = await dtText.textContent();
   //const dtText = await page.$eval('dt', (element) => element.textContent);
-  expect(TwitterText).toBe("Twitter"); // dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  //dtText에 저장된 텍스트 값과 실제 노출되어야할 텍스트 값 비교
+  expect(TwitterText).toBe("Twitter"); 
+
   console.log('로그인 된 SNS 계정 타입:', TwitterText);
   console.log();
 
-  const AccountManagement = await page.waitForSelector('#connect-email-btn'); // 비밀번호 설정 버튼 요소 얻기
-  expect(AccountManagement).toBeTruthy; // 비밀번호 설정 버튼 노출 유무 확인
+  // 비밀번호 설정 버튼 요소 얻기
+  const AccountManagement = await page.waitForSelector('#connect-email-btn'); 
+  // 비밀번호 설정 버튼 노출 유무 확인
+  expect(AccountManagement).toBeTruthy; 
 
   if (AccountManagement) {
     console.log('비밀번호 설정 버튼이 노출 됩니다.');
@@ -433,8 +486,11 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   }
   console.log();
 
-  const Locale_change = await page.waitForSelector('#change-locale-btn'); //언어/국가 변경 버튼 요소 얻기
-  expect(Locale_change).toBeTruthy; // 언어/국가 설정 버튼 노출 유무 확인
+  //언어/국가 변경 버튼 요소 얻기
+  const Locale_change = await page.waitForSelector('#change-locale-btn'); 
+  // 언어/국가 설정 버튼 노출 유무 확인
+  expect(Locale_change).toBeTruthy; 
+
   if (Locale_change) {
     console.log('언어/국가 변경 버튼이 노출 됩니다.');
   } else {
@@ -488,8 +544,10 @@ test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByLabel('새 비밀번호 재입력').fill('wlscogus7!');
   await page.getByRole('button', { name: '저장' }).click();
 
-  const email = await page.getByRole('tabpanel', { name: '계정 관리' }).getByText('hidelove999@naver.com'); //계정관리의 이메일 텍스트 요소 얻기
-  expect(email).toBeTruthy; //연결된 이메일  노출 유무 확인
+  //계정관리의 이메일 텍스트 요소 얻기
+  const email = await page.getByRole('tabpanel', { name: '계정 관리' }).getByText('hidelove999@naver.com'); 
+  //연결된 이메일  노출 유무 확인
+  expect(email).toBeTruthy; 
   //const button = await page.getByRole('link', { name: '내 정보' }).click();
 
   if (email) {
@@ -502,9 +560,10 @@ test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByRole('button', { name: '연결 해제' }).click();
   await page.waitForLoadState('load');
 
-  
-  const kakao_link = await page.locator('div').filter({ hasText: '카카오 연결' }).getByRole('link', { name: '연결' });//카카오 연결하기 이메일 텍스트 요소 얻기
-  expect(kakao_link).toBeTruthy; //카카오 연결 텍스트 노출 확인
+  //카카오 연결하기 이메일 텍스트 요소 얻기
+  const kakao_link = await page.locator('div').filter({ hasText: '카카오 연결' }).getByRole('link', { name: '연결' });
+  //카카오 연결 텍스트 노출 확인
+  expect(kakao_link).toBeTruthy; 
 
   if (kakao_link) {
     console.log('카카오 연결이 해제 되었습니다.');
@@ -524,9 +583,12 @@ test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
 
-  const Locale_change = await page.waitForSelector('.userInfo__email'); //로그인된 이메일 주소 요소 얻기
-  const text = await Locale_change.evaluate((el) => el.textContent); //Locale_change에서 설정된 텍스트 얻기
-  expect(text).toBe("hidelove999@naver.com"); //카카오 연결 텍스트 노출 확인
+  //로그인된 이메일 주소 요소 얻기
+  const Locale_change = await page.waitForSelector('.userInfo__email'); 
+  //Locale_change에서 설정된 텍스트 얻기
+  const text = await Locale_change.evaluate((el) => el.textContent); 
+  //카카오 연결 텍스트 노출 확인
+  expect(text).toBe("hidelove999@naver.com"); 
 
   if (text === 'hidelove999@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
@@ -576,8 +638,10 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByLabel('새 비밀번호 재입력').fill('wlscogus7!');
   await page.getByRole('button', { name: '저장' }).click();
 
-  const email = await page.getByRole('tabpanel', { name: '계정 관리' }).getByText('hidelove999@naver.com'); //계정관리의 이메일 텍스트 요소 얻기
-  expect(email).toBeTruthy; //연결된 이메일  노출 유무 확인
+  //계정관리의 이메일 텍스트 요소 얻기
+  const email = await page.getByRole('tabpanel', { name: '계정 관리' }).getByText('hidelove999@naver.com'); 
+  //연결된 이메일  노출 유무 확인
+  expect(email).toBeTruthy; 
   //const button = await page.getByRole('link', { name: '내 정보' }).click();
 
   if (email) {
@@ -590,11 +654,12 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByRole('button', { name: '연결 해제' }).click();
   await page.waitForLoadState('load');
 
-  
-  const kakao_link = await page.locator('div').filter({ hasText: '네이버 연결' }).getByRole('link', { name: '연결' });//카카오 연결하기 이메일 텍스트 요소 얻기
-  expect(kakao_link).toBeTruthy; //카카오 연결 텍스트 노출 확인
+  //네이버 연결하기 이메일 텍스트 요소 얻기
+  const naver_link = await page.locator('div').filter({ hasText: '네이버 연결' }).getByRole('link', { name: '연결' });
+  //네이버 연결 텍스트 노출 확인
+  expect(naver_link).toBeTruthy; 
 
-  if (kakao_link) {
+  if (naver_link) {
     console.log('네이버 연결이 해제 되었습니다.');
   } else {
     console.log('네이버 연결이 해제  되지 않았습니다.');
@@ -611,9 +676,12 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
 
-  const Locale_change = await page.waitForSelector('.userInfo__email'); //로그인된 이메일 주소 요소 얻기
-  const text = await Locale_change.evaluate((el) => el.textContent); //Locale_change에서 설정된 텍스트 얻기
-  expect(text).toBe("hidelove999@naver.com"); //카카오 연결 텍스트 노출 확인
+  //로그인된 이메일 주소 요소 얻기
+  const Locale_change = await page.waitForSelector('.userInfo__email'); 
+  //Locale_change에서 설정된 텍스트 얻기
+  const text = await Locale_change.evaluate((el) => el.textContent); 
+  //네이버 연결 텍스트 노출 확인
+  expect(text).toBe("hidelove999@naver.com"); 
 
   if (text === 'hidelove999@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
@@ -667,8 +735,10 @@ test('라인 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ p
   await page.getByRole('button', { name: '保存' }).click();
   await page.waitForTimeout(3000);
 
-  const email = await page.getByRole('tabpanel', { name: '会員情報' }).getByText('hidelove999@naver.com'); //계정관리의 이메일 텍스트 요소 얻기
-  expect(email).toBeTruthy; //연결된 이메일  노출 유무 확인
+  //계정관리의 이메일 텍스트 요소 얻기
+  const email = await page.getByRole('tabpanel', { name: '会員情報' }).getByText('hidelove999@naver.com');
+  //연결된 이메일  노출 유무 확인 
+  expect(email).toBeTruthy; 
   //const button = await page.getByRole('link', { name: '내 정보' }).click();
 
   if (email) {
@@ -681,11 +751,12 @@ test('라인 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ p
   await page.getByRole('button', { name: '解除する' }).click();
   await page.waitForTimeout(3000);
 
-  
-  const kakao_link = await page.locator('div').filter({ hasText: 'LINE 連携する' }).getByRole('link', { name: '連携する' });//카카오 연결하기 이메일 텍스트 요소 얻기
-  expect(kakao_link).toBeTruthy; //카카오 연결 텍스트 노출 확인
+  //라인 연결하기 이메일 텍스트 요소 얻기
+  const line_link = await page.locator('div').filter({ hasText: 'LINE 連携する' }).getByRole('link', { name: '連携する' });
+  //라인 연결 텍스트 노출 확인
+  expect(line_link).toBeTruthy; 
 
-  if (kakao_link) {
+  if (line_link) {
     console.log('라인 연결이 해제 되었습니다.');
   } else {
     console.log('라인 연결이 해제  되지 않았습니다.');
@@ -703,9 +774,12 @@ test('라인 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ p
   await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
   await page.getByRole('button', { name: 'アカウントメニュー' }).click();
 
-  const Locale_change = await page.waitForSelector('.userInfo__email'); //로그인된 이메일 주소 요소 얻기
-  const text = await Locale_change.evaluate((el) => el.textContent); //Locale_change에서 설정된 텍스트 얻기
-  expect(text).toBe("hidelove999@naver.com"); //라인 연결 텍스트 노출 확인
+  //로그인된 이메일 주소 요소 얻기
+  const Locale_change = await page.waitForSelector('.userInfo__email'); 
+  //Locale_change에서 설정된 텍스트 얻기
+  const text = await Locale_change.evaluate((el) => el.textContent); 
+  //라인 연결 텍스트 노출 확인
+  expect(text).toBe("hidelove999@naver.com"); 
 
   if (text === 'hidelove999@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
@@ -841,8 +915,10 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByLabel('Re-enter your password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Save' }).click();
 
-  const email = await page.getByRole('tabpanel', { name: 'My Account' }).getByText('hidelove999@naver.com'); //계정관리의 이메일 텍스트 요소 얻기
-  expect(email).toBeTruthy; //연결된 이메일  노출 유무 확인
+  //계정관리의 이메일 텍스트 요소 얻기
+  const email = await page.getByRole('tabpanel', { name: 'My Account' }).getByText('hidelove999@naver.com'); 
+  //연결된 이메일  노출 유무 확인
+  expect(email).toBeTruthy; 
   //const button = await page.getByRole('link', { name: '내 정보' }).click();
 
   if (email) {
@@ -855,11 +931,12 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByRole('button', { name: 'Disconnect Account' }).click();
   await page.waitForLoadState('load');
 
-  
-  const kakao_link = await page.locator('div').filter({ hasText: 'Facebook Connect Account' }).getByRole('link', { name: 'Connect Account' });//페이스북  연결하기  텍스트 요소 얻기
-  expect(kakao_link).toBeTruthy; //페이스북 연결 텍스트 노출 확인
+  //페이스북  연결하기  텍스트 요소 얻기
+  const facebook_link = await page.locator('div').filter({ hasText: 'Facebook Connect Account' }).getByRole('link', { name: 'Connect Account' });
+  //페이스북 연결 텍스트 노출 확인
+  expect(facebook_link).toBeTruthy; 
 
-  if (kakao_link) {
+  if (facebook_link) {
     console.log('페이스북 연결이 해제 되었습니다.');
   } else {
     console.log('페이스북 연결이 해제  되지 않았습니다.');
@@ -876,9 +953,12 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByRole('button', { name: 'Login with email' }).click();
   await page.getByRole('button', { name: 'Account Menu' }).click();
 
-  const Locale_change = await page.waitForSelector('.userInfo__email'); //로그인된 이메일 주소 요소 얻기
-  const text = await Locale_change.evaluate((el) => el.textContent); //Locale_change에서 설정된 텍스트 얻기
-  expect(text).toBe("plaie345@naver.com"); //라인 연결 텍스트 노출 확인
+  //로그인된 이메일 주소 요소 얻기
+  const Locale_change = await page.waitForSelector('.userInfo__email'); 
+  //Locale_change에서 설정된 텍스트 얻기
+  const text = await Locale_change.evaluate((el) => el.textContent); 
+  //페이스북 연결 텍스트 노출 확인
+  expect(text).toBe("plaie345@naver.com"); 
 
   if (text === 'plaie345@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
@@ -940,8 +1020,10 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
   await page.getByLabel('Re-enter your password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Save' }).click();
 
-  const email = await page.getByRole('tabpanel', { name: 'My Account' }).getByText('hidelove999@daum.net'); //계정관리의 이메일 텍스트 요소 얻기
-  expect(email).toBeTruthy; //연결된 이메일  노출 유무 확인
+  //계정관리의 이메일 텍스트 요소 얻기
+  const email = await page.getByRole('tabpanel', { name: 'My Account' }).getByText('hidelove999@daum.net'); 
+  //연결된 이메일  노출 유무 확인
+  expect(email).toBeTruthy; 
   //const button = await page.getByRole('link', { name: '내 정보' }).click();
 
   if (email) {
@@ -954,11 +1036,12 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
   await page.getByRole('button', { name: 'Disconnect Account' }).click();
   await page.waitForLoadState('load');
 
-  
-  const kakao_link = await page.locator('div').filter({ hasText: 'Twitter Connect Account' }).getByRole('link', { name: 'Connect Account' });//트위터  연결하기  텍스트 요소 얻기
-  expect(kakao_link).toBeTruthy; //트위터 연결 텍스트 노출 확인
+  //트위터  연결하기  텍스트 요소 얻기
+  const twitter_link = await page.locator('div').filter({ hasText: 'Twitter Connect Account' }).getByRole('link', { name: 'Connect Account' });
+  //트위터 연결 텍스트 노출 확인
+  expect(twitter_link).toBeTruthy; 
 
-  if (kakao_link) {
+  if (twitter_link) {
     console.log('트위터 연결이 해제 되었습니다.');
   } else {
     console.log('트위터 연결이 해제  되지 않았습니다.');
@@ -975,9 +1058,12 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
   await page.getByRole('button', { name: 'Login with email' }).click();
   await page.getByRole('button', { name: 'Account Menu' }).click();
 
-  const Locale_change = await page.waitForSelector('.userInfo__email'); //로그인된 이메일 주소 요소 얻기
-  const text = await Locale_change.evaluate((el) => el.textContent); //Locale_change에서 설정된 텍스트 얻기
-  expect(text).toBe("hidelove999@daum.net"); //라인 연결 텍스트 노출 확인
+  //로그인된 이메일 주소 요소 얻기
+  const Locale_change = await page.waitForSelector('.userInfo__email'); 
+   //Locale_change에서 설정된 텍스트 얻기
+  const text = await Locale_change.evaluate((el) => el.textContent);
+  //트위터 연결 텍스트 노출 확인
+  expect(text).toBe("hidelove999@daum.net"); 
 
   if (text === 'hidelove999@daum.net') {
     console.log('이메일 로그인이 완료 되었습니다.');
@@ -1025,9 +1111,12 @@ test('이메일 계정 로그인 , 카카오 연결,연결 해제_kr', async ({ 
   await page.getByRole('button', { name: 'Log In', exact: true }).click();
   await page.waitForLoadState('load');
 
-  const kakao_connect = await page.waitForSelector('.oauth--disconnect');  //카카오 연결 끊기 버튼 요소 얻기
-  const isVisible = await kakao_connect.isVisible(); //카카오 연결 끊기 노출 값 저장
-  expect(isVisible).toBeTruthy; //버튼 노츌 유무 확인
+  //카카오 연결 끊기 버튼 요소 얻기
+  const kakao_connect = await page.waitForSelector('.oauth--disconnect');  
+  //카카오 연결 끊기 노출 값 저장
+  const isVisible = await kakao_connect.isVisible(); 
+  //버튼 노츌 유무 확인
+  expect(isVisible).toBeTruthy; 
 
   if (isVisible) {
     console.log('카카오 계정이 연결 되었습니다.');
@@ -1039,9 +1128,12 @@ test('이메일 계정 로그인 , 카카오 연결,연결 해제_kr', async ({ 
   await page.getByRole('button', { name: '연결 해제' }).click();
   await page.waitForLoadState('load');
 
-  const kakao_disconnect = await page.$('.myAccount__section'); //카카오 연결 버튼 요소 얻기
-  const isVisible_2 = await kakao_disconnect?.isVisible(); //카카오 연결 노출 값 저장
-  expect(isVisible_2).toBeTruthy; //버튼 노츌 유무 확인
+  //카카오 연결 버튼 요소 얻기
+  const kakao_disconnect = await page.$('.myAccount__section'); 
+  //카카오 연결 노출 값 저장
+  const isVisible_2 = await kakao_disconnect?.isVisible(); 
+  //버튼 노츌 유무 확인
+  expect(isVisible_2).toBeTruthy; 
 
   if (isVisible_2) {
     console.log('카카오 계정이 연결해제 되었습니다.');
@@ -1076,9 +1168,12 @@ test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ 
   await page.getByRole('button', { name: 'Sign in' }).click();
   await page.waitForLoadState('load');
 
-  const kakao_connect = await page.waitForSelector('.oauth--disconnect');  //카카오 연결 끊기 버튼 요소 얻기
-  const isVisible = await kakao_connect.isVisible(); //카카오 연결 끊기 노출 값 저장
-  expect(isVisible).toBeTruthy; //버튼 노츌 유무 확인
+  //네이버 연결 끊기 버튼 요소 얻기
+  const naver_connect = await page.waitForSelector('.oauth--disconnect');  
+  //네이버 연결 끊기 노출 값 저장
+  const isVisible = await naver_connect.isVisible(); 
+  //버튼 노츌 유무 확인
+  expect(isVisible).toBeTruthy; 
 
   if (isVisible) {
     console.log('네이버 계정이 연결 되었습니다.');
@@ -1090,8 +1185,10 @@ test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ 
   await page.getByRole('button', { name: '연결 해제' }).click();
   await page.waitForLoadState('load');
 
-  const kakao_disconnect = await page.$('.myAccount__section'); //카카오 연결 버튼 요소 얻기
-  const isVisible_2 = await kakao_disconnect?.isVisible(); //카카오 연결 노출 값 저장
+  //네이버 연결 버튼 요소 얻기
+  const naver_disconnect = await page.$('.myAccount__section'); 
+  //네이버 연결 노출 값 저장
+  const isVisible_2 = await naver_disconnect?.isVisible(); 
   expect(isVisible_2).toBeTruthy; //버튼 노츌 유무 확인
 
   if (isVisible_2) {
@@ -1130,9 +1227,12 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
   //await page.getByRole('button', { name: '병호님으로 계속' }).click();
   await page.waitForLoadState('load');
 
-  const kakao_connect = await page.waitForSelector('.oauth--disconnect');  //카카오 연결 끊기 버튼 요소 얻기
-  const isVisible = await kakao_connect.isVisible(); //카카오 연결 끊기 노출 값 저장
-  expect(isVisible).toBeTruthy; //버튼 노츌 유무 확인
+  //페이스북 연결 끊기 버튼 요소 얻기
+  const facebook_connect = await page.waitForSelector('.oauth--disconnect');  
+  //페이스북 연결 끊기 노출 값 저장
+  const isVisible = await facebook_connect.isVisible(); 
+  //버튼 노츌 유무 확인
+  expect(isVisible).toBeTruthy; 
 
   if (isVisible) {
     console.log('페이스북 계정이 연결 되었습니다.');
@@ -1144,9 +1244,12 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
   await page.getByRole('button', { name: '연결 해제' }).click();
   await page.waitForLoadState('load');
 
-  const kakao_disconnect = await page.$('.myAccount__section'); //카카오 연결 버튼 요소 얻기
-  const isVisible_2 = await kakao_disconnect?.isVisible(); //카카오 연결 노출 값 저장
-  expect(isVisible_2).toBeTruthy; //버튼 노츌 유무 확인
+  //페이스북 연결 버튼 요소 얻기
+  const facebook_disconnect = await page.$('.myAccount__section'); 
+  //페이스북 연결 노출 값 저장
+  const isVisible_2 = await facebook_disconnect?.isVisible(); 
+  //버튼 노츌 유무 확인
+  expect(isVisible_2).toBeTruthy; 
 
   if (isVisible_2) {
     console.log('페이스북 계정이 연결해제 되었습니다.');
@@ -1182,9 +1285,12 @@ test('이메일 계정 로그인 , 라인 연결,연결 해제_ja', async ({ pag
   await page.getByRole('button', { name: 'Log In' }).click();
   //await page.waitForLoadState('load');
 
-  const kakao_connect = await page.waitForSelector('.oauth--disconnect');  //라인 연결 끊기 버튼 요소 얻기
-  const isVisible = await kakao_connect.isVisible(); //라인 연결 끊기 노출 값 저장
-  expect(isVisible).toBeTruthy; //버튼 노츌 유무 확인
+  //라인 연결 끊기 버튼 요소 얻기
+  const line_connect = await page.waitForSelector('.oauth--disconnect');  
+  //라인 연결 끊기 노출 값 저장
+  const isVisible = await line_connect.isVisible();
+  //버튼 노츌 유무 확인 
+  expect(isVisible).toBeTruthy; 
 
   if (isVisible) {
     console.log('라인 계정이 연결 되었습니다.');
@@ -1197,9 +1303,12 @@ test('이메일 계정 로그인 , 라인 연결,연결 해제_ja', async ({ pag
   await page.getByRole('button', { name: '解除する' }).click();
   //await page.waitForLoadState('load');
 
-  const kakao_disconnect = await page.$('.myAccount__section'); //라인 연결 버튼 요소 얻기
-  const isVisible_2 = await kakao_disconnect?.isVisible(); //라인 연결 노출 값 저장
-  expect(isVisible_2).toBeTruthy; //버튼 노츌 유무 확인
+  //라인 연결 버튼 요소 얻기
+  const line_disconnect = await page.$('.myAccount__section'); 
+  //라인 연결 노출 값 저장
+  const isVisible_2 = await line_disconnect?.isVisible(); 
+  //버튼 노츌 유무 확인
+  expect(isVisible_2).toBeTruthy; 
 
   if (isVisible_2) {
     console.log('라인 계정이 연결해제 되었습니다.');
@@ -1300,9 +1409,13 @@ test('이메일 계정 로그인 , 트위터 연결,연결 해제_us', async ({ 
   await page.getByTestId('LoginForm_Login_Button').click();
   await page.waitForTimeout(7000);
   */
-  const kakao_connect = await page.waitForSelector('.oauth--disconnect');  //라인 연결 끊기 버튼 요소 얻기
-  const isVisible = await kakao_connect.isVisible(); //라인 연결 끊기 노출 값 저장
-  expect(isVisible).toBeTruthy; //버튼 노츌 유무 확인
+
+  //트위터 연결 끊기 버튼 요소 얻기
+  const twitter_connect = await page.waitForSelector('.oauth--disconnect');  
+  //트위터 연결 끊기 노출 값 저장
+  const isVisible = await twitter_connect.isVisible();
+   //버튼 노츌 유무 확인
+  expect(isVisible).toBeTruthy;
 
   if (isVisible) {
     console.log('트위터 계정이 연결 되었습니다.');
@@ -1314,9 +1427,12 @@ test('이메일 계정 로그인 , 트위터 연결,연결 해제_us', async ({ 
   await page.getByRole('button', { name: 'Disconnect Account' }).click();
   await page.waitForLoadState('load');
 
-  const kakao_disconnect = await page.$('.myAccount__section'); //라인 연결 버튼 요소 얻기
-  const isVisible_2 = await kakao_disconnect?.isVisible(); //라인 연결 노출 값 저장
-  expect(isVisible_2).toBeTruthy; //버튼 노츌 유무 확인
+  //트위터 연결 버튼 요소 얻기
+  const twitter_disconnect = await page.$('.myAccount__section'); 
+  //트위터 연결 노출 값 저장
+  const isVisible_2 = await twitter_disconnect?.isVisible(); 
+  //버튼 노츌 유무 확인
+  expect(isVisible_2).toBeTruthy; 
 
   if (isVisible_2) {
     console.log('트위터 계정이 연결해제 되었습니다.');
@@ -1353,10 +1469,12 @@ test('내정보 > 생년월일 입력하기_kr', async ({ page }) => {
   await page.getByRole('combobox', { name: '일' }).selectOption('20');
   await page.getByRole('button', { name: '저장' }).click();
 
-  const birth_snackbar = await page.waitForSelector('.lzSnackbar'); //생년월일 입력후 노출되는 스낵바 요소 얻기
-  const isVisible = await birth_snackbar.isVisible(); //생년월일 입력 스낵바 노출 값 저장
-  expect(isVisible).toBeTruthy; //생년월일 스낵바 노출 검증
-
+  //생년월일 입력후 노출되는 스낵바 요소 얻기
+  const birth_snackbar = await page.waitForSelector('.lzSnackbar'); 
+  //생년월일 입력 스낵바 노출 값 저장
+  const isVisible = await birth_snackbar.isVisible(); 
+  //생년월일 스낵바 노출 검증
+  expect(isVisible).toBeTruthy; 
 
   if (isVisible) {
     console.log('생년월일이 저장 되었습니다.');
@@ -1394,9 +1512,12 @@ test('내정보 > 생년월일 입력하기_ja', async ({ page }) => {
   await page.getByRole('combobox', { name: '日' }).selectOption('20');
   await page.getByRole('button', { name: '保存' }).click();
 
-  const birth_snackbar = await page.waitForSelector('.lzSnackbar'); //생년월일 입력후 노출되는 스낵바 요소 얻기
-  const isVisible = await birth_snackbar.isVisible(); //생년월일 입력 스낵바 노출 값 저장
-  expect(isVisible).toBeTruthy; //생년월일 스낵바 노출 검증
+  //생년월일 입력후 노출되는 스낵바 요소 얻기
+  const birth_snackbar = await page.waitForSelector('.lzSnackbar'); 
+  //생년월일 입력 스낵바 노출 값 저장
+  const isVisible = await birth_snackbar.isVisible(); 
+  //생년월일 스낵바 노출 검증
+  expect(isVisible).toBeTruthy; 
 
 
   if (isVisible) {
@@ -1434,9 +1555,12 @@ test('내정보 > 생년월일 입력하기_us', async ({ page }) => {
   await page.getByRole('combobox', { name: 'Day' }).selectOption('20');
   await page.getByRole('button', { name: 'Save' }).click();
 
-  const birth_snackbar = await page.waitForSelector('.lzSnackbar'); //생년월일 입력후 노출되는 스낵바 요소 얻기
-  const isVisible = await birth_snackbar.isVisible(); //생년월일 입력 스낵바 노출 값 저장
-  expect(isVisible).toBeTruthy; //생년월일 스낵바 노출 검증
+  //생년월일 입력후 노출되는 스낵바 요소 얻기
+  const birth_snackbar = await page.waitForSelector('.lzSnackbar'); 
+  //생년월일 입력 스낵바 노출 값 저장
+  const isVisible = await birth_snackbar.isVisible(); 
+  //생년월일 스낵바 노출 검증
+  expect(isVisible).toBeTruthy; 
 
 
   if (isVisible) {
@@ -1480,10 +1604,12 @@ test('내정보 > 기기초기화 3개월 이내_kr', async ({ page }) => {
 
 
 
-
-  const mobile_snackbar = await page.waitForSelector('.lzSnackbar'); //초기화 실패 스낵바 요소 얻기
-  const isVisible = await mobile_snackbar.isVisible(); //초기화 실패 스낵바 노출 값 저장
-  expect(isVisible).toBeTruthy; //초기화 실패 스낵바 노출 검증
+  //초기화 실패 스낵바 요소 얻기
+  const mobile_snackbar = await page.waitForSelector('.lzSnackbar'); 
+  //초기화 실패 스낵바 노출 값 저장
+  const isVisible = await mobile_snackbar.isVisible(); 
+  //초기화 실패 스낵바 노출 검증
+  expect(isVisible).toBeTruthy; 
 
 
   if (isVisible) {
@@ -1514,9 +1640,12 @@ test('내정보 > 기기초기화 3개월 이내_ja', async ({ page }) => {
   await page.getByRole('button', { name: '端末の初期化' }).click();
   await page.getByRole('button', { name: '確認' }).click();
 
-  const mobile_snackbar = await page.waitForSelector('.lzSnackbar'); //초기화 실패 스낵바 요소 얻기
-  const isVisible = await mobile_snackbar.isVisible(); //초기화 실패 스낵바 노출 값 저장
-  expect(isVisible).toBeTruthy; //초기화 실패 스낵바 노출 검증
+  //초기화 실패 스낵바 요소 얻기
+  const mobile_snackbar = await page.waitForSelector('.lzSnackbar'); 
+  //초기화 실패 스낵바 노출 값 저장
+  const isVisible = await mobile_snackbar.isVisible(); 
+  //초기화 실패 스낵바 노출 검증
+  expect(isVisible).toBeTruthy; 
 
 
   if (isVisible) {
@@ -1546,9 +1675,12 @@ test('내정보 > 기기초기화 3개월 이내_us', async ({ page }) => {
   await page.getByRole('button', { name: 'Device Reset' }).click();
   await page.getByRole('button', { name: 'OK' }).click();
 
-  const mobile_snackbar = await page.waitForSelector('.lzSnackbar'); //초기화 실패 스낵바 요소 얻기
-  const isVisible = await mobile_snackbar.isVisible(); //초기화 실패 스낵바 노출 값 저장
-  expect(isVisible).toBeTruthy; //초기화 실패 스낵바 노출 검증
+  //초기화 실패 스낵바 요소 얻기
+  const mobile_snackbar = await page.waitForSelector('.lzSnackbar'); 
+  //초기화 실패 스낵바 노출 값 저장
+  const isVisible = await mobile_snackbar.isVisible(); 
+  //초기화 실패 스낵바 노출 검증
+  expect(isVisible).toBeTruthy; 
 
 
   if (isVisible) {
