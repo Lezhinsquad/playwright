@@ -145,9 +145,9 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   //네이버 계정 로그인 
   await page.getByRole('button', { name: '네이버로 로그인' }).click();
   await page.getByPlaceholder('Username').click();
-  await page.getByPlaceholder('Username').fill('hidelove999');
+  await page.getByPlaceholder('Username').fill('hidelove13');
   await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('cogus7qwe!@#');
+  await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign in' }).click();
   await page.waitForLoadState('load');
 
@@ -617,9 +617,9 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   //네이버 로그인
   await page.getByRole('button', { name: '네이버로 로그인' }).click();
   await page.getByPlaceholder('Username').click();
-  await page.getByPlaceholder('Username').fill('hidelove999');
+  await page.getByPlaceholder('Username').fill('hidelove13');
   await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('cogus7qwe!@#');
+  await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign in' }).click();
   //레진 회원가입 Flow  
   await page.waitForLoadState('load');
@@ -639,7 +639,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByRole('button', { name: '저장' }).click();
 
   //계정관리의 이메일 텍스트 요소 얻기
-  const email = await page.getByRole('tabpanel', { name: '계정 관리' }).getByText('hidelove999@naver.com'); 
+  const email = await page.getByRole('tabpanel', { name: '계정 관리' }).getByText('hidelove13@naver.com'); 
   //연결된 이메일  노출 유무 확인
   expect(email).toBeTruthy; 
   //const button = await page.getByRole('link', { name: '내 정보' }).click();
@@ -670,7 +670,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '로그아웃' }).click();
   await page.getByLabel('이메일').click();
-  await page.getByLabel('이메일').fill('hidelove999@naver.com');
+  await page.getByLabel('이메일').fill('hidelove13@naver.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
@@ -681,9 +681,9 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   //Locale_change에서 설정된 텍스트 얻기
   const text = await Locale_change.evaluate((el) => el.textContent); 
   //네이버 연결 텍스트 노출 확인
-  expect(text).toBe("hidelove999@naver.com"); 
+  expect(text).toBe("hidelove13@naver.com"); 
 
-  if (text === 'hidelove999@naver.com') {
+  if (text === 'hidelove13@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
   } else {
     console.log('이메일 로그인이 완료  되지 않았습니다.');
@@ -916,7 +916,7 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByRole('button', { name: 'Save' }).click();
 
   //계정관리의 이메일 텍스트 요소 얻기
-  const email = await page.getByRole('tabpanel', { name: 'My Account' }).getByText('hidelove999@naver.com'); 
+  const email = await page.getByRole('tabpanel', { name: 'My Account' }).getByText('hidelove13@naver.com'); 
   //연결된 이메일  노출 유무 확인
   expect(email).toBeTruthy; 
   //const button = await page.getByRole('link', { name: '내 정보' }).click();
@@ -1090,7 +1090,7 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
 
 //TC 133 , 146 수행 케이스
 test('이메일 계정 로그인 , 카카오 연결,연결 해제_kr', async ({ page }) => {
-   await page.setDefaultTimeout(60000);
+  await page.setDefaultTimeout(60000);
   await page.goto('https://q-www.lezhin.com/ko');
   await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
   await page.getByRole('button', { name: '계정 메뉴' }).click();
@@ -1162,9 +1162,9 @@ test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ 
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.locator('div').filter({ hasText: '네이버 연결' }).getByRole('link', { name: '연결' }).click();
   await page.getByPlaceholder('Username').click();
-  await page.getByPlaceholder('Username').fill('hidelove999');
+  await page.getByPlaceholder('Username').fill('hidelove13');
   await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('cogus7qwe!@#');
+  await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign in' }).click();
   await page.waitForLoadState('load');
 
