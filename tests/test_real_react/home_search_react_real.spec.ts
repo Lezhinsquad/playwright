@@ -1018,6 +1018,22 @@ test('성인 계정 성인작품 노출 19on_kr', async ({ page }) => {
   await searchInput.type('어쩌라GO  ');
   await page.waitForTimeout(1000);
 
+  //성인작품의 텍스트 요소 얻기
+  // p 태그를 선택
+  const element = await page.waitForSelector('.hy__infoTitle'); 
+  const text = await page.evaluate(element => {
+  // p 태그 내의 span 태그를 선택합니다.
+  const spanElement = element.querySelector('span'); 
+  // 텍스트를 추출하고 공백을 제거 후 변수에 저장
+  return spanElement?.textContent?.trim(); 
+  }, element);
+  console.log(text);
+  //검색결과에 나타난 성인 작품 타이틀 텍스트 검증
+  expect(text).toBe("어쩌라GO!");
+  console.log('검색결과 성인작품 타이틀 텍스트 정상 노출 확인 완료');
+  await page.close();
+
+  /*
   //정상 성인 이미지 노출
   // 이미지 요소를 선택
   const imageElement = await page.waitForSelector('img[src="https://ccdn.lezhin.com/v2/comics/6207797588393984/images/thumbnail.webp?updated=1624598074730&width=100"]'); 
@@ -1027,7 +1043,7 @@ test('성인 계정 성인작품 노출 19on_kr', async ({ page }) => {
   expect(srcValue).toBe("https://ccdn.lezhin.com/v2/comics/6207797588393984/images/thumbnail.webp?updated=1624598074730&width=100");
 
   console.log('성인작품 이미지 정상 노출 확인 완료');
-  await page.close();
+  await page.close();*/
   
 });
 
@@ -1054,20 +1070,36 @@ test('성인 계정 성인작품 노출 19on_ja', async ({ page }) => {
   await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
   await page.getByRole('button', { name: '検索窓を開く' }).click();
   const searchInput = await page.waitForSelector('#search-input');
-  await searchInput.type('BAD THINKING DIARY  ');
+  await searchInput.type('雪辱の花  ');
   await page.waitForTimeout(1000);
 
 
-//정상 성인 이미지 노출
-// 이미지 요소를 선택
-const imageElement = await page.waitForSelector('img[src="https://ccdn.lezhin.com/v2/comics/4626270150000640/images/thumbnail.webp?updated=1691926581430&width=100"]'); 
-// 이미지 요소의 url을 srcValue 변수에 저장
-const srcValue = await imageElement.evaluate(element => element.getAttribute('src'));
-//srcAttribute에 저장된 src 링크 url과 실제 url을 비교
-expect(srcValue).toBe("https://ccdn.lezhin.com/v2/comics/4626270150000640/images/thumbnail.webp?updated=1691926581430&width=100"); 
+  //성인작품의 텍스트 요소 얻기
+  // p 태그를 선택
+  const element = await page.waitForSelector('.hy__infoTitle'); 
+  const text = await page.evaluate(element => {
+  // p 태그 내의 span 태그를 선택
+  const spanElement = element.querySelector('span');
+  // 텍스트를 추출하고 공백을 제거 후 변수에 저장 
+  return spanElement?.textContent?.trim(); 
+  }, element);
+  console.log(text);
+  //검색결과에 나타난 성인 작품 타이틀 텍스트 검증
+  expect(text).toBe("雪辱の花");
+  console.log('검색결과 성인작품 타이틀 텍스트 정상 노출 확인 완료');
+  await page.close();
 
-console.log('성인작품 이미지 정상 노출 확인 완료');
-await page.close();
+ /*  
+ // 성인작품 이미지 검증 스크립트 (제외)
+ // 이미지 요소를 선택
+ const imageElement = await page.waitForSelector('img[src="https://ccdn.lezhin.com/v2/comics/4626270150000640/images/thumbnail.webp?updated=1691926581430&width=100"]'); 
+ // 이미지 요소의 url을 srcValue 변수에 저장
+ const srcValue = await imageElement.evaluate(element => element.getAttribute('src'));
+ //srcAttribute에 저장된 src 링크 url과 실제 url을 비교
+ expect(srcValue).toBe("https://ccdn.lezhin.com/v2/comics/4626270150000640/images/thumbnail.webp?updated=1691926581430&width=100"); 
+
+ console.log('성인작품 이미지 정상 노출 확인 완료');
+ await page.close();*/
   
 });
 
@@ -1097,16 +1129,31 @@ test('성인 계정 성인작품 노출 19on_us', async ({ page }) => {
   await searchInput.type('Like Fine Wine  ');
   await page.waitForTimeout(1000);
 
-//정상 성인 이미지 노출
-// 이미지 요소를 선택
-const imageElement = await page.waitForSelector('img[src="https://ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1710124204487&width=100"]'); 
-// 이미지 요소의 url을 srcValue 변수에 저장
-const srcValue = await imageElement.evaluate(element => element.getAttribute('src'));
-//srcAttribute에 저장된 src 링크 url과 실제 url을 비교
-expect(srcValue).toBe("https://ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1710124204487&width=100"); 
+  //성인작품의 텍스트 요소 얻기
+  // p 태그를 선택
+  const element = await page.waitForSelector('.hy__infoTitle'); 
+  const text = await page.evaluate(element => {
+  // p 태그 내의 span 태그를 선택
+  const spanElement = element.querySelector('span');
+  // 텍스트를 추출하고 공백을 제거 후 변수에 저장 
+  return spanElement?.textContent?.trim(); 
+  }, element);
+  console.log(text);
+  //검색결과에 나타난 성인 작품 타이틀 텍스트 검증
+  expect(text).toBe("Like Fine Wine");
+  console.log('검색결과 성인작품 타이틀 텍스트 정상 노출 확인 완료');
+  await page.close(); 
+ /* 
+ //정상 성인 이미지 노출
+ // 이미지 요소를 선택
+ const imageElement = await page.waitForSelector('img[src="https://ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1710124204487&width=100"]'); 
+ // 이미지 요소의 url을 srcValue 변수에 저장
+ const srcValue = await imageElement.evaluate(element => element.getAttribute('src'));
+ //srcAttribute에 저장된 src 링크 url과 실제 url을 비교
+ expect(srcValue).toBe("https://ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1710124204487&width=100"); 
 
-console.log('성인작품 이미지 정상 노출 확인 완료');
-await page.close();
+ console.log('성인작품 이미지 정상 노출 확인 완료');
+ await page.close();*/
   
 });
 
@@ -1146,7 +1193,53 @@ test('성인 계정 성인작품 노출 19 Off_kr', async ({ page }) => {
   await searchInput.type('어쩌라go ');
   await page.waitForTimeout(1000);
 
+  //성인작품의 텍스트 요소 얻기
+  // p 태그를 선택
+  const element = await page.waitForSelector('.hy__infoTitle'); 
+  const text = await page.evaluate(element => {
+  // p 태그 내의 span 태그를 선택합니다.
+  const spanElement = element.querySelector('span'); 
+  // 텍스트를 추출하고 공백을 제거 후 변수에 저장
+  return spanElement?.textContent?.trim(); 
+  }, element);
+  console.log(text);
+  //검색결과에 나타난 성인 작품 타이틀 텍스트 검증
+  expect(text).toBe("어쩌라GO!");
+  console.log('검색결과 성인작품 타이틀 텍스트 정상 노출 확인 완료');
 
+  await page.getByRole('link', { name: '19 어쩌라GO! 워린' }).click();
+
+  try {
+    //언어변경 페이지가 표시될때 버튼 클릭 스크립트
+    const button = await page.waitForSelector('button.lzBtn.lzBtn--medium.lzBtn--major', { timeout: 5000 });;
+    if (await button.isVisible()) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('언어변경 표시 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    //await page.getByRole('button', { name: '검색창 열기' }).click()
+  }
+  //await page.getByRole('button', { name: '변경하기' }).click();
+
+  
+  //에피소드 목록진입
+  // 요소 클래스에서 에피소드 목록 타이틀 요소 가져오기
+  const element_1 = await page.waitForSelector('.comicInfo__title'); 
+  //text_1 변수에 element_1 저장된 텍스트를 저장
+  const text_1 = await element_1.evaluate((el) => el.textContent); 
+  //text_1에 저장된 텍스트와 실제 텍스트를 비교
+  expect(text_1).toBe("어쩌라GO!"); 
+  
+  if (text_1 === '어쩌라GO!') {
+    console.log('어쩌라GO! 에피소드 목록으로 이동 되었습니다.');
+  } else {
+    console.log('어쩌라GO! 에피소드 목록으로 이동 되지 않았습니다.');
+  }
+  await page.close();  
+
+/*
 //정상 성인 이미지 노출
 // 이미지 요소를 선택
 const imageElement = await page.waitForSelector('img[src="https://ccdn.lezhin.com/v2/comics/6207797588393984/images/thumbnail.webp?updated=1624598074730&width=100"]'); 
@@ -1156,7 +1249,7 @@ const srcValue = await imageElement.evaluate(element => element.getAttribute('sr
 expect(srcValue).toBe("https://ccdn.lezhin.com/v2/comics/6207797588393984/images/thumbnail.webp?updated=1624598074730&width=100"); 
 
 console.log('성인작품 이미지 정상 노출 확인 완료');
-await page.close();
+await page.close();*/
 
 });
 
@@ -1189,10 +1282,59 @@ test('성인 계정 성인작품 노출 19 Off_jp', async ({ page }) => {
   await page.waitForTimeout(2000);
   await page.getByRole('button', { name: '検索窓を開く' }).click();
   const searchInput = await page.waitForSelector('#search-input');
-  await searchInput.type('BAD THINKING DIARY ');
+  await searchInput.type('雪辱の花 ');
   await page.waitForTimeout(1000);
 
 
+  //성인작품의 텍스트 요소 얻기
+  // p 태그를 선택
+  const element = await page.waitForSelector('.hy__infoTitle'); 
+  const text = await page.evaluate(element => {
+  // p 태그 내의 span 태그를 선택
+  const spanElement = element.querySelector('span');
+  // 텍스트를 추출하고 공백을 제거 후 변수에 저장 
+  return spanElement?.textContent?.trim(); 
+  }, element);
+  console.log(text);
+  //검색결과에 나타난 성인 작품 타이틀 텍스트 검증
+  expect(text).toBe("雪辱の花");
+  console.log('검색결과 성인작품 타이틀 텍스트 정상 노출 확인 완료');
+
+  await page.getByRole('link', { name: '18 雪辱の花 snob' }).click();
+
+
+  try {
+    //언어변경 페이지가 표시될때 버튼 클릭 스크립트
+    const button = await page.waitForSelector('button.lzBtn.lzBtn--medium.lzBtn--major', { timeout: 5000 });;
+    if (await button.isVisible()) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('언어변경 표시 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    //await page.getByRole('button', { name: '검색창 열기' }).click()
+  }
+  //await page.getByRole('button', { name: '변경하기' }).click();
+
+  
+  //에피소드 목록진입
+  // 요소 클래스에서 에피소드 목록 타이틀 요소 가져오기
+  const element_1 = await page.waitForSelector('.comicInfo__title'); 
+  //text_1 변수에 element_1 저장된 텍스트를 저장
+  const text_1 = await element_1.evaluate((el) => el.textContent); 
+  //text_1에 저장된 텍스트와 실제 텍스트를 비교
+  expect(text_1).toBe("雪辱の花"); 
+  
+  if (text_1 === '雪辱の花') {
+    console.log('雪辱の花 에피소드 목록으로 이동 되었습니다.');
+  } else {
+    console.log('雪辱の花 에피소드 목록으로 이동 되지 않았습니다.');
+  }
+  await page.close();  
+  
+
+/*
 //정상 성인 이미지 노출
 // 이미지 요소를 선택
 const imageElement = await page.waitForSelector('img[src="https://ccdn.lezhin.com/v2/comics/4626270150000640/images/thumbnail.webp?updated=1691926581430&width=100"]'); 
@@ -1202,7 +1344,7 @@ const srcValue = await imageElement.evaluate(element => element.getAttribute('sr
 expect(srcValue).toBe("https://ccdn.lezhin.com/v2/comics/4626270150000640/images/thumbnail.webp?updated=1691926581430&width=100");
 
 console.log('성인작품 이미지 정상 노출 확인 완료');
-await page.close();
+await page.close();*/
 
 });
 
@@ -1237,7 +1379,54 @@ test('성인 계정 성인작품 노출 19 Off_us', async ({ page }) => {
   await searchInput.type('Like Fine Wine  ');
   await page.waitForTimeout(1000);
 
+  //성인작품의 텍스트 요소 얻기
+  // p 태그를 선택
+  const element = await page.waitForSelector('.hy__infoTitle'); 
+  const text = await page.evaluate(element => {
+  // p 태그 내의 span 태그를 선택
+  const spanElement = element.querySelector('span');
+  // 텍스트를 추출하고 공백을 제거 후 변수에 저장 
+  return spanElement?.textContent?.trim(); 
+  }, element);
+  console.log(text);
+  //검색결과에 나타난 성인 작품 타이틀 텍스트 검증
+  expect(text).toBe("Like Fine Wine");
+  console.log('검색결과 성인작품 타이틀 텍스트 정상 노출 확인 완료');
 
+  await page.getByRole('link', { name: 'R Like Fine Wine Yeoprokso, Kelly_o' }).click();
+  
+  try {
+    //언어변경 페이지가 표시될때 버튼 클릭 스크립트
+    const button = await page.waitForSelector('button.lzBtn.lzBtn--medium.lzBtn--major', { timeout: 5000 });;
+    if (await button.isVisible()) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('언어변경 표시 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    //await page.getByRole('button', { name: '검색창 열기' }).click()
+  }
+  //await page.getByRole('button', { name: '변경하기' }).click();
+
+  
+  //에피소드 목록진입
+  // 요소 클래스에서 에피소드 목록 타이틀 요소 가져오기
+  const element_1 = await page.waitForSelector('.comicInfo__title'); 
+  //text_1 변수에 element_1 저장된 텍스트를 저장
+  const text_1 = await element_1.evaluate((el) => el.textContent); 
+  //text_1에 저장된 텍스트와 실제 텍스트를 비교
+  expect(text_1).toBe("Like Fine Wine"); 
+  
+  if (text_1 === 'Like Fine Wine') {
+    console.log('Like Fine Wine 에피소드 목록으로 이동 되었습니다.');
+  } else {
+    console.log('Like Fine Wine 에피소드 목록으로 이동 되지 않았습니다.');
+  }
+  await page.close();  
+
+
+/*
 //정상 성인 이미지 노출
 // 이미지 요소를 선택
 const imageElement = await page.waitForSelector('img[src="https://ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1710124204487&width=100"]'); 
@@ -1247,7 +1436,7 @@ const srcValue = await imageElement.evaluate(element => element.getAttribute('sr
 expect(srcValue).toBe("https://ccdn.lezhin.com/v2/comics/4953128406155264/images/thumbnail.webp?updated=1710124204487&width=100"); 
 
 console.log('성인작품 이미지 정상 노출 확인 완료');
-await page.close();
+await page.close();*/
 
 });
 
@@ -1267,6 +1456,7 @@ test('검색 > 에피소드 목록 이동_kr', async ({ page }) => {
   } catch (error) {
     //await page.getByRole('button', { name: '검색창 열기' }).click()
   }
+  
   await page.getByRole('button', { name: '검색창 열기' }).click();
   const searchInput = await page.waitForSelector('#search-input');
   await searchInput.type('귀멸의 칼날  ');
@@ -1292,6 +1482,7 @@ test('검색 > 에피소드 목록 이동_kr', async ({ page }) => {
 
 test('검색 > 성인 작품 에피소드 목록 이동_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
+  
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
     const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
@@ -1304,6 +1495,14 @@ test('검색 > 성인 작품 에피소드 목록 이동_ja', async ({ page }) =>
   } catch (error) {
     //await page.getByRole('button', { name: '검색창 열기' }).click()
   }
+  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+  await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
+  await page.getByLabel('メールアドレス').click();
+  await page.getByLabel('メールアドレス').fill('squad@lezhin.com');
+  await page.getByLabel('パスワード').click();
+  await page.getByLabel('パスワード').fill('wlscogus7!');
+  await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
+  await page.waitForLoadState('load');
   await page.getByRole('button', { name: '検索窓を開く' }).click();
   const searchInput = await page.waitForSelector('#search-input');
   await searchInput.type('BAD THINKING DIARY  ');
