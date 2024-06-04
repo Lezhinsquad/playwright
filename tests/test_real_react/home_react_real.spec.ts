@@ -989,6 +989,7 @@ test('홈에서 보고 싶은 장르 취향 설정 하기', async ({ page }) => 
 
 test('취향 설정 하기 버튼 노출_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
+
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
     const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
@@ -1001,6 +1002,7 @@ test('취향 설정 하기 버튼 노출_kr', async ({ page }) => {
   } catch (error) {
     
   }
+
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
@@ -1008,7 +1010,21 @@ test('취향 설정 하기 버튼 노출_kr', async ({ page }) => {
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
+
   await page.getByRole('button', { name: '홈에서 보고 싶은 장르 취향 설정 하기' }).click();
   await page.getByRole('button', { name: '취소' }).click();
 
@@ -1047,7 +1063,21 @@ test('취향 설정 하기 버튼 노출_ja', async ({ page }) => {
   await page.getByLabel('パスワード').click();
   await page.getByLabel('パスワード').fill('wlscogus7!');
   await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
 
 
   //취향 설정하기 버튼의 텍스트 요소 를 spanText에 저장
@@ -1083,7 +1113,20 @@ test('취향 설정 하기 버튼 노출_us', async ({ page }) => {
   await page.getByLabel('Email').fill('squad@lezhin.com');
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
 
 
   //취향 설정하기 버튼의 텍스트 요소 를 spanText에 저장
@@ -1121,7 +1164,21 @@ test('취향 적용 중_kr', async ({ page }) => {
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
   //await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
  
 
@@ -1160,9 +1217,21 @@ test('취향 적용 중_ja', async ({ page }) => {
   await page.getByLabel('パスワード').click();
   await page.getByLabel('パスワード').fill('wlscogus7!');
   await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
  
-
 
   //취향 적용 중 버튼의 텍스트 요소 를 spanText에 저장
   const spanText = await page.$eval('span.style_myGenreSet__btnText__LxuAP', (element) => element.textContent); 
@@ -1197,7 +1266,21 @@ test('취향 적용 중_us', async ({ page }) => {
   await page.getByLabel('Email').fill('hidelove99@nate.com');
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
  
 
 
