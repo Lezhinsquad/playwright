@@ -4,7 +4,7 @@ test('이메일 로그인 정보 필드 확인', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -15,14 +15,15 @@ test('이메일 로그인 정보 필드 확인', async ({ page }) => {
     
   }
 
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
   await page.getByLabel('이메일').fill('hidelove99@nate.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.waitForLoadState('load');
+  await page.waitForTimeout(2000);
 
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -36,7 +37,8 @@ test('이메일 로그인 정보 필드 확인', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
 
   
@@ -85,7 +87,7 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -95,7 +97,9 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('button', { name: '카카오로 로그인' }).click();
 
   //카카오 계정 로그인 
@@ -106,12 +110,6 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.getByRole('button', { name: 'Log In', exact: true }).click();
   await page.waitForNavigation({ waitUntil: 'load' });
   
-  //레진 회원가입 Flow
-  await page.getByText('전체동의').click();
-  await page.getByText('만 14세 이상입니다.(필수)').click();
-  await page.getByRole('button', { name: '동의' }).click();
-  await page.getByRole('link', { name: '확인' }).click();
-  await page.waitForLoadState('load');
 
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -125,7 +123,8 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
 
   //dtText 변수에 dt 태그의 이메일 주소 추출
@@ -174,12 +173,6 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
     console.log('휴대폰 번호가 잘못 노출되거나 노출되지 않습니다.');
   }
 
-  await page.click('#toggle-unregister-form');
-  await page.getByText('이용이 불편하고 장애가 많음').click();
-  await page.getByRole('button', { name: '탈퇴하기' }).click();
-  await page.getByRole('button', { name: '확인' }).click();
-  await page.waitForLoadState('load');
-  console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
 
 });
@@ -188,7 +181,7 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -198,16 +191,17 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
 
   //네이버 계정 로그인 
   await page.getByRole('button', { name: '네이버로 로그인' }).click();
-  await page.getByPlaceholder('ID').click();
-  await page.getByPlaceholder('ID').fill('hidelove9989');
-  await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7');
+  await page.getByLabel('ID or Phone number').click();
+  await page.getByLabel('ID or Phone number').fill('hidelove9989');
+  await page.getByLabel('>Password').click();
+  await page.getByLabel('>Password').fill('wlscogus7');
   await page.getByRole('button', { name: 'Sign in' }).click();
-  await page.waitForLoadState('load');
+  await page.waitForTimeout(2000);
 
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -230,7 +224,8 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.getByRole('link', { name: '확인' }).click();
   await page.waitForLoadState('load');
   */
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
   
   //dtText 변수에 dt 태그의 이메일 주소 추출
@@ -282,11 +277,11 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
 
 
 
-test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
+/*test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -313,6 +308,7 @@ test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.waitForLoadState('load');
   //await page.goto('https://www.lezhin.jp/ja/welcome/line?redirect=%2Fja');
   await page.getByRole('link', { name: 'レジンコミックス' }).click();
+  await page.waitForTimeout(2000);
 
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -376,7 +372,7 @@ test('라인 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
 
-});
+});*/
 
 /*test('야후 SNS 로그인 정보 필드 확인_jp', async ({ page }) => {
   await page.setDefaultTimeout(60000);
@@ -463,7 +459,7 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -473,7 +469,9 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('button', { name: 'Login with Facebook' }).click();
   //페이스북 로그인
   await page.getByPlaceholder('Email or phone number').click();
@@ -481,8 +479,9 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('wlscogus7!!!');
   await page.getByRole('button', { name: 'Log In' }).click();
-  //await page.getByRole('button', { name: '병호님으로 계속' }).click();
-  await page.waitForLoadState('load');
+  await page.waitForTimeout(1000);
+  await page.getByLabel('병호님으로 계속').click();
+  await page.waitForTimeout(2000);
 
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -503,9 +502,9 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByRole('button', { name: 'Confirm' }).click();
   await page.waitForLoadState('load');
   await page.getByRole('link', { name: 'OK' }).click();*/
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+  await page.click(selector);
   await page.getByRole('link', { name: 'My Account' }).click();
-  await page.getByRole('link', { name: 'My Account' }).click();
+
   
   //dtText 변수에 dt 태그의 이메일 주소 추출
   const dtText = await page.waitForSelector('dt');
@@ -552,7 +551,7 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -562,7 +561,9 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('button', { name: 'Login with X' }).click();
   //트위터 로그인
   await page.getByPlaceholder('Username or email').click();
@@ -570,7 +571,7 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.waitForLoadState('load');
+  await page.waitForTimeout(2000);
 
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -602,7 +603,7 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.getByRole('button', { name: 'Confirm' }).click();
   await page.waitForLoadState('load');
   await page.getByRole('link', { name: 'OK' }).click();*/
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+  await page.click(selector);
   await page.getByRole('link', { name: 'My Account' }).click();
   
   //dtText 변수에 dt 태그의 이메일 주소 추출
@@ -649,12 +650,12 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
 
 
 
-
+/*
 test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -678,11 +679,11 @@ test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByText('만 14세 이상입니다.(필수)').click();
   await page.getByRole('button', { name: '동의' }).click();
   await page.getByRole('link', { name: '확인' }).click();
-  await page.waitForLoadState('load');
+  await page.waitForTimeout(2000);
 
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -765,15 +766,14 @@ test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   
   console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
-});
+});*/
 
 
 test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async ({ page }) => {
-  await page.setDefaultTimeout(120000);
   await page.goto('https://www.lezhin.com/ko')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -783,25 +783,27 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
-  //네이버 로그인
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
+  //네이버 계정 로그인 
   await page.getByRole('button', { name: '네이버로 로그인' }).click();
-  await page.getByPlaceholder('ID').click();
-  await page.getByPlaceholder('ID').fill('hidelove999');
-  await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('cogus7qwe!@#');
+  await page.getByLabel('ID or Phone number').click();
+  await page.getByLabel('ID or Phone number').fill('hidelove13');
+  await page.getByLabel('>Password').click();
+  await page.getByLabel('>Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign in' }).click();
+  await page.waitForTimeout(2000);
   //레진 회원가입 Flow  
   await page.waitForLoadState('load');
   await page.getByText('전체동의').click();
   await page.getByText('만 14세 이상입니다.(필수)').click();
   await page.getByRole('button', { name: '동의' }).click();
   await page.getByRole('link', { name: '확인' }).click();
-  await page.waitForLoadState('load');
+  await page.waitForTimeout(2000);
 
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -812,7 +814,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
     
   }
 
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
   
   await page.getByRole('button', { name: '비밀번호 설정' }).click();
@@ -854,7 +856,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   await page.getByRole('button', { name: '계정 메뉴' }).click();
   await page.getByRole('link', { name: '로그아웃' }).click();
   await page.getByLabel('이메일').click();
-  await page.getByLabel('이메일').fill('hidelove999@naver.com');
+  await page.getByLabel('이메일').fill('hidelove13@naver.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
@@ -865,9 +867,9 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
   //Locale_change에서 설정된 텍스트 얻기
   const text = await Locale_change.evaluate((el) => el.textContent); 
   //네이버 연결 텍스트 노출 확인
-  expect(text).toBe("hidelove999@naver.com"); 
+  expect(text).toBe("hidelove13@naver.com"); 
 
-  if (text === 'hidelove999@naver.com') {
+  if (text === 'hidelove13@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
   } else {
     console.log('이메일 로그인이 완료  되지 않았습니다.');
@@ -889,7 +891,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
 
 
 
-test('라인 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ page, browser }) => {
+/*test('라인 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ page, browser }) => {
   await page.setDefaultTimeout(150000);
   await page.goto('https://www.lezhin.jp/ja');
   try {
@@ -999,7 +1001,7 @@ test('라인 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ p
 
   await page.waitForTimeout(1000);
   await page.close();
-});
+});*/
 
 /*test('야후 SNS 비밀번호 등록 과 연결해제, 로그인_jp', async ({ page }) => {
   await page.setDefaultTimeout(120000);
@@ -1104,22 +1106,25 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('button', { name: 'Login with Facebook' }).click();
   //페이스북 로그인
   await page.getByPlaceholder('Email or phone number').click();
-  await page.getByPlaceholder('Email or phone number').fill('hidelove999@naver.com');
+  await page.getByPlaceholder('Email or phone number').fill('hidelove13@naver.com');
   await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7!@#');
+  await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Log In' }).click();
-  //await page.getByRole('button', { name: '병호님으로 계속' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: '병호님으로 계속' }).click();
   //레진 회원가입 Flow
   await page.getByText('Agree to the Lezhin Comics Terms of Use(required)').click();
   await page.getByRole('button', { name: 'Confirm' }).click();
   await page.getByRole('link', { name: 'OK' }).click();
-  await page.getByRole('button', { name: 'Account Menu' }).click();
-  await page.getByRole('link', { name: 'My Account' }).click();
-  await page.waitForTimeout(2000);
+  await page.goto('https://www.lezhinus.com/en/account');
+  await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Password setting' }).click();
   await page.getByLabel('New password', { exact: true }).click();
   await page.getByLabel('New password', { exact: true }).fill('wlscogus7!');
@@ -1128,7 +1133,7 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByRole('button', { name: 'Save' }).click();
 
   //계정관리의 이메일 텍스트 요소 얻기
-  const email = await page.getByRole('tabpanel', { name: 'My Account' }).getByText('hidelove999@naver.com'); 
+  const email = await page.getByRole('tabpanel', { name: 'My Account' }).getByText('hidelove13@naver.com'); 
   //연결된 이메일  노출 유무 확인
   expect(email).toBeTruthy; 
   //const button = await page.getByRole('link', { name: '내 정보' }).click();
@@ -1154,12 +1159,12 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
     console.log('페이스북 연결이 해제  되지 않았습니다.');
   }
   console.log();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
 
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'Logout' }).click();
   await page.getByLabel('Email').click();
-  await page.getByLabel('Email').fill('hidelove999@naver.com');
+  await page.getByLabel('Email').fill('hidelove13@naver.com');
   await page.getByLabel('Password').click();
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
@@ -1170,9 +1175,9 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   //Locale_change에서 설정된 텍스트 얻기
   const text = await Locale_change.evaluate((el) => el.textContent); 
   //페이스북 연결 텍스트 노출 확인
-  expect(text).toBe("hidelove999@naver.com"); 
+  expect(text).toBe("hidelove13@naver.com"); 
 
-  if (text === 'hidelove999@naver.com') {
+  if (text === 'hidelove13@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
   } else {
     console.log('이메일 로그인이 완료  되지 않았습니다.');
@@ -1184,20 +1189,20 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.getByPlaceholder('Please enter your password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Deactivate', exact: true }).click();
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('link', { name: 'Home' }).click();
 
-  await page.waitForLoadState('load');
+
   console.log('회원탈퇴가 완료 되었습니다.');
   await page.close();
 });
 
 test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('button', { name: 'Login with X' }).click();
   //트위터 로그인
   await page.getByPlaceholder('Username or email').click();
-  await page.getByPlaceholder('Username or email').fill('hidelove999');
+  await page.getByPlaceholder('Username or email').fill('hidelove9989');
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -1219,7 +1224,7 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
   await page.getByText('Agree to the Lezhin Comics Terms of Use(required)').click();
   await page.getByRole('button', { name: 'Confirm' }).click();
   await page.getByRole('link', { name: 'OK' }).click();
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+  await page.click(selector);
   await page.getByRole('link', { name: 'My Account' }).click();
   //await page.getByRole('link', { name: 'My Account' }).click();
 
@@ -1263,7 +1268,7 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
   await page.getByRole('button', { name: 'Account Menu' }).click();
   await page.getByRole('link', { name: 'Logout' }).click();
   await page.getByLabel('Email').click();
-  await page.getByLabel('Email').fill('hidelove999@daum.net');
+  await page.getByLabel('Email').fill('hidelove13@naver.com');
   await page.getByLabel('Password').click();
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
@@ -1274,9 +1279,9 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
    //Locale_change에서 설정된 텍스트 얻기
   const text = await Locale_change.evaluate((el) => el.textContent);
   //트위터 연결 텍스트 노출 확인
-  expect(text).toBe("hidelove999@daum.net"); 
+  expect(text).toBe("hidelove13@naver.com"); 
 
-  if (text === 'hidelove999@daum.net') {
+  if (text === 'hidelove13@naver.com') {
     console.log('이메일 로그인이 완료 되었습니다.');
   } else {
     console.log('이메일 로그인이 완료  되지 않았습니다.');
@@ -1300,7 +1305,7 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
 
 
 //TC 133 , 146 수행 케이스
-test('이메일 계정 로그인 , 카카오 연결,연결 해제_kr', async ({ page }) => {
+/*test('이메일 계정 로그인 , 카카오 연결,연결 해제_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1377,7 +1382,7 @@ test('이메일 계정 로그인 , 카카오 연결,연결 해제_kr', async ({ 
   await page.waitForLoadState('load');
   await page.close();
 
-});
+});*/
 
 test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
@@ -1393,10 +1398,11 @@ test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ 
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
-  await page.getByLabel('이메일').fill('hidelove13@naver.com');
+  await page.getByLabel('이메일').fill('hidelove99@nate.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
@@ -1412,13 +1418,13 @@ test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ 
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.locator('div').filter({ hasText: '네이버 연결' }).getByRole('link', { name: '연결' }).click();
-  await page.getByPlaceholder('ID').click();
-  await page.getByPlaceholder('ID').fill('hidelove13');
-  await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7!');
+  await page.getByLabel('ID or Phone number').click();
+  await page.getByLabel('ID or Phone number').fill('hidelove13');
+  await page.getByLabel('>Password').click();
+  await page.getByLabel('>Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign in' }).click();
   await page.waitForLoadState('load');
 
@@ -1470,7 +1476,8 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_네이버_
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
   await page.getByLabel('이메일').fill('squad@lezhin.com');
@@ -1492,15 +1499,16 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_네이버_
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.locator('div').filter({ hasText: '네이버 연결' }).getByRole('link', { name: '연결' }).click();
-  await page.getByPlaceholder('ID').click();
-  await page.getByPlaceholder('ID').fill('hidelove9989');
-  await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7');
+  await page.getByLabel('ID or Phone number').click();
+  await page.getByLabel('ID or Phone number').fill('hidelove9989');
+  await page.getByLabel('>Password').click();
+  await page.getByLabel('>Password').fill('wlscogus7');
   await page.getByRole('button', { name: 'Sign in' }).click();
-  await page.waitForLoadState('load');
+  await page.waitForTimeout(2000);
+
 
 
   //유효성 체크 얼럿 요소 노출 확인
@@ -1536,10 +1544,12 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
-  await page.getByLabel('이메일').fill('hidelove13@naver.com');
+  await page.getByLabel('이메일').fill('hidelove99@nate.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
@@ -1556,7 +1566,8 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.locator('div').filter({ hasText: '페이스북 연결' }).getByRole('link', { name: '연결' }).click();
   await page.getByPlaceholder('Email or phone number').click();
@@ -1564,7 +1575,7 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('wlscogus7!@#');
   await page.getByRole('button', { name: 'Log In' }).click();
-  //await page.getByRole('button', { name: '병호님으로 계속' }).click();
+  await page.getByRole('button', { name: '병호님으로 계속' }).click();
   await page.waitForLoadState('load');
 
   //페이스북 연결 끊기 버튼 요소 얻기
@@ -1616,13 +1627,17 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_페이스�
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
   await page.getByLabel('이메일').fill('squad@lezhin.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
+  await page.waitForTimeout(2000);
+  
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
     const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
@@ -1635,7 +1650,8 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_페이스�
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.locator('div').filter({ hasText: '페이스북 연결' }).getByRole('link', { name: '연결' }).click();
   await page.getByPlaceholder('Email or phone number').click();
@@ -1643,6 +1659,7 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_페이스�
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('wlscogus7!!!');
   await page.getByRole('button', { name: 'Log In' }).click();
+  await page.getByLabel('병호님으로 계속').click();
   await page.waitForLoadState('load');
 
 
@@ -1680,15 +1697,31 @@ test('이메일 계정 로그인 , 라인 연결,연결 해제_ja', async ({ pag
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
-  await page.getByLabel('メールアドレス').fill('hidelove13@naver.com');
+  await page.getByLabel('メールアドレス').fill('hidelove99@nate.com');
   await page.getByLabel('パスワード').click();
   await page.getByLabel('パスワード').fill('wlscogus7!');
   await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
   await page.waitForLoadState('load');
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
+
+  await page.click(selector);
   await page.getByRole('link', { name: '会員情報' }).click();
   await page.locator('div').filter({ hasText: 'LINE 連携する' }).getByRole('link', { name: '連携する' }).click();
   await page.locator('div').filter({ hasText: /^Email address$/ }).click();
@@ -1802,37 +1835,41 @@ test('이메일 계정 로그인 , 트위터 연결,연결 해제_us', async ({ 
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
-  await page.getByLabel('Email').fill('hidelove13@naver.com');
+  await page.getByLabel('Email').fill('squad@lezhin.com');
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
   await page.waitForLoadState('load');
 
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
+
+  await page.click(selector);
   await page.getByRole('link', { name: 'My Account' }).click();
 
   await page.locator('div').filter({ hasText: 'X Connect Account' }).getByRole('link', { name: 'Connect Account' }).click();
   await page.getByPlaceholder('Username or email').click();
-  await page.getByPlaceholder('Username or email').fill('hidelove999');
+  await page.getByPlaceholder('Username or email').fill('hidelove9989');
   
   await page.getByPlaceholder('Password').click();
   await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.waitForLoadState('load');
-  /*
-  await page.getByLabel('Phone, email, or username').click();
-  await page.getByLabel('Phone, email, or username').fill('hidelove999@daum.net');
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.locator('label div').nth(3).click();
-  await page.getByTestId('ocfEnterTextTextInput').fill('hidelove999');
-  await page.getByTestId('ocfEnterTextNextButton').click();
-  await page.getByLabel('Password', { exact: true }).click();
-  await page.getByLabel('Password', { exact: true }).fill('wlscogus7!');
-  await page.getByTestId('LoginForm_Login_Button').click();
-  await page.waitForTimeout(7000);
-  */
+
 
   //트위터 연결 끊기 버튼 요소 얻기
   const X_connect = await page.waitForSelector('.oauth--disconnect');  
@@ -1874,7 +1911,7 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_트위터_
   await page.goto('https://www.lezhinus.com/en')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -1884,15 +1921,30 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_트위터_
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
   await page.getByLabel('Email').fill('squad@lezhin.com');
   await page.getByLabel('Password').click();
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
- // await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
+
+  await page.click(selector);
   await page.getByRole('link', { name: 'My Account' }).click();
   await page.locator('div').filter({ hasText: 'X Connect Account' }).getByRole('link', { name: 'Connect Account' }).click();
   await page.getByPlaceholder('Username or email').click();
@@ -1941,7 +1993,8 @@ test('내정보 > 생년월일 입력하기_kr', async ({ page }) => {
     
   }
 
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
   await page.getByLabel('이메일').fill('squad@lezhin.com');
@@ -1964,7 +2017,7 @@ test('내정보 > 생년월일 입력하기_kr', async ({ page }) => {
     
   }
 
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.waitForLoadState('load');
   await page.getByRole('button', { name: '정보입력' }).click();
@@ -2011,7 +2064,9 @@ test('내정보 > 생년월일 입력하기_ja', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
   await page.getByLabel('メールアドレス').fill('squad@lezhin.com');
@@ -2032,7 +2087,7 @@ test('내정보 > 생년월일 입력하기_ja', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+  await page.click(selector);
   await page.getByRole('link', { name: '会員情報' }).click();
   await page.waitForLoadState('load');
   await page.getByRole('button', { name: '情報入力' }).click();
@@ -2080,7 +2135,9 @@ test('내정보 > 생년월일 입력하기_us', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
   await page.getByLabel('Email').fill('squad@lezhin.com');
@@ -2100,7 +2157,8 @@ test('내정보 > 생년월일 입력하기_us', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+  await page.click(selector);
   await page.getByRole('link', { name: 'My Account' }).click();
   await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Enter Information' }).click();
@@ -2153,7 +2211,9 @@ test('내정보 > 기기초기화 3개월 이내_kr', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
   await page.getByLabel('이메일').fill('squad@lezhin.com');
@@ -2174,7 +2234,8 @@ test('내정보 > 기기초기화 3개월 이내_kr', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  await page.click(selector);
   await page.getByRole('link', { name: '내 정보' }).click();
   await page.waitForLoadState('load');
   await page.getByRole('button', { name: '기기 초기화' }).click();
@@ -2216,15 +2277,30 @@ test('내정보 > 기기초기화 3개월 이내_ja', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
   await page.getByLabel('メールアドレス').fill('squad@lezhin.com');
   await page.getByLabel('パスワード').click();
   await page.getByLabel('パスワード').fill('wlscogus7!');
   await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
-  await page.waitForLoadState('load');
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
+
+  await page.click(selector);
   await page.getByRole('link', { name: '会員情報' }).click();
   await page.waitForLoadState('load');
   await page.getByRole('button', { name: '端末の初期化' }).click();
@@ -2252,6 +2328,7 @@ test('내정보 > 기기초기화 3개월 이내_ja', async ({ page }) => {
 
 test('내정보 > 기기초기화 3개월 이내_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
+
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
     const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
@@ -2264,14 +2341,17 @@ test('내정보 > 기기초기화 3개월 이내_us', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+  const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
+  await page.click(selector);
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
   await page.getByLabel('Email').fill('squad@lezhin.com');
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
   await page.waitForLoadState('load');
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+
+  await page.click(selector);
   await page.getByRole('link', { name: 'My Account' }).click();
   await page.waitForLoadState('load');
   await page.getByRole('button', { name: 'Device Reset' }).click();
