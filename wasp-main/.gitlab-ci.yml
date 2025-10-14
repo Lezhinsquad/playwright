@@ -1,0 +1,108 @@
+image: docker.lezhin.com/gitlab_base:0.0.9
+
+services:
+  - name: docker:24.0.6-dind
+    command:
+      - --tls=false
+      - --host=tcp://0.0.0.0:2375
+      - --storage-driver=overlay2
+
+stages:
+  - test #test 스테이지 추가 
+  - package
+  - deploy-beta
+  - deploy-prod
+
+variables:
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://docker:2375/
+  TAG_ID: "${CI_COMMIT_SHORT_SHA}"
+
+  WASP_CODE_NAME: "wasp"
+  WASP_REGISTRY_IMAGE: "${REGISTRY}/${WASP_CODE_NAME}"
+
+  CELERY_CODE_NAME: "celery"
+  CELERY_REGISTRY_IMAGE: "${REGISTRY}/${CELERY_CODE_NAME}"
+
+  DEPLOY_BETA_WASP_FILE: "beta-wasp-deployment.yaml"
+  DEPLOY_PROD_WASP_FILE: "prod-wasp-deployment.yaml"
+  DEPLOY_BETA_CELERY_FILE: "beta-celery-deployment.yaml"
+  DEPLOY_PROD_CELERY_FILE: "prod-celery-deployment.yaml"
+
+package-wasp:
+  stage: package
+  script:
+    - docker login -u ${DOCKER_USER} -p ${DOCKER_PWD} ${REGISTRY}
+    - DOCKER_BUILDKIT=1 docker buildx build -f Dockerfile -t "${WASP_REGISTRY_IMAGE}:${TAG_ID}" .
+    - docker push "${WASP_REGISTRY_IMAGE}:${TAG_ID}"
+  only:
+    - main
+  tags:
+    - prod-lz-infra
+
+package-celery:
+  stage: package
+  script:
+    - docker login -u ${DOCKER_USER} -p ${DOCKER_PWD} ${REGISTRY}
+    - DOCKER_BUILDKIT=1 docker buildx build -f Dockerfile.celery -t "${CELERY_REGISTRY_IMAGE}:${TAG_ID}" .
+    - docker push "${CELERY_REGISTRY_IMAGE}:${TAG_ID}"
+  only:
+    - main
+  tags:
+    - prod-lz-infra
+
+deploy beta-wasp:
+  image: bitnami/kubectl:latest
+  stage: deploy-beta
+  script:
+    - sed -i "s/TAG_ID/${TAG_ID}/g" deploy/${DEPLOY_BETA_WASP_FILE}
+    - kubectl apply -f deploy/${DEPLOY_BETA_WASP_FILE}
+  tags:
+    - prod-lz-infra
+  only:
+    - main
+  dependencies:
+    - package-wasp
+
+deploy beta-celery:
+  image: bitnami/kubectl:latest
+  stage: deploy-beta
+  script:
+    - sed -i "s/TAG_ID/${TAG_ID}/g" deploy/${DEPLOY_BETA_CELERY_FILE}
+    - kubectl apply -f deploy/${DEPLOY_BETA_CELERY_FILE}
+  tags:
+    - prod-lz-infra
+  only:
+    - main
+  dependencies:
+    - package-celery
+
+deploy prod-wasp:
+  image: bitnami/kubectl:latest
+  stage: deploy-prod
+  script:
+    - sed -i "s/TAG_ID/${TAG_ID}/g" deploy/${DEPLOY_PROD_WASP_FILE}
+    - kubectl apply -f deploy/${DEPLOY_PROD_WASP_FILE}
+  tags:
+    - prod-lz-infra
+  only:
+    - main
+  dependencies:
+    - package-wasp
+
+deploy prod-celery:
+  image: bitnami/kubectl:latest
+  stage: deploy-prod
+  script:
+    - sed -i "s/TAG_ID/${TAG_ID}/g" deploy/${DEPLOY_PROD_CELERY_FILE}
+    - kubectl apply -f deploy/${DEPLOY_PROD_CELERY_FILE}
+  tags:
+    - prod-lz-infra
+  only:
+    - main
+  dependencies:
+    - package-celery
+
+include:
+  - local: "QA/config/playwright-test.yml"

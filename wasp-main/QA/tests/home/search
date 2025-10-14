@@ -1,0 +1,67 @@
+from locust import HttpUser, task, between
+import json
+import random
+import threading
+from flask import Flask, request, jsonify
+
+class HTTPTestUser(HttpUser):
+    wait_time = between(1, 2)
+
+    def on_start(self):
+        """테스트 시작 시 각 사용자가 서로 다른 검색어를 선택"""
+        try:
+            # 검색 키워드 리스트
+            self.search_key = ["사랑", "로맨스", "우정", "액션", "BL", "레바", "킹덤", "DCW"]
+
+            # 각 사용자마다 1개의 랜덤 키워드 선택
+            self.search_key_select = random.choice(self.search_key)
+
+            # API 요청 헤더 설정
+            self.headers = {
+                "Authorization": "Bearer token",
+                "Content-Type": "application/json",
+                "X-Lz-Adult": "2",
+                "X-Lz-Allowadult": "true",
+                "X-Lz-Country": "kr",
+                "X-Lz-Locale": "ko-KR"
+            }
+
+            # 요청 파라미터 설정
+            self.parameters = {
+                "q": self.search_key_select,
+                "t": "preview"
+            }
+
+            # 고정된 API URL
+            self.api_url = "https://q-www.lezhin.com/lz-api/v2/advanced-search"
+
+        except Exception as e:
+            print(f"🚨 Error in on_start: {str(e)}")
+            self.headers = {}
+            self.parameters = {}
+            self.api_url = None
+
+   @task
+    def send_request(self):
+        """선택한 키워드로 검색 요청 보내기"""
+    if self.api_url:
+        self.client.get(self.api_url, headers=self.headers, params=self.parameters)
+
+# Flask 서버 (설정 받기용)
+app = Flask(__name__)
+
+@app.route("/load-test-config", methods=["POST"])
+def load_test_config():
+    try:
+        data = request.get_json()
+        with open("test_config.json", "w") as f:
+            json.dump(data, f)
+        return jsonify({"message": "Config received successfully"})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
+def run_flask():
+    app.run(host="0.0.0.0", port=8089)
+
+if __name__ == "__main__":
+    threading.Thread(target=run_flask).start()

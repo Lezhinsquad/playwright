@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('전체 삭제_kr', async ({ page }) => {
+test('[Search_001]전체 삭제_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -59,7 +59,7 @@ test('전체 삭제_kr', async ({ page }) => {
 
 
 
-test('전체 삭제_ja', async ({ page }) => {
+test('[Search_001]전체 삭제_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -112,7 +112,7 @@ test('전체 삭제_ja', async ({ page }) => {
   await page.close();
 });
 
-test('전체 삭제_us', async ({ page }) => {
+test('[Search_001]전체 삭제_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -167,7 +167,7 @@ test('전체 삭제_us', async ({ page }) => {
 
 
 
-test('인기 태그 상세 페이지 이동_kr', async ({ page }) => {
+test('[Search_002]인기 태그 상세 페이지 이동_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -203,7 +203,7 @@ test('인기 태그 상세 페이지 이동_kr', async ({ page }) => {
 
 });
 
-test('인기 태그 상세 페이지 이동_ja', async ({ page }) => {
+test('[Search_002]인기 태그 상세 페이지 이동_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -239,7 +239,7 @@ test('인기 태그 상세 페이지 이동_ja', async ({ page }) => {
 
 });
 
-test('인기 태그 상세 페이지 이동_us', async ({ page }) => {
+test('[Search_002]인기 태그 상세 페이지 이동_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -277,7 +277,7 @@ test('인기 태그 상세 페이지 이동_us', async ({ page }) => {
 
 
 
-test('검색 자동 완성_kr', async ({ page }) => {
+test('[Search_003 / 004]검색 자동 완성_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -329,7 +329,7 @@ test('검색 자동 완성_kr', async ({ page }) => {
    await page.close();
 });
 
-test('검색 자동 완성_ja', async ({ page }) => {
+test('[Search_003 / 004]검색 자동 완성_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -380,7 +380,7 @@ test('검색 자동 완성_ja', async ({ page }) => {
    await page.close();
 });
 
-test('검색 자동 완성_us', async ({ page }) => {
+test('[Search_003 / 004]검색 자동 완성_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -432,7 +432,7 @@ test('검색 자동 완성_us', async ({ page }) => {
 
 
 
-test('검색 후 태그 상세 페이지 이동_kr', async ({ page }) => {
+test('[Search_005]검색 후 태그 상세 페이지 이동_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -483,7 +483,7 @@ test('검색 후 태그 상세 페이지 이동_kr', async ({ page }) => {
    await page.close();
 });
 
-test('검색 후 태그 상세 페이지 이동_ja', async ({ page }) => {
+test('[Search_005]검색 후 태그 상세 페이지 이동_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -534,7 +534,7 @@ test('검색 후 태그 상세 페이지 이동_ja', async ({ page }) => {
    await page.close();
 });
 
-test('검색 후 태그 상세 페이지 이동_us', async ({ page }) => {
+test('[Search_005]검색 후 태그 상세 페이지 이동_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -586,7 +586,7 @@ test('검색 후 태그 상세 페이지 이동_us', async ({ page }) => {
 });
 
 
-test('최근 검색 태그 비노출_kr', async ({ page }) => {
+test('[Search_005]최근 검색 태그 비노출_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -637,7 +637,7 @@ test('최근 검색 태그 비노출_kr', async ({ page }) => {
   await page.close();
 });
 
-test('최근 검색 태그 비노출_ja', async ({ page }) => {
+test('[Search_005]최근 검색 태그 비노출_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -689,7 +689,7 @@ test('최근 검색 태그 비노출_ja', async ({ page }) => {
   await page.close();
 });
 
-test('최근 검색 태그 비노출_us', async ({ page }) => {
+test('[Search_005]최근 검색 태그 비노출_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -743,7 +743,7 @@ test('최근 검색 태그 비노출_us', async ({ page }) => {
 });
 
 
-test('검색 갯수 최대 노출_kr', async ({ page }) => {
+test('[Search_007]검색 갯수 최대 노출_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -782,7 +782,7 @@ test('검색 갯수 최대 노출_kr', async ({ page }) => {
   
 });
 
-test('검색 갯수 최대 노출_jp', async ({ page }) => {
+test('[Search_007]검색 갯수 최대 노출_jp', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -821,7 +821,7 @@ test('검색 갯수 최대 노출_jp', async ({ page }) => {
   
 });
 
-test('검색 갯수 최대 노출_us', async ({ page }) => {
+test('[Search_007]검색 갯수 최대 노출_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -862,7 +862,7 @@ test('검색 갯수 최대 노출_us', async ({ page }) => {
 
 
 
-test('비성인 계정 블라인드 작품_kr', async ({ page }) => {
+test('[Search_008]비성인 계정 블라인드 작품_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -912,7 +912,7 @@ test('비성인 계정 블라인드 작품_kr', async ({ page }) => {
   
 });
 
-test('비성인 계정 블라인드 작품_jp', async ({ page }) => {
+test('[Search_008]비성인 계정 블라인드 작품_jp', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -962,7 +962,7 @@ test('비성인 계정 블라인드 작품_jp', async ({ page }) => {
   
 });
 
-test('비성인 계정 블라인드 작품_us', async ({ page }) => {
+test('[Search_008]비성인 계정 블라인드 작품_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1014,7 +1014,7 @@ test('비성인 계정 블라인드 작품_us', async ({ page }) => {
 
 
 
-test('비로그인 블라인드 작품_kr', async ({ page }) => {
+test('[Search_009]비로그인 블라인드 작품_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1043,7 +1043,7 @@ test('비로그인 블라인드 작품_kr', async ({ page }) => {
   
 });
 
-test('비로그인 블라인드 작품_ja', async ({ page }) => {
+test('[Search_009]비로그인 블라인드 작품_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1071,7 +1071,7 @@ test('비로그인 블라인드 작품_ja', async ({ page }) => {
   
 });
 
-test('비로그인 블라인드 작품_us', async ({ page }) => {
+test('[Search_009]비로그인 블라인드 작품_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1102,7 +1102,7 @@ test('비로그인 블라인드 작품_us', async ({ page }) => {
 
 
 
-test('성인 계정 성인작품 노출 19on_kr', async ({ page }) => {
+test('[Search_010]성인 계정 성인작품 노출 19on_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1176,7 +1176,7 @@ test('성인 계정 성인작품 노출 19on_kr', async ({ page }) => {
   
 });
 
-test('성인 계정 성인작품 노출 19on_ja', async ({ page }) => {
+test('[Search_010]성인 계정 성인작품 노출 19on_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1247,7 +1247,7 @@ test('성인 계정 성인작품 노출 19on_ja', async ({ page }) => {
 });
 
 
-test('성인 계정 성인작품 노출 19on_us', async ({ page }) => {
+test('[Search_010]성인 계정 성인작품 노출 19on_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1319,7 +1319,7 @@ test('성인 계정 성인작품 노출 19on_us', async ({ page }) => {
 
 
 
-test('성인 계정 성인작품 노출 19 Off_kr', async ({ page }) => {
+test('[Search_011]성인 계정 성인작품 노출 19 Off_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1423,7 +1423,7 @@ await page.close();*/
 
 });
 
-test('성인 계정 성인작품 노출 19 Off_jp', async ({ page }) => {
+test('[Search_011]성인 계정 성인작품 노출 19 Off_jp', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1531,7 +1531,7 @@ await page.close();*/
 });
 
 
-test('성인 계정 성인작품 노출 19 Off_us', async ({ page }) => {
+test('[Search_011]성인 계정 성인작품 노출 19 Off_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1637,7 +1637,7 @@ await page.close();*/
 
 
 
-test('검색 > 에피소드 목록 이동_kr', async ({ page }) => {
+test('[Search_012]검색 > 에피소드 목록 이동_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1689,7 +1689,7 @@ test('검색 > 에피소드 목록 이동_kr', async ({ page }) => {
   await page.close();
 });
 
-test('검색 > 성인 작품 에피소드 목록 이동_ja', async ({ page }) => {
+test('[Search_012]검색 > 성인 작품 에피소드 목록 이동_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   
   try {
@@ -1750,7 +1750,7 @@ test('검색 > 성인 작품 에피소드 목록 이동_ja', async ({ page }) =>
   await page.close();
 });
 
-test('검색 > 에피소드 목록 이동_us', async ({ page }) => {
+test('[Search_012]검색 > 에피소드 목록 이동_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1805,7 +1805,7 @@ test('검색 > 에피소드 목록 이동_us', async ({ page }) => {
 
 
 
-test('검색상세 작가/출판사 리스트 노출_kr', async ({ page }) => {
+test('[Search_013 / 014]검색상세 작가/출판사 리스트 노출_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1841,7 +1841,7 @@ test('검색상세 작가/출판사 리스트 노출_kr', async ({ page }) => {
   await page.close();
 });
 
-test('검색상세 작가/출판사 리스트 노출_jp', async ({ page }) => {
+test('[Search_013 / 014]검색상세 작가/출판사 리스트 노출_jp', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   
   try {
@@ -1880,7 +1880,7 @@ test('검색상세 작가/출판사 리스트 노출_jp', async ({ page }) => {
   await page.close();
 });
 
-test('검색상세 작가/출판사 리스트 노출_us', async ({ page }) => {
+test('[Search_013 / 014]검색상세 작가/출판사 리스트 노출_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1920,7 +1920,7 @@ test('검색상세 작가/출판사 리스트 노출_us', async ({ page }) => {
 
 
 
-test('검색 결과 페이지 전체탭 선택과 결과_kr', async ({ page }) => {
+test('[Search_015]검색 결과 페이지 전체탭 선택과 결과_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2007,7 +2007,7 @@ test('검색 결과 페이지 전체탭 선택과 결과_kr', async ({ page }) =
 
 });
 
-test('검색 결과 페이지 전체탭 선택과 결과_ja', async ({ page }) => {
+test('[Search_015]검색 결과 페이지 전체탭 선택과 결과_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2096,7 +2096,7 @@ test('검색 결과 페이지 전체탭 선택과 결과_ja', async ({ page }) =
   await page.close();
 });
 
-test('검색 결과 페이지 전체탭 선택과 결과_en', async ({ page }) => {
+test('[Search_015]검색 결과 페이지 전체탭 선택과 결과_en', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2184,7 +2184,7 @@ test('검색 결과 페이지 전체탭 선택과 결과_en', async ({ page }) =
   await page.close();
 });
 
-test('검색 결과 페이지 작품탭 결과_kr', async ({ page }) => {
+test('[Search_016]검색 결과 페이지 작품탭 결과_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2236,7 +2236,7 @@ test('검색 결과 페이지 작품탭 결과_kr', async ({ page }) => {
 
 });
 
-test('검색 결과 페이지 작품탭 결과_ja', async ({ page }) => {
+test('[Search_016]검색 결과 페이지 작품탭 결과_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2289,7 +2289,7 @@ test('검색 결과 페이지 작품탭 결과_ja', async ({ page }) => {
 
 });
 
-test('검색 결과 페이지 작품탭 결과_en', async ({ page }) => {
+test('[Search_016]검색 결과 페이지 작품탭 결과_en', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2343,7 +2343,7 @@ test('검색 결과 페이지 작품탭 결과_en', async ({ page }) => {
 });
 
 
-test('검색 결과 페이지 작가탭 결과 및 더보기 클릭_kr', async ({ page }) => {
+test('[Search_017]검색 결과 페이지 작가탭 결과 및 더보기 클릭_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2414,7 +2414,7 @@ test('검색 결과 페이지 작가탭 결과 및 더보기 클릭_kr', async (
   await page.close();
 });
 
-test('검색 결과 페이지 작가탭 결과 및 더보기 클릭_ja', async ({ page }) => {
+test('[Search_017]검색 결과 페이지 작가탭 결과 및 더보기 클릭_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2485,7 +2485,7 @@ test('검색 결과 페이지 작가탭 결과 및 더보기 클릭_ja', async (
   await page.close();
 });
 
-test('검색 결과 페이지 작가탭 결과 및 더보기 클릭_en', async ({ page }) => {
+test('[Search_017]검색 결과 페이지 작가탭 결과 및 더보기 클릭_en', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2559,7 +2559,7 @@ test('검색 결과 페이지 작가탭 결과 및 더보기 클릭_en', async (
 });
 
 
-test('검색 결과 페이지 출판사 결과 및 더보기 클릭_kr', async ({ page }) => {
+test('[Search_018]검색 결과 페이지 출판사 결과 및 더보기 클릭_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2631,7 +2631,7 @@ test('검색 결과 페이지 출판사 결과 및 더보기 클릭_kr', async (
   await page.close();
 });
 
-test('검색 결과 페이지 출판사 결과 및 더보기 클릭_ja', async ({ page }) => {
+test('[Search_018]검색 결과 페이지 출판사 결과 및 더보기 클릭_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2704,7 +2704,7 @@ test('검색 결과 페이지 출판사 결과 및 더보기 클릭_ja', async (
 });
 
 
-test('검색 결과 페이지 출판사 결과 및 더보기 클릭_en', async ({ page }) => {
+test('[Search_018]검색 결과 페이지 출판사 결과 및 더보기 클릭_en', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2783,7 +2783,7 @@ test('검색 결과 페이지 출판사 결과 및 더보기 클릭_en', async (
 
 
 
-test('검색 결과 페이지 태그 결과 및 더보기 클릭_kr', async ({ page }) => {
+test('[Search_019]검색 결과 페이지 태그 결과 및 더보기 클릭_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2856,7 +2856,7 @@ test('검색 결과 페이지 태그 결과 및 더보기 클릭_kr', async ({ p
 });
 
 
-test('검색 결과 페이지 태그 결과 및 더보기 클릭_ja', async ({ page }) => {
+test('[Search_019]검색 결과 페이지 태그 결과 및 더보기 클릭_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2926,7 +2926,7 @@ test('검색 결과 페이지 태그 결과 및 더보기 클릭_ja', async ({ p
 });
 
 
-test('검색 결과 페이지 태그 결과 및 더보기 클릭_en', async ({ page }) => {
+test('[Search_019]검색 결과 페이지 태그 결과 및 더보기 클릭_en', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2996,7 +2996,7 @@ test('검색 결과 페이지 태그 결과 및 더보기 클릭_en', async ({ p
 });
 
 
-test('탭 별 검색결과 없음과 신작랭킹 페이지 노출_kr', async ({ page }) => {
+test('[Search_020]탭 별 검색결과 없음과 신작랭킹 페이지 노출_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -3146,7 +3146,7 @@ test('탭 별 검색결과 없음과 신작랭킹 페이지 노출_kr', async ({
 
 });
 
-test('탭 별 검색결과 없음과 신작랭킹 페이지 노출_ja', async ({ page }) => {
+test('[Search_020]탭 별 검색결과 없음과 신작랭킹 페이지 노출_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -3297,7 +3297,7 @@ test('탭 별 검색결과 없음과 신작랭킹 페이지 노출_ja', async ({
 });
 
 
-test('탭 별 검색결과 없음과 신작랭킹 페이지 노출_en', async ({ page }) => {
+test('[Search_020]탭 별 검색결과 없음과 신작랭킹 페이지 노출_en', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -3447,7 +3447,7 @@ test('탭 별 검색결과 없음과 신작랭킹 페이지 노출_en', async ({
 
 });
 
-test('작가페이지를 통한 첫화보기 실행_kr', async ({ page }) => {
+test('[Search_021 / 022]작가페이지를 통한 첫화보기 실행_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -3489,7 +3489,7 @@ test('작가페이지를 통한 첫화보기 실행_kr', async ({ page }) => {
  
 });
 
-test('작가페이지를 통한 첫화보기 실행_ja', async ({ page }) => {
+test('[Search_021 / 022]작가페이지를 통한 첫화보기 실행_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -3532,7 +3532,7 @@ test('작가페이지를 통한 첫화보기 실행_ja', async ({ page }) => {
  
 });
 
-test('작가페이지를 통한 첫화보기 실행_en', async ({ page }) => {
+test('[Search_021 / 022]작가페이지를 통한 첫화보기 실행_en', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -3576,7 +3576,7 @@ test('작가페이지를 통한 첫화보기 실행_en', async ({ page }) => {
  
 });
 
-test('작가페이지를 통한 전체 목록 보기 실행_kr', async ({ page }) => {
+test('[Search_023]작가페이지를 통한 전체 목록 보기 실행_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -3619,7 +3619,7 @@ test('작가페이지를 통한 전체 목록 보기 실행_kr', async ({ page }
  
 });
 
-test('작가페이지를 통한 전체 목록 보기 실행_ja', async ({ page }) => {
+test('[Search_023]작가페이지를 통한 전체 목록 보기 실행_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -3662,7 +3662,7 @@ test('작가페이지를 통한 전체 목록 보기 실행_ja', async ({ page }
  
 });
 
-test('작가페이지를 통한 전체 목록 보기 실행_en', async ({ page }) => {
+test('[Search_023]작가페이지를 통한 전체 목록 보기 실행_en', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인

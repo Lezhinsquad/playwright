@@ -1,0 +1,362 @@
+[
+  {
+    "name": "X-AB",
+    "value": "3c1412b8a0a94f31a19b66f8b63dbed5",
+    "domain": "sc-static.net",
+    "path": "/scevent.min.js",
+    "expires": 1723613387.586932,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "x-lz-locale",
+    "value": "en_US",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1726205389.518839,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_gcl_au",
+    "value": "1.1.1013714181.1723526987",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1731302987,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_ttp",
+    "value": "2kagEAFn4McBXtkFQXte1DC4fHW",
+    "domain": ".tiktok.com",
+    "path": "/",
+    "expires": 1757222988.099814,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_scid",
+    "value": "3675a990-46a0-4d25-894f-6490af3c2e1e",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1757713685,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_scid_r",
+    "value": "3675a990-46a0-4d25-894f-6490af3c2e1e",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1757713685,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_tt_enable_cookie",
+    "value": "1",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1757222988,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_ttp",
+    "value": "7k-diIp6_kvt9hqV4YyIMBVWphD",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1757222988,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "personalization_id",
+    "value": "\"v1_rFl8UFJNnD6ntp3nLc1utg==\"",
+    "domain": ".twitter.com",
+    "path": "/",
+    "expires": 1758086987.85531,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "CLID",
+    "value": "e243bf105b3249cd88ace0c434b33db9.20240813.20250813",
+    "domain": "www.clarity.ms",
+    "path": "/",
+    "expires": 1755062988.135877,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_ga",
+    "value": "GA1.1.212931070.1723526988",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1758086988.299035,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "IDE",
+    "value": "AHWqTUlsCXS1qSdcQ3ZPqh9qGKiEqBuo1v27faAGT4bN_2FwCxh4v9XRUm9dqLNE",
+    "domain": ".doubleclick.net",
+    "path": "/",
+    "expires": 1758086988.351015,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_clck",
+    "value": "5oemoy%7C2%7Cfoa%7C0%7C1686",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1755062988,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_dcid",
+    "value": "dcid.1.1723526988267.623917914",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1758086988.39517,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_gtmeec",
+    "value": "e30%3D",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1731302988.395275,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "Strict"
+  },
+  {
+    "name": "_fbp",
+    "value": "fb.1.1723526988276.1615631886",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1731302989,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "muc_ads",
+    "value": "d9f1e52b-9005-4f3a-b2d5-9d2c27730b6f",
+    "domain": ".t.co",
+    "path": "/",
+    "expires": 1758086988.399868,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "FPID",
+    "value": "FPID2.2.9tzMvCP7f%2BTUIdJvaP%2B0lpUM9WPpWIJOQYW27ivgUWA%3D.1723526988",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1758086991.622654,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "FPLC",
+    "value": "hBSmDDFf1fVA%2B77%2Fuihb0eQfPgSrQMvk5FLl1L%2B7vK3MAFSqNxAkx2mhCaNAT7FSdBsKsQ7lD0dIRi%2FuCsmo6%2BomSZrxNRAW9x4b1H3Rrf6AMFo9SBNvPZJdyRo7fg%3D%3D",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1723598988.652674,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "FPAU",
+    "value": "1.1.1013714181.1723526987",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1731302986.622713,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "FPGSID",
+    "value": "1.1723526988.1723526988.G-6XK7NDC9GQ.WQFhXYQjeIo80mzd8GM6eA",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1723528788.652742,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Strict"
+  },
+  {
+    "name": "MUID",
+    "value": "1E6FAE5BE2BA6E7B3B22BA81E33C6F78",
+    "domain": ".bing.com",
+    "path": "/",
+    "expires": 1757222988.703983,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "MR",
+    "value": "0",
+    "domain": ".c.bing.com",
+    "path": "/",
+    "expires": 1724131788.704099,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "SRM_B",
+    "value": "1E6FAE5BE2BA6E7B3B22BA81E33C6F78",
+    "domain": ".c.bing.com",
+    "path": "/",
+    "expires": 1757222988.70414,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "SM",
+    "value": "C",
+    "domain": ".c.clarity.ms",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "MUID",
+    "value": "1E6FAE5BE2BA6E7B3B22BA81E33C6F78",
+    "domain": ".clarity.ms",
+    "path": "/",
+    "expires": 1757222988.718871,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "MR",
+    "value": "0",
+    "domain": ".c.clarity.ms",
+    "path": "/",
+    "expires": 1724131788.718981,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "ANONCHK",
+    "value": "0",
+    "domain": ".c.clarity.ms",
+    "path": "/",
+    "expires": 1723527588.719027,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "TapAd_TS",
+    "value": "1723526988991",
+    "domain": ".tapad.com",
+    "path": "/",
+    "expires": 1728710988.814904,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "TapAd_DID",
+    "value": "05205c0b-ddad-4b77-b533-e7d6141ee63c",
+    "domain": ".tapad.com",
+    "path": "/",
+    "expires": 1728710988.815031,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "TapAd_3WAY_SYNCS",
+    "value": "",
+    "domain": ".tapad.com",
+    "path": "/",
+    "expires": 1728710988.815063,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "sc_at",
+    "value": "v2|H4sIAAAAAAAAAE3GwRHAIAgEwIqYAUQ40k1QrMLi882+NrUYFS/5iEXGCKqDRY3ZWzpNYVeMHwkdUz2R91f+AMLqVGhAAAAA",
+    "domain": ".snapchat.com",
+    "path": "/",
+    "expires": 1757222988.909299,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_sctr",
+    "value": "1%7C1723474800000",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1757713686,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_clsk",
+    "value": "1cuawpp%7C1723526989091%7C1%7C1%7Cr.clarity.ms%2Fcollect",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1723613389,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "RSESSION",
+    "value": "RFpwdkd3RGZTeS9hWHhYQUF3VTNOTzM5K1FSbHFzTmFPVFh1dkZqR2RWWTUxR2JYVjkwMVI2RDlpbVRKK3RyOEd3anRrcVhxVnF1bzV3SjJPN2hGb1dUMEJNWWF1YnoxQXVZcHRaNW5YZEMvY29TUUFFVHhVV1R6TUVQcVVBdS9CQ0VmdU4vUGhRd1BmRnc4MTRXR3NnSGt6ekxmSHU0dkxXTSt6WnI3dGhjdDd1R1hxemVMZDV0ZFlHTG9zbWIrbEU2anNvZ21idXN6WWVEWUdkVGNDMDdyUFpFYmw3QS9COWV3MkpuS05FeTczUjFTWmg5QmczYzh4RCtyZW5HU1ltV1Z6aEwycnZ4a2tjSUxRalNzRzhiTVN1b0x2ZWlYT0dmRFZybVVYT0FZTmxKaTBldjdqYi9MZVNOWWN4TE1kNEkwQmJsTCszTGNNZzlXTERMaXJxeTRwZjQ0SGUyZHRTNXV1Z1NsRnhpclVnM1MxYjdyUlNpcytCNmJnSTdoLS1XeUkvcm02cUZzWkErWWJzV3J0aERBPT0%3D--7b1eff2c999758233b20f9a831516a9693ec31cb",
+    "domain": "q-www.lezhinus.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_ga_6XK7NDC9GQ",
+    "value": "GS1.1.1723526988.1.0.1723526991.0.0.1629794791",
+    "domain": ".lezhinus.com",
+    "path": "/",
+    "expires": 1758086991.305369,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  }
+]

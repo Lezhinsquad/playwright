@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-test('Top 버튼 이동_kr', async ({ page }) => {
+test('[Home_014]Top 버튼 이동_kr', async ({ page }) => {
   //레진 KO 홈 접속
   await page.goto('https://q-www.lezhin.com/ko'); 
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -40,13 +40,13 @@ test('Top 버튼 이동_kr', async ({ page }) => {
   
 });
 
-test('Top 버튼 이동_jp', async ({ page }) => {
+test('[Home_014]Top 버튼 이동_jp', async ({ page }) => {
   //레진 jp 홈 접속
   await page.goto('https://q-www.lezhin.jp/ja'); 
     
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -80,13 +80,13 @@ test('Top 버튼 이동_jp', async ({ page }) => {
   
 });
 
-test('Top 버튼 이동_us', async ({ page }) => {
+test('[Home_014]Top 버튼 이동_us', async ({ page }) => {
   //레진 us 홈 접속
   await page.goto('https://q-www.lezhinus.com/en'); 
     
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -121,11 +121,11 @@ test('Top 버튼 이동_us', async ({ page }) => {
 });
 
 
-test('검색_버튼UI 노출확인_kr', async ({ page }) => {
+test('[Home_001]검색_버튼UI 노출확인_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -152,11 +152,11 @@ test('검색_버튼UI 노출확인_kr', async ({ page }) => {
 });
 
 
-test('검색_버튼UI 노출확인_jp', async ({ page }) => {
+test('[Home_001]검색_버튼UI 노출확인_jp', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -184,11 +184,11 @@ test('검색_버튼UI 노출확인_jp', async ({ page }) => {
 
 
 
-test('검색_버튼UI 노출확인_us', async ({ page }) => {
+test('[Home_001]검색_버튼UI 노출확인_us', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -215,11 +215,11 @@ test('검색_버튼UI 노출확인_us', async ({ page }) => {
   await page.close();
 });
 
-test('검색_Placeholder 확인_kr', async ({ page }) => {
+test('[Home_002]검색_Placeholder 확인_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -245,11 +245,11 @@ test('검색_Placeholder 확인_kr', async ({ page }) => {
 });
 
 
-test('검색_Placeholder 확인_ja', async ({ page }) => {
+test('[Home_002]검색_Placeholder 확인_ja', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
     try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -278,11 +278,11 @@ test('검색_Placeholder 확인_ja', async ({ page }) => {
 });
 
 
-test('검색_Placeholder 확인_us', async ({ page }) => {
+test('[Home_002]검색_Placeholder 확인_us', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -310,11 +310,11 @@ test('검색_Placeholder 확인_us', async ({ page }) => {
 });
 
 
-test('검색_레이어 호출후 닫기_kr', async ({ page }) => {
+test('[Home_003]검색_레이어 호출후 닫기_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -342,11 +342,11 @@ test('검색_레이어 호출후 닫기_kr', async ({ page }) => {
   await page.close();
 });
 
-test('검색_레이어 호출후 닫기_ja', async ({ page }) => {
+test('[Home_003]검색_레이어 호출후 닫기_ja', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -374,11 +374,11 @@ test('검색_레이어 호출후 닫기_ja', async ({ page }) => {
   await page.close();
 });
 
-test('검색_레이어 호출후 닫기_us', async ({ page }) => {
+test('[Home_003]검색_레이어 호출후 닫기_us', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -408,11 +408,11 @@ test('검색_레이어 호출후 닫기_us', async ({ page }) => {
 
 
 
-test('랭킹 영역 노출 확인_KR', async ({ page }) => {
+test('[Home_004]랭킹 영역 노출 확인_KR', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -433,11 +433,11 @@ test('랭킹 영역 노출 확인_KR', async ({ page }) => {
 });
 
 
-test('랭킹 영역 노출 확인_JP', async ({ page }) => {
+test('[Home_005]랭킹 영역 노출 확인_JP', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -457,11 +457,11 @@ test('랭킹 영역 노출 확인_JP', async ({ page }) => {
 });
 
 
-test('랭킹 영역 노출 확인_US', async ({ page }) => {
+test('[Home_006]랭킹 영역 노출 확인_US', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -480,11 +480,11 @@ test('랭킹 영역 노출 확인_US', async ({ page }) => {
   await page.close();
 });
 
-test('신작연재 노출_kr', async ({ page }) => {
+test('[Home_007]신작연재 노출_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -514,11 +514,11 @@ test('신작연재 노출_kr', async ({ page }) => {
   await page.close();
 });
 
-test('신작연재 노출_ja', async ({ page }) => {
+test('[Home_007]신작연재 노출_ja', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -549,11 +549,11 @@ test('신작연재 노출_ja', async ({ page }) => {
   await page.close();
 });
 
-test('신작연재 노출_us', async ({ page }) => {
+test('[Home_007]신작연재 노출_us', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -584,11 +584,11 @@ test('신작연재 노출_us', async ({ page }) => {
 });
 
 
-test('신규만화 노출_kr', async ({ page }) => {
+test('[Home_008]신규만화 노출_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -618,11 +618,11 @@ test('신규만화 노출_kr', async ({ page }) => {
   await page.close();
 });
 
-test('신규만화 노출_ja', async ({ page }) => {
+test('[Home_008]신규만화 노출_ja', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -657,7 +657,7 @@ test('신규만화 노출_us', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -688,11 +688,11 @@ test('신규만화 노출_us', async ({ page }) => {
 });*/
 
 
-test('업데이트 된 찜한 작품 노출_kr', async ({ page }) => {
+test('[Home_009]업데이트 된 찜한 작품 노출_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -702,7 +702,7 @@ test('업데이트 된 찜한 작품 노출_kr', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('button', { name: '메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
   await page.getByLabel('이메일').fill('squad@lezhin.com');
@@ -730,11 +730,11 @@ test('업데이트 된 찜한 작품 노출_kr', async ({ page }) => {
   await page.close();
 });
 
-test('업데이트 된 찜한 작품 노출_ja', async ({ page }) => {
+test('[Home_009]업데이트 된 찜한 작품 노출_ja', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -744,7 +744,7 @@ test('업데이트 된 찜한 작품 노출_ja', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+  await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
   await page.getByLabel('メールアドレス').fill('squad@lezhin.com');
@@ -772,11 +772,11 @@ test('업데이트 된 찜한 작품 노출_ja', async ({ page }) => {
   await page.close();
 });
 
-test('업데이트 된 찜한 작품 노출_us', async ({ page }) => {
+test('[Home_009]업데이트 된 찜한 작품 노출_us', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -786,7 +786,7 @@ test('업데이트 된 찜한 작품 노출_us', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+  await page.getByRole('button', { name: 'Menu' }).click();
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
   await page.getByLabel('Email').fill('squad@lezhin.com');
@@ -817,11 +817,11 @@ test('업데이트 된 찜한 작품 노출_us', async ({ page }) => {
 
 
 
-test('최근 본 작품_kr', async ({ page }) => {
+test('[Home_010]최근 본 작품_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -831,7 +831,7 @@ test('최근 본 작품_kr', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('button', { name: '메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
   await page.getByLabel('이메일').fill('squad@lezhin.com');
@@ -860,11 +860,11 @@ test('최근 본 작품_kr', async ({ page }) => {
   await page.close();
 });
 
-test('최근 본 작품_ja', async ({ page }) => {
+test('[Home_010]최근 본 작품_ja', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -874,7 +874,7 @@ test('최근 본 작품_ja', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+  await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
   await page.getByLabel('メールアドレス').fill('squad@lezhin.com');
@@ -902,11 +902,11 @@ test('최근 본 작품_ja', async ({ page }) => {
   await page.close();
 });
 
-test('최근 본 작품_us', async ({ page }) => {
+test('[Home_010]최근 본 작품_us', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -916,7 +916,7 @@ test('최근 본 작품_us', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+  await page.getByRole('button', { name: 'Menu' }).click();
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
   await page.getByLabel('Email').fill('squad@lezhin.com');
@@ -946,11 +946,11 @@ test('최근 본 작품_us', async ({ page }) => {
 
 
 
-test('홈에서 보고 싶은 장르 취향 설정 하기', async ({ page }) => {
+test('[Home_011]홈에서 보고 싶은 장르 취향 설정 하기', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -960,14 +960,14 @@ test('홈에서 보고 싶은 장르 취향 설정 하기', async ({ page }) => 
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('button', { name: '메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
-  await page.getByLabel('이메일').fill('hidelove13@naver.com');
+  await page.getByLabel('이메일').fill('squad_36@yopmail.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.waitForTimeout(4000); 
+  await page.waitForTimeout(2000); 
 
  
 
@@ -987,11 +987,12 @@ test('홈에서 보고 싶은 장르 취향 설정 하기', async ({ page }) => 
 
 
 
-test('취향 설정 하기 버튼 노출_kr', async ({ page }) => {
+test('[Home_012]취향 설정 하기 버튼 노출_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
+
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -1001,14 +1002,29 @@ test('취향 설정 하기 버튼 노출_kr', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+
+  await page.getByRole('button', { name: '메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
-  await page.getByLabel('이메일').fill('hidelove13@naver.com');
+  await page.getByLabel('이메일').fill('squad_37@yopmail.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
+
   await page.getByRole('button', { name: '홈에서 보고 싶은 장르 취향 설정 하기' }).click();
   await page.getByRole('button', { name: '취소' }).click();
 
@@ -1026,11 +1042,11 @@ test('취향 설정 하기 버튼 노출_kr', async ({ page }) => {
   await page.close();
 });
 
-test('취향 설정 하기 버튼 노출_ja', async ({ page }) => {
+test('[Home_012]취향 설정 하기 버튼 노출_ja', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -1040,14 +1056,28 @@ test('취향 설정 하기 버튼 노출_ja', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+  await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
-  await page.getByLabel('メールアドレス').fill('squad@lezhin.com');
+  await page.getByLabel('メールアドレス').fill('squad_37@yopmail.com');
   await page.getByLabel('パスワード').click();
   await page.getByLabel('パスワード').fill('wlscogus7!');
   await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
 
 
   //취향 설정하기 버튼의 텍스트 요소 를 spanText에 저장
@@ -1063,11 +1093,11 @@ test('취향 설정 하기 버튼 노출_ja', async ({ page }) => {
   await page.close();
 });
 
-test('취향 설정 하기 버튼 노출_us', async ({ page }) => {
+test('[Home_012]취향 설정 하기 버튼 노출_us', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -1077,13 +1107,26 @@ test('취향 설정 하기 버튼 노출_us', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+  await page.getByRole('button', { name: 'Menu' }).click();
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
-  await page.getByLabel('Email').fill('squad@lezhin.com');
+  await page.getByLabel('Email').fill('squad_37@yopmail.com');
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
 
 
   //취향 설정하기 버튼의 텍스트 요소 를 spanText에 저장
@@ -1100,11 +1143,11 @@ test('취향 설정 하기 버튼 노출_us', async ({ page }) => {
 });
 
 
-test('취향 적용 중_kr', async ({ page }) => {
+test('[Home_013]취향 적용 중_kr', async ({ page }) => {
   await page.goto('https://q-www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -1114,15 +1157,29 @@ test('취향 적용 중_kr', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: '계정 메뉴' }).click();
+  await page.getByRole('button', { name: '메뉴' }).click();
   await page.getByRole('link', { name: '이메일로 로그인' }).click();
   await page.getByLabel('이메일').click();
   await page.getByLabel('이메일').fill('hidelove99@nate.com');
   await page.getByLabel('비밀번호').click();
   await page.getByLabel('비밀번호').fill('wlscogus7!');
   await page.getByRole('button', { name: '이메일로 로그인' }).click();
-  await page.waitForTimeout(4000);
-  //await page.getByRole('button', { name: '오늘 하루 안보기' }).click();
+  await page.waitForTimeout(2000);
+
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
+
  
 
 
@@ -1139,11 +1196,11 @@ test('취향 적용 중_kr', async ({ page }) => {
   await page.close();
 });
 
-test('취향 적용 중_ja', async ({ page }) => {
+test('[Home_013]취향 적용 중_ja', async ({ page }) => {
   await page.goto('https://q-www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -1153,16 +1210,28 @@ test('취향 적용 중_ja', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'アカウントメニュー' }).click();
+  await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('link', { name: 'メールアドレスでログイン' }).click();
   await page.getByLabel('メールアドレス').click();
   await page.getByLabel('メールアドレス').fill('hidelove99@nate.com');
   await page.getByLabel('パスワード').click();
   await page.getByLabel('パスワード').fill('wlscogus7!');
   await page.getByRole('button', { name: 'メールアドレスでログイン' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
  
-
 
   //취향 적용 중 버튼의 텍스트 요소 를 spanText에 저장
   const spanText = await page.$eval('span.style_myGenreSet__btnText__LxuAP', (element) => element.textContent); 
@@ -1177,11 +1246,11 @@ test('취향 적용 중_ja', async ({ page }) => {
   await page.close();
 });
 
-test('취향 적용 중_us', async ({ page }) => {
+test('[Home_013]취향 적용 중_us', async ({ page }) => {
   await page.goto('https://q-www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
-    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 5000 });
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
     if (button) {
       // 버튼이 보이면 클릭
       await button.click();
@@ -1191,13 +1260,27 @@ test('취향 적용 중_us', async ({ page }) => {
   } catch (error) {
     
   }
-  await page.getByRole('button', { name: 'Account Menu' }).click();
+  await page.getByRole('button', { name: 'Menu' }).click();
   await page.getByRole('link', { name: 'Login with email' }).click();
   await page.getByLabel('Email').click();
   await page.getByLabel('Email').fill('hidelove99@nate.com');
   await page.getByLabel('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Login with email' }).click();
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(2000);
+
+  
+  try {
+    // '오늘 하루 안보기' 버튼이 보이는지 확인
+    const button = await page.waitForSelector('button[role="button"][class*="style_lzBtn__tyLuS"]', { timeout: 2000 });
+    if (button) {
+      // 버튼이 보이면 클릭
+      await button.click();
+    } else {
+      console.log('오늘 하루 안보기 버튼이 표시되지 않았습니다.');
+    }
+  } catch (error) {
+    
+  }
  
 
 

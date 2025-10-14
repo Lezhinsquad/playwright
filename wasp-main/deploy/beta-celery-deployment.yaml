@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beta-celery
+  namespace: prod-service-maintenance
+  labels:
+    app: beta-celery
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: beta-celery
+  template:
+    metadata:
+      labels:
+        app: beta-celery
+    spec:
+      imagePullSecrets:
+      - name: docker
+      containers:
+      - env:
+        - name: env
+          value: beta
+        envFrom:
+          - secretRef:
+              name: beta-secret
+        name: beta-celery
+        image: docker.lezhin.com/celery:TAG_ID
+        # ports:
+        # - containerPort: 8000
+        #   name: 8000tcp1
+        #   protocol: TCP
+        resources:
+          requests:
+            memory: 1Gi
+          limits:
+            memory: 2Gi

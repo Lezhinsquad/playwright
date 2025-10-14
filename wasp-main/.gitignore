@@ -1,0 +1,131 @@
+# 통합된 .gitignore 및 .dockerignore 예시
+
+# Python 바이너리 파일
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+
+# Python 캐시 디렉터리
+__pycache__/
+*.log
+*.log.*
+
+# 환경 설정 파일
+.env
+*.env
+*.env.*
+
+# 가상 환경 디렉터리
+venv/
+env/
+.venv/
+ENV/
+venv.bak/
+
+# Pipenv, Poetry 가상 환경 디렉터리
+pipenv/
+poetry/
+Pipfile.lock
+poetry.lock
+
+# 테스트 디렉터리 출력
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+.pytest_cache/*
+.cache/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE 및 편집기 설정 파일
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+
+# MacOS 및 Linux 관련 파일
+.DS_Store
+Thumbs.db
+\#*\#
+.*.swp
+._*
+
+# Docker 관련 파일들
+Dockerfile~
+docker-compose.yml
+.docker/
+.dockerignore
+
+# Node.js 관련 (만약 Node.js를 사용하는 경우)
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# Git 관련
+.git/
+.gitattributes
+*.orig
+*.patch
+*.rej
+
+# 빌드 아티팩트
+build/
+dist/
+*.egg-info/
+.eggs/
+.eggs/EGG-INFO/
+MANIFEST
+*.spec
+
+# Cython 빌드 디렉터리
+cython_debug/
+
+# Sphinx 문서 빌드 디렉터리
+docs/_build/
+
+# PyInstaller 관련 파일
+*.manifest
+
+# Coverage reports
+htmlcov/
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Pyright 타입 검사기
+.pyright/
+
+# PyCharm IDE 설정 및 디렉터리
+*.iml
+*.ipr
+*.iws
+
+# 기타 개인 설정 및 시스템 파일
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig.*
+*.pid
+*.pid.*
+
+# 통합된 패키지 관리 파일들 (파이썬, 노드 등)
+Pipfile
+yarn.lock
+*.pyc
+*.pyc

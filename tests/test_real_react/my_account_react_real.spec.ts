@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('이메일 로그인 정보 필드 확인', async ({ page }) => {
+test('[Account_002]이메일 로그인 정보 필드 확인', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -83,7 +83,7 @@ test('이메일 로그인 정보 필드 확인', async ({ page }) => {
 
 });
 
-test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
+test('[Account_001]카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -177,7 +177,7 @@ test('카카오 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
 
 });
 
-test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
+test('[Account_001]네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -455,7 +455,7 @@ test('네이버 SNS 로그인 정보 필드 확인_kr', async ({ page }) => {
 
 
 
-test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {;
+test('[Account_001]페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {;
   await page.goto('https://www.lezhinus.com/en')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -547,7 +547,7 @@ test('페이스북 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
 });
 
 
-test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
+test('[Account_001]트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -566,11 +566,13 @@ test('트위터 SNS 로그인 정보 필드 확인_US', async ({ page }) => {
   await page.click(selector);
   await page.getByRole('button', { name: 'Login with X' }).click();
   //트위터 로그인
-  await page.getByPlaceholder('Username or email').click();
-  await page.getByPlaceholder('Username or email').fill('hidelove9999');
-  await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByLabel('Phone, email, or username').click();
+  await page.getByLabel('Phone, email, or username').fill('hidelove9999');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByLabel('Password', { exact: true }).fill('wlscogus7!');
+  await page.getByTestId('LoginForm_Login_Button').click();
   await page.waitForTimeout(2000);
 
   try {
@@ -769,7 +771,7 @@ test('카카오 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
 });*/
 
 
-test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async ({ page }) => {
+test('[Account_003]네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1092,7 +1094,7 @@ test('네이버 SNS 비밀번호 등록 과 연결해제, 로그인_kr', async (
 
 
 
-test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', async ({ page }) => {
+test('[Account_003]페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1195,17 +1197,21 @@ test('페이스북 SNS 비밀번호 등록 과 연결해제, 로그인_us', asyn
   await page.close();
 });
 
-test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async ({ page }) => {
+test('[Account_003]트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   const selector = 'button.style_supportsItem__OIhu2.style_supportsItem__userMenu__a0S2I';
   await page.click(selector);
   await page.getByRole('button', { name: 'Login with X' }).click();
   //트위터 로그인
-  await page.getByPlaceholder('Username or email').click();
-  await page.getByPlaceholder('Username or email').fill('hidelove9989');
-  await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7!');
+  await page.waitForLoadState('load');
   await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByLabel('Phone, email, or username').click();
+  await page.getByLabel('Phone, email, or username').fill('hidelove9989');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByLabel('Password', { exact: true }).click();
+  await page.getByLabel('Password', { exact: true }).fill('wlscogus7!');
+  await page.getByTestId('LoginForm_Login_Button').click();
   await page.waitForLoadState('load');
 
   
@@ -1384,7 +1390,7 @@ test('트위터 SNS 비밀번호 등록 과 연결해제, 로그인_us', async (
 
 });*/
 
-test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ page }) => {
+test('[Account_004]이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1462,7 +1468,7 @@ test('이메일 계정 로그인 , 네이버 연결,연결 해제_kr', async ({ 
 
 });
 
-test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_네이버_kr', async ({ page }) => {
+test('[Account_005]이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_네이버_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1530,7 +1536,7 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_네이버_
 });
 
 
-test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async ({ page }) => {
+test('[Account_004]이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1613,7 +1619,7 @@ test('이메일 계정 로그인 , 페이스북 연결,연결 해제_kr', async 
 
 });
 
-test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_페이스북_kr', async ({ page }) => {
+test('[Account_005]이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_페이스북_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1683,7 +1689,7 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_페이스�
 
 
 
-test('이메일 계정 로그인 , 라인 연결,연결 해제_ja', async ({ page }) => {
+test('[Account_004]이메일 계정 로그인 , 라인 연결,연결 해제_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1821,7 +1827,7 @@ test('이메일 계정 로그인 , 라인 연결,연결 해제_ja', async ({ pag
 });
 */
 
-test('이메일 계정 로그인 , 트위터 연결,연결 해제_us', async ({ page }) => {
+test('[Account_004]이메일 계정 로그인 , 트위터 연결,연결 해제_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1862,12 +1868,13 @@ test('이메일 계정 로그인 , 트위터 연결,연결 해제_us', async ({ 
   await page.getByRole('link', { name: 'My Account' }).click();
 
   await page.locator('div').filter({ hasText: 'X Connect Account' }).getByRole('link', { name: 'Connect Account' }).click();
-  await page.getByPlaceholder('Username or email').click();
-  await page.getByPlaceholder('Username or email').fill('hidelove9989');
-  
-  await page.getByPlaceholder('Password').click();
-  await page.getByPlaceholder('Password').fill('wlscogus7!');
   await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByLabel('Phone, email, or username').click();
+  await page.getByLabel('Phone, email, or username').fill('hidelove9989');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByLabel('Password', { exact: true }).fill('wlscogus7!');
+  await page.getByTestId('LoginForm_Login_Button').click();
   await page.waitForLoadState('load');
 
 
@@ -1907,7 +1914,7 @@ test('이메일 계정 로그인 , 트위터 연결,연결 해제_us', async ({ 
 
 });
 
-test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_트위터_kr', async ({ page }) => {
+test('[Account_005]이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_트위터_kr', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en')
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -1976,7 +1983,7 @@ test('이메일 계정 로그인 , 이미 가입된 SNS 계정 연동_트위터_
 
 
 
-test('내정보 > 생년월일 입력하기_kr', async ({ page }) => {
+test('[Account_006]내정보 > 생년월일 입력하기_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
 
 
@@ -2050,7 +2057,7 @@ test('내정보 > 생년월일 입력하기_kr', async ({ page }) => {
 
 });
 
-test('내정보 > 생년월일 입력하기_ja', async ({ page }) => {
+test('[Account_006]내정보 > 생년월일 입력하기_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2121,7 +2128,7 @@ test('내정보 > 생년월일 입력하기_ja', async ({ page }) => {
 
 });
 
-test('내정보 > 생년월일 입력하기_us', async ({ page }) => {
+test('[Account_006]내정보 > 생년월일 입력하기_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2197,7 +2204,7 @@ test('내정보 > 생년월일 입력하기_us', async ({ page }) => {
 
 
 
-test('내정보 > 기기초기화 3개월 이내_kr', async ({ page }) => {
+test('[Account_007]내정보 > 기기초기화 3개월 이내_kr', async ({ page }) => {
   await page.goto('https://www.lezhin.com/ko');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2263,7 +2270,7 @@ test('내정보 > 기기초기화 3개월 이내_kr', async ({ page }) => {
 
 });
 
-test('내정보 > 기기초기화 3개월 이내_ja', async ({ page }) => {
+test('[Account_007]내정보 > 기기초기화 3개월 이내_ja', async ({ page }) => {
   await page.goto('https://www.lezhin.jp/ja');
   try {
     // '오늘 하루 안보기' 버튼이 보이는지 확인
@@ -2326,7 +2333,7 @@ test('내정보 > 기기초기화 3개월 이내_ja', async ({ page }) => {
 
 });
 
-test('내정보 > 기기초기화 3개월 이내_us', async ({ page }) => {
+test('[Account_007]내정보 > 기기초기화 3개월 이내_us', async ({ page }) => {
   await page.goto('https://www.lezhinus.com/en');
 
   try {
@@ -2375,18 +2382,6 @@ test('내정보 > 기기초기화 3개월 이내_us', async ({ page }) => {
   await page.close();
 
 
-});
-
-
-
-  
-
-  
-
-
-
-
-
-
+}); 
 
 

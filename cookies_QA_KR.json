@@ -1,0 +1,352 @@
+[
+  {
+    "name": "x-lz-locale",
+    "value": "ko_KR",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1726204729.592507,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "IDE",
+    "value": "AHWqTUmCi9WsReB_kLurMQunZ63F2CSxrqKdgJwMQXdKz8e2U77HQvvqLvg3wG85",
+    "domain": ".doubleclick.net",
+    "path": "/",
+    "expires": 1758086326.592742,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_ttp",
+    "value": "2kaetBHloepxQio9yuHi0k6zbpc",
+    "domain": ".tiktok.com",
+    "path": "/",
+    "expires": 1757222326.779227,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "BID",
+    "value": "H2SRZUPHTP4GCA6381LXSE22Y",
+    "domain": ".toast.com",
+    "path": "/",
+    "expires": 1739078326.837044,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_BS_GUUID",
+    "value": "GtQnMLmyNRHw6Opcp9meS9dba8lrb72RATfnFBVt",
+    "domain": "gu.bizspring.net",
+    "path": "/",
+    "expires": 1758086326.890838,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_BS_GUUID",
+    "value": "GtQnMLmyNRHw6Opcp9meS9dba8lrb72RATfnFBVt",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1758086326.925896,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_TRK_AUIDA_14106",
+    "value": "0fc4528994f0d454ab0595cc57606568:1",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1758086326.927845,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_TRK_ASID_14106",
+    "value": "f094f0cd53808977f0bcd46109919110",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1723528126,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_ga",
+    "value": "GA1.1.63796046.1723526327",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1758086327.170154,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "CLID",
+    "value": "05f6d445db674bf2bb1d07f8d3792535.20240813.20250813",
+    "domain": "www.clarity.ms",
+    "path": "/",
+    "expires": 1755062327.189199,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "s_au_id",
+    "value": "f13338472f8d03f6-28bd7a9a1914a2ba3b11f48",
+    "domain": ".mediacategory.com",
+    "path": "/",
+    "expires": 1758086327.191178,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "s_IP_info",
+    "value": "121.130.90.197.42940",
+    "domain": ".mediacategory.com",
+    "path": "/",
+    "expires": 1758086327.191254,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "isCoverInflow",
+    "value": "\"(1723526327526)N#\"",
+    "domain": ".mediacategory.com",
+    "path": "/",
+    "expires": 1758086327.191302,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "SCOUTER",
+    "value": "x4cu1kps7ksnk2",
+    "domain": "tk.mediacategory.com",
+    "path": "/",
+    "expires": 1758086327.191349,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_tt_enable_cookie",
+    "value": "1",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1757222327,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_ttp",
+    "value": "cYPz_fih81QVK2c9Mhuo23zJ1oF",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1757222327,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "SCOUTER",
+    "value": "x29sbfp9id9aok",
+    "domain": "api.mediacategory.com",
+    "path": "/",
+    "expires": 1758086327.379602,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_fbp",
+    "value": "fb.1.1723526327389.870645731613610024",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1731302328,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_fcOM",
+    "value": "{\"k\":\"f13338472f8d03f6-28bd7a9a1914a2ba3b11f48\",\"i\":\"121.130.90.197.42940\",\"r\":1723526327405}",
+    "domain": ".q-www.lezhin.com",
+    "path": "/",
+    "expires": 1758086327.406309,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "ar_debug",
+    "value": "1",
+    "domain": ".doubleclick.net",
+    "path": "/",
+    "expires": 1726118327.449952,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_clck",
+    "value": "j87hl2%7C2%7Cfoa%7C0%7C1686",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1755062327,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "personalization_id",
+    "value": "\"v1_ICs1tD3RXFautUi8Cvy4cw==\"",
+    "domain": ".twitter.com",
+    "path": "/",
+    "expires": 1758086327.507257,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "muc_ads",
+    "value": "6625f0b7-60a5-426a-b9b3-e0c4548af4a8",
+    "domain": ".t.co",
+    "path": "/",
+    "expires": 1758086327.555272,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "receive-cookie-deprecation",
+    "value": "1",
+    "domain": ".doubleclick.net",
+    "path": "/",
+    "expires": 1739078327.565684,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "MUID",
+    "value": "2F8DA39414F867820AFAB74E15ED660B",
+    "domain": ".bing.com",
+    "path": "/",
+    "expires": 1757222329.284355,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "MR",
+    "value": "0",
+    "domain": ".c.bing.com",
+    "path": "/",
+    "expires": 1724131129.284473,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "SRM_B",
+    "value": "2F8DA39414F867820AFAB74E15ED660B",
+    "domain": ".c.bing.com",
+    "path": "/",
+    "expires": 1757222329.284524,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "SM",
+    "value": "C",
+    "domain": ".c.clarity.ms",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "MUID",
+    "value": "2F8DA39414F867820AFAB74E15ED660B",
+    "domain": ".clarity.ms",
+    "path": "/",
+    "expires": 1757222329.321437,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "MR",
+    "value": "0",
+    "domain": ".c.clarity.ms",
+    "path": "/",
+    "expires": 1724131129.321482,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "ANONCHK",
+    "value": "0",
+    "domain": ".c.clarity.ms",
+    "path": "/",
+    "expires": 1723526929.321508,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_gcl_au",
+    "value": "1.1.1063807401.1723526326.1240567658.1723526328.1723526328",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1731302326,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_clsk",
+    "value": "16zn2sr%7C1723526328407%7C1%7C1%7Cr.clarity.ms%2Fcollect",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1723612728,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "RSESSION",
+    "value": "Z29mZHNVeHgrY1Rsd1Y4U3B2MGF3QllOVlliTE8yT00vWGUwczZJMThFdXgyNHJOcWlpMkllMjhiV3BVTjdlK2w3ckI0MWpNMXFjR3piSWNySzBoR0pFamJKY3oySUtyNWZPVlhJb2NPQmNjSjJyVWo2OGJoVmlHRkptSVRtSlBkYWFQL3JIbTRycHd0T3pNSm92MUZGZXZvR29WYXNNQ1FCM1hiS29DVk1DLzNRNm1qS1RaUGZQY1RNSmlPajVUVzZGQU5LTHdJUTM1Y3F5eVA0Umc2Mld6Z3JmblV5Q0R2aW0xZnVKTDZ5SXd2cy85NFROc1dkdFE1eFRsMVlhaG05NkFtSS90ZDRUS2RDQnpPWkdOaHJSYzJVNHRFVXhNMkFseVhPUDlpUk1SOUtReVF1NjRoUWx0cVlrdFRnbTZ0SGdSK2FVRDNaQ3JSUXptcHhHMmZIODVZREk2dmpVUnBNQ0JPUGh3OURuV0hneVVqZG0yMkcvTGNlQUIwWmUxLS1FcGh2bUMwM3hRVzByRkFaVjBHMVhRPT0%3D--221ea28fabfcc2833da83ddab3ad25b2e7aafdd2",
+    "domain": "q-www.lezhin.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_ga_9DL5C2ZB8G",
+    "value": "GS1.1.1723526327.1.0.1723526330.0.0.0",
+    "domain": ".lezhin.com",
+    "path": "/",
+    "expires": 1758086330.854625,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  }
+]

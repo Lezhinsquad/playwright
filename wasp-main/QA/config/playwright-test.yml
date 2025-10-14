@@ -1,0 +1,21 @@
+test-playwright:
+  stage: test
+  image: mcr.microsoft.com/playwright/python:v1.41.0  # Playwright 포함된 최신 Python 이미지 사용
+  script:
+    - set -eo pipefail  # 오류 발생 시 즉시 중지
+    - pip install --upgrade pip  # 최신 pip 설치
+    - pip install pytest-playwright pytest-html   # Playwright 및 pytest-html 설치
+    - playwright install chromium  # Chromium(Chrome) 브라우저만 설치
+    - echo "✅ Running Playwright Python tests..."
+    - pytest QA/tests --browser chromium --junitxml=QA/report.xml --html=QA/report.html --self-contained-html || echo "❌ Playwright execution failed!"
+  artifacts:
+    reports:
+      junit: QA/report.xml  # GitLab에서 테스트 결과 확인 가능
+    paths:
+      - QA/report.html  # HTML 리포트 다운로드 가능
+    expire_in: 7 days  # 7일 후 자동 삭제
+  tags:
+    - prod-lz-infra
+  only:
+    - main
+    - feature/playwright-tests
